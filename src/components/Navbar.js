@@ -72,8 +72,8 @@ export default function Navbar() {
                 </DropdownMenuItem>
                 <DropdownMenuItem className="p-0">
                   <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-[#333] hover:bg-zinc-100 w-full px-4 py-2 rounded-md"
+                    href="/jadwal"
+                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-zinc-100 w-full px-4 py-2 rounded-md"
                   >
                     <Users size={16} />
                     <span>Kelas</span>
