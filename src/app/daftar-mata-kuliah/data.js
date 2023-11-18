@@ -75,7 +75,23 @@ const STUDIES = {
     'FITB': {}, 
     'FTI': {}, 
     'STEI': {
-
+        'sarjana': [
+            {code: 132, name: 'Teknik Elektro'},
+            {code: 135, name: 'Teknik Informatika'},
+            {code: 165, name: 'Tahap Tahun Pertama STEI - Rekayasa'},
+            {code: 180, name: 'Teknik Tenaga Listrik'},
+            {code: 181, name: 'Teknik Telekomunikasi'},
+            {code: 182, name: 'Sistem dan Teknologi Informasi'},
+            {code: 183, name: 'Teknik Biomedis'},
+            {code: 196, name: 'Tahap Tahun Pertama STEI - Komputasi'},
+        ],
+        'magister': [
+            {code: 232, name: 'Teknik Elektro'},
+            {code: 235, name: 'Informatika'},
+        ],
+        'doktor': [
+            {code: 332, name: 'Teknik Elektro dan Informatika'},
+        ]
     }, 
     'FTMD': {}, 
     'FTSL': {}, 
