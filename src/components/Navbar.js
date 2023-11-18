@@ -20,13 +20,27 @@ import {
   FaSitemap,
   FaTasks,
   FaUser,
-  FaUserCircle,
   FaUsers,
 } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 
 export default function Navbar() {
   const [isID, setIsID] = useState(true);
+  const aplikasiItems = [
+    { icon: <FaFileAlt size={16} />, name: "Kurikulum" },
+    { icon: <FaRegUserCircle size={16} />, name: "Status Mahasiswa" },
+    { icon: <FaMoneyBill1Wave size={16} />, name: "Keuangan & Beasiswa" },
+    { icon: <FaUsers size={16} />, name: "Kelas", href: "/jadwal" },
+    { icon: <FaColumns size={16} />, name: "Rencana Studi & Perwalian" },
+    { icon: <FaSitemap size={16} />, name: "Penjurusan TPB" },
+    { icon: <FaTasks size={16} />, name: "Evaluasi Perkuliahan & Portofolio" },
+    { icon: <FaGraduationCap size={16} />, name: "Wisuda" },
+    { icon: <FaCogs size={16} />, name: "Control Panel" },
+  ];
+  const profileItems = [
+    { icon: <FaUser size={16} />, name: "Profil" },
+    { icon: <FaSignOutAlt size={16} />, name: "Logout" },
+  ];
   return (
     <>
       <nav className="w-full py-1 px-4 xl:px-0 sticky top-0 bg-seven-bg-navbar">
@@ -47,87 +61,17 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaFileAlt size={16} />
-                    <span>Kurikulum</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaRegUserCircle size={16} />
-                    <span>Status Mahasiswa</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaMoneyBill1Wave size={16} />
-                    <span>Keuangan & Beasiswa</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/jadwal"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaUsers size={16} />
-                    <span>Kelas</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaColumns size={16} />
-                    <span>Rencana Studi & Perwalian</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaSitemap size={16} />
-                    <span>Penjurusan TPB</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaTasks size={16} />
-                    <span>Evaluasi Perkuliahan & Portofolio</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaGraduationCap size={16} />
-                    <span>Wisuda</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2 "
-                  >
-                    <FaCogs size={16} />
-                    <span>Control Panel</span>
-                  </Link>
-                </DropdownMenuItem>
+                {aplikasiItems.map((item, index) => (
+                  <DropdownMenuItem className="p-0" key={index}>
+                    <Link
+                      href={item.href ?? "/"}
+                      className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
+                    >
+                      {item.icon}
+                      <span>{item.name}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -165,24 +109,17 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaUser size={16} />
-                    <span>Profil</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaSignOutAlt size={16} />
-                    <span>Logout</span>
-                  </Link>
-                </DropdownMenuItem>
+                {profileItems.map((item, index) => (
+                  <DropdownMenuItem className="p-0" key={index}>
+                    <Link
+                      href="/"
+                      className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
+                    >
+                      {item.icon}
+                      <span>{item.name}</span>
+                    </Link>
+                  </DropdownMenuItem>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
