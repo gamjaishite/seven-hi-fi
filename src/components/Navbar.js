@@ -21,10 +21,11 @@ import {
   FaTasks,
   FaUser,
   FaUsers,
+  FaUniversity,
 } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 
-const Menu = ({href, label, Icon}) => {
+const Menu = ({ href, label, Icon }) => {
   return (
     <DropdownMenuItem className="p-0">
       <Link
@@ -35,8 +36,8 @@ const Menu = ({href, label, Icon}) => {
         <span>{label}</span>
       </Link>
     </DropdownMenuItem>
-  )
-}
+  );
+};
 
 export default function Navbar() {
   const [isID, setIsID] = useState(true);
@@ -44,8 +45,12 @@ export default function Navbar() {
     { icon: FaFileAlt, name: "Kurikulum" },
     { icon: FaRegUserCircle, name: "Status Mahasiswa" },
     { icon: FaMoneyBill1Wave, name: "Keuangan & Beasiswa" },
-    { icon: FaUsers, name: "Kelas", href: "/jadwal" },
-    { icon: FaUsers, name: "Daftar Mata Kuliah", href: "/daftar-mata-kuliah" },
+    { icon: FaUsers, name: "Kelas", href: "/kalender" },
+    {
+      icon: FaUniversity,
+      name: "Daftar Mata Kuliah",
+      href: "/daftar-mata-kuliah",
+    },
     { icon: FaColumns, name: "Rencana Studi & Perwalian" },
     { icon: FaSitemap, name: "Penjurusan TPB" },
     { icon: FaTasks, name: "Evaluasi Perkuliahan & Portofolio" },
@@ -77,7 +82,12 @@ export default function Navbar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {aplikasiItems.map((elmt, idx) => (
-                  <Menu key={idx} href={elmt.href ?? '/'} label={elmt.name} Icon={elmt.icon}/>
+                  <Menu
+                    key={idx}
+                    href={elmt.href ?? "/"}
+                    label={elmt.name}
+                    Icon={elmt.icon}
+                  />
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -117,7 +127,12 @@ export default function Navbar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {profileItems.map((elmt, idx) => (
-                  <Menu key={idx} href={elmt.href ?? '/'} label={elmt.name} Icon={elmt.icon}/>
+                  <Menu
+                    key={idx}
+                    href={elmt.href ?? "/"}
+                    label={elmt.name}
+                    Icon={elmt.icon}
+                  />
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>

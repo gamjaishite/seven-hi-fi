@@ -1,4 +1,5 @@
 "use client"
+
 import PageTemplate from "@/components/PageTemplate";
 import { useState } from "react";
 import { FaMale,FaEye,FaEyeSlash } from "react-icons/fa";
@@ -11,6 +12,7 @@ export default function StatusMahasiswa() {
 
   return (
     <>
+
     <PageTemplate breadCrumbs={[{href:null,label:'Status Mahasiswa'}]} pageTitle='Status Mahasiswa'>
 
       <div className="flex flex-1 flex-col xl:px-0 py-5 max-w-[1140px] mx-auto w-full h-full">
