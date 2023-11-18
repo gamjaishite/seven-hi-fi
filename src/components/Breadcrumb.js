@@ -10,7 +10,7 @@ export default function Breadcrumb({breadCrumbs}) {
             <span>
               <ChevronsRight className="text-[#ccc]" size={10} />
             </span>
-            <a href={elmt.href}>{elmt.label}</a>
+            <a href={elmt.href ?? '/'}>{elmt.label}</a>
           </>
         ))}
       </div>
