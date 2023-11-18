@@ -75,7 +75,7 @@ module.exports = {
       fontSize: {
         "seven-font-size-default": "var(--seven-font-size-default)",
         "seven-font-size-page-title": "var(--seven-font-size-page-title)",
-        "seven-font-size-table-content": "var(--seven-font-size-page-title)",
+        "seven-font-size-table-content": "var(--seven-font-size-table-content)",
         "seven-font-size-footer-title": "var(--seven-font-size-footer-title)",
         "seven-font-size-footer-body": "var(--seven-font-size-footer-body)",
         "seven-font-size-footer-icons": "var(--seven-font-size-footer-icons)",
