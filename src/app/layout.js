@@ -1,5 +1,5 @@
 import { Roboto as FontSans } from "next/font/google";
-import "./globals.css";
+import "./global.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/Navbar";
 

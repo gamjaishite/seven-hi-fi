@@ -130,7 +130,7 @@ export default function Navbar() {
           <div className="flex gap-2 items-center">
             <Button
               className={`${
-                isID ? "bg-zinc-900 text-white" : ""
+                isID ? "bg-zinc-900 text-white" : "bg-transparent"
               } hover:bg-zinc-900`}
               onClick={() => {
                 !isID && setIsID(true);
@@ -140,7 +140,9 @@ export default function Navbar() {
             </Button>
             <Button
               className={`${
-                isID ? "" : "bg-zinc-900 text-white"
+                isID
+                  ? "bg-transparent"
+                  : "bg-zinc-900 text-seven-foreground-dark"
               } hover:bg-zinc-900`}
               onClick={() => {
                 isID && setIsID(false);
