@@ -34,10 +34,10 @@ export default function Navbar() {
           <div className="flex items-center gap-3">
             <Link
               href="/"
-              className="flex items-center gap-1 hover:text-seven-foreground-dark"
+              className="flex items-center gap-1 text-seven-navbar-brand hover:text-seven-foreground-dark"
             >
-              <h1 className="text-seven-font-size-navbar-brand text-seven-navbar-brand">SIX </h1>
-              <FaHome className="text-seven-navbar-brand" size={18} />
+              <h1 className="text-seven-font-size-navbar-brand">SIX </h1>
+              <FaHome className="" size={18} />
             </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
