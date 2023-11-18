@@ -69,9 +69,10 @@ export default function WeeklyCalendar({ semester, bulan }) {
   return (
     <div className="flex flex-col">
       <div className="flex flex-row items-center justify-start">
-        {pilihanMinggu.map((item) => {
+        {pilihanMinggu.map((item, idx) => {
           return (
             <button
+              key={idx}
               className={`${
                 minggu === item ? "border border-seven-border-gray" : "border border-transparent"
               } py-1 px-2.5 text-[12px] font-bold`}
@@ -83,9 +84,9 @@ export default function WeeklyCalendar({ semester, bulan }) {
         })}
       </div>
       <div className="flex flex-row items-center justify-start">
-        {tanggal.map((item) => {
+        {tanggal.map((item, idx) => {
           return (
-            <div className="flex flex-col flex-1 items-center justify-center w-[100px] h-[100px] border border-seven-border-gray">
+            <div key={idx} className="flex flex-col flex-1 items-center justify-center w-[100px] h-[100px] border border-seven-border-gray">
               <span className="text-[14px] font-bold">{daysName[item.getDay() - 1]}</span>
               <span className="text-[16px] font-bold">{`${item.getDate()} ${monthsName[item.getMonth()]}`}</span>
             </div>
