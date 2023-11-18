@@ -69,6 +69,14 @@ module.exports = {
         "seven-bg-presensi-exist": "var(--seven-bg-presensi-exist)",
         "seven-bg-presensi-skip": "var(--seven-bg-presensi-skip)",
         "seven-bg-presensi-done": "var(--seven-bg-presensi-done)",
+
+        "seven-font-size-default": "var(--seven-font-size-default)",
+        "seven-font-size-page-title": "var(--seven-font-size-page-title)",
+        "seven-font-size-table-content": "var(--seven-font-size-page-title)",
+        "seven-font-size-footer-title": "var(--seven-font-size-footer-title)",
+        "seven-font-size-navbar-dropdown": "var(--seven-font-size-navbar-dropdown)",
+        "seven-font-size-navbar-brand": "var(--seven-font-size-navbar-brand)",
+        "seven-font-size-table-heading": "var(--seven-font-size-table-heading)",
       },
       borderRadius: {
         lg: "var(--radius)",

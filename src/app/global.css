@@ -52,6 +52,14 @@
     --seven-bg-presensi-exist: #52B2CF;
     --seven-bg-presensi-skip: #D4AFB9;
     --seven-bg-presensi-done: #9CADCE;
+
+    --seven-font-size-default: 14px;
+    --seven-font-size-page-title: 36px;
+    --seven-font-size-table-content: 13px;
+    --seven-font-size-footer-title: 28px;
+    --seven-font-size-navbar-dropdown: 15px;
+    --seven-font-size-navbar-brand: 18px;
+    --seven-font-size-table-heading: 16px;
   }
  
   .dark {
