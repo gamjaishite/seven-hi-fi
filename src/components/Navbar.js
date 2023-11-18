@@ -20,7 +20,6 @@ import {
   FaSitemap,
   FaTasks,
   FaUser,
-  FaUserCircle,
   FaUsers,
 } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
@@ -108,24 +107,8 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaUser size={16} />
-                    <span>Profil</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaSignOutAlt size={16} />
-                    <span>Logout</span>
-                  </Link>
-                </DropdownMenuItem>
+                <Menu href='/' label='Profil' Icon={FaUser}></Menu>
+                <Menu href='/' label='Logout' Icon={FaSignOutAlt}></Menu>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
