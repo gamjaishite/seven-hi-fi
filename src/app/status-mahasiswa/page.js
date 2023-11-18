@@ -1,19 +1,22 @@
-import BreadcrumbStatusMahasiswa from "@/components/BreadcrumbStatusMahasiswa";
-import Footer from "@/components/Footer";
+// import BreadcrumbStatusMahasiswa from "@/components/BreadcrumbStatusMahasiswa";
+// import Footer from "@/components/Footer";
+import PageTemplate from "@/components/PageTemplate";
 import { FaMale } from "react-icons/fa";
 
 export default function StatusMahasiswa() {
   return (
+    <PageTemplate breadCrumbs={[{href:null,label:'Status Mahasiswa'}]} pageTitle='Status Mahasiswa'>
     <>
+
       <div className="flex flex-1 flex-col px-4 gap-4 xl:px-0 py-5 max-w-[1140px] mx-auto w-full h-full">
-        <BreadcrumbStatusMahasiswa />
+        {/* <BreadcrumbStatusMahasiswa />
         <h2 className="text-4xl text-seven-page-heading font-light py-1">
           Status Mahasiswa
-        </h2>
+        </h2> */}
         <div className="h-[60vh] w-[100%] flex flex-col lg:flex-row  gap-2">
           <div className="bg-gray-300 w-full lg:w-2/6 flex flex-col p-2">
-            <table className="table-auto h-1/3 ">
             <div className="border rounded bg-[#EDEDED] rounded-[5px] border-[#3277B2]">
+            <table className="table-auto h-1/3 w-full">
               <div className="h-[38.58px] h-full bg-[#3277B2] text-white rounded-t-[5px] flex items-center">
                 <p className="px-2 text-xl">Data Mahasiswa</p>
               </div>
@@ -58,8 +61,16 @@ export default function StatusMahasiswa() {
                 </span>
                 </th>
               </tr>
-            </div>
+
+              <tr className="flex place-content-between bg-white">
+                <th className="w-full text-left">Tahun Masuk</th>
+                <th className="w-full text-left flex place-content-between"><span className="text-sm font-normal">
+                  2021 semester 1
+                </span>
+                </th>
+              </tr>
             </table>
+            </div>
             <div>
               dwadwa
             </div>
@@ -78,7 +89,7 @@ export default function StatusMahasiswa() {
         </div>
       </div>
       
-      <Footer></Footer>
     </>
+    </PageTemplate>
   );
 }

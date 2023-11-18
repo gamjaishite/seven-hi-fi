@@ -36,7 +36,7 @@
 
     /* SEVEN */
     --seven-hyperlink: #337AB7;
-    --seven-bg-navbar: #222222;
+    --seven-bg-navbar: #323232;
     --seven-bg-bread: #F5F5F5;
     --seven-foreground-light: #000000;
     --seven-foreground-dark: #FFFFFF;
@@ -52,6 +52,18 @@
     --seven-bg-presensi-exist: #52B2CF;
     --seven-bg-presensi-skip: #D4AFB9;
     --seven-bg-presensi-done: #9CADCE;
+    --seven-selected-item-dark: #080808;
+    --seven-hover-light: #e8e8e8;
+
+    --seven-font-size-default: 14px;
+    --seven-font-size-page-title: 36px;
+    --seven-font-size-table-content: 13px;
+    --seven-font-size-footer-title: 28px;
+    --seven-font-size-footer-body: 12px;
+    --seven-font-size-footer-icons: 16px;
+    --seven-font-size-navbar-dropdown: 15px;
+    --seven-font-size-navbar-brand: 18px;
+    --seven-font-size-table-heading: 16px;
   }
  
   .dark {
