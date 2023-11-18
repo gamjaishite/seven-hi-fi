@@ -1,3 +1,5 @@
+import SecondaryNavbar from "@/components/SecondNavBar";
+
 const { default: PageTemplate } = require("@/components/PageTemplate")
 
 const DaftarMataKuliah = () => {
