@@ -77,6 +77,8 @@ module.exports = {
         "seven-font-size-page-title": "var(--seven-font-size-page-title)",
         "seven-font-size-table-content": "var(--seven-font-size-page-title)",
         "seven-font-size-footer-title": "var(--seven-font-size-footer-title)",
+        "seven-font-size-footer-body": "var(--seven-font-size-footer-body)",
+        "seven-font-size-footer-icons": "var(--seven-font-size-footer-icons)",
         "seven-font-size-navbar-dropdown":
           "var(--seven-font-size-navbar-dropdown)",
         "seven-font-size-navbar-brand": "var(--seven-font-size-navbar-brand)",

@@ -1,9 +1,10 @@
+const { default: PageTemplate } = require("@/components/PageTemplate")
+
 const DaftarMataKuliah = () => {
     return ( 
-        <div>
-            
-        </div>
-     );
+        <PageTemplate pageTitle='Status Mahasiswa' breadCrumbs={[{href: '/daftar-mata-kuliah', label: 'Daftar Mata Kuliah'}]}>
+        </PageTemplate>
+    );
 }
  
 export default DaftarMataKuliah;
