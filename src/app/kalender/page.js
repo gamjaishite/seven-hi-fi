@@ -53,7 +53,7 @@ export default function Jadwal() {
         setBulan={setBulan}
       />
       {mode === "month" && <MonthlyCalendar />}
-      {mode === "week" && <WeeklyCalendar />}
+      {mode === "week" && <WeeklyCalendar semester={semester} bulan={bulan} />}
     </PageTemplate>
   );
 }
