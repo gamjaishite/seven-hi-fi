@@ -36,7 +36,7 @@ export default function Navbar() {
               href="/"
               className="flex items-center gap-1 hover:text-seven-foreground-dark"
             >
-              <h1 className="text-lg text-seven-navbar-brand">SIX </h1>
+              <h1 className="text-seven-font-size-navbar-brand text-seven-navbar-brand">SIX </h1>
               <FaHome className="text-seven-navbar-brand" size={18} />
             </Link>
             <DropdownMenu>
