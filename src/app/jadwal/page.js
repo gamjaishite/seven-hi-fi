@@ -1,5 +1,6 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import PageTemplate from "@/components/PageTemplate";
+import JadwalConf from "./JadwalConf";
 
 export default function Jadwal() {
   const breadCrumbItems = [
@@ -10,6 +11,8 @@ export default function Jadwal() {
     <PageTemplate
       breadCrumbs={breadCrumbItems}
       pageTitle="Jadwal Perkuliahan Mahasiswa"
-    ></PageTemplate>
+    >
+      <JadwalConf />
+    </PageTemplate>
   );
 }
