@@ -1,0 +1,128 @@
+[
+  {
+    "dayCode": 1,
+    "dayName": "Senin",
+    "classes": [
+      {
+        "start": "07.00",
+        "end": "09.00",
+        "matkulCode": "IF3110",
+        "matkulName": "Pengembangan Aplikasi Berbasis Web",
+        "lecturer": "Dr. Agung Dewandaru, S.T., M.Sc.",
+        "location": "Kuliah 7609 7610"
+      },
+      {
+        "start": "09.00",
+        "end": "11.00",
+        "matkulCode": "IF3170",
+        "matkulName": "Inteligensi Buatan",
+        "lecturer": "Dr. Eng. Ayu Purwarianti, S.T, M.T.",
+        "location": "Kuliah 7602"
+      },
+      {
+        "start": "15.00",
+        "end": "17.00",
+        "matkulCode": "IF4031",
+        "matkulName": "Pengembangan Aplikasi Terdistribusi",
+        "lecturer": "Dr. techn. Muhammad Zuhri Catur Candra, S.T, M.T.",
+        "location": "Kuliah 7604"
+      }
+    ]
+  },
+  {
+    "dayCode": "2",
+    "dayName": "Selasa",
+    "classes": [
+      {
+        "start": "07.00",
+        "end": "09.00",
+        "matkulCode": "IF3151",
+        "matkulName": "Interaksi Manusia Komputer",
+        "lecturer": "Adi Mulyanto, S.T, M.T.",
+        "location": "Kuliah 7609 7610"
+      },
+      {
+        "start": "09.00",
+        "end": "12.00",
+        "matkulCode": "IF3130",
+        "matkulName": "Jaringan Komputer",
+        "lecturer": "Ir. Afwarman, M.Sc., Ph.D.",
+        "location": "Kuliah 7602"
+      }
+    ]
+  },
+  {
+    "dayCode": 3,
+    "dayName": "Rabu",
+    "classes": [
+      {
+        "start": "07.00",
+        "end": "08.00",
+        "matkulCode": "IF4031",
+        "matkulName": "Pengembangan Aplikasi Terdistribusi",
+        "lecturer": "Dr. techn. Muhammad Zuhri Catur Candra, S.T, M.T.",
+        "location": "Kuliah 7603"
+      },
+      {
+        "start": "08.00",
+        "end": "10.00",
+        "matkulCode": "IF3141",
+        "matkulName": "Sistem Informasi",
+        "lecturer": "Dicky Prima Satya, S.T, M.T.",
+        "location": "Kuliah 7609 7610"
+      },
+      {
+        "start": "10.00",
+        "end": "11.00",
+        "matkulCode": "IF3170",
+        "matkulName": "Inteligensi Buatan",
+        "lecturer": "Dr. Eng. Ayu Purwarianti, S.T, M.T.",
+        "location": "Kuliah 7602"
+      }
+    ]
+  },
+  {
+    "dayCode": 4,
+    "dayName": "Kamis",
+    "classes": [
+      {
+        "start": "09.00",
+        "end": "11.00",
+        "matkulCode": "IF3150",
+        "matkulName": "Manajemen Proyek Perangkat Lunak",
+        "lecturer": "Dr. Yani Widyani, S.T, M.T.",
+        "location": "Kuliah 7609 7610"
+      }
+    ]
+  },
+  {
+    "dayCode": 5,
+    "dayName": "Jumat",
+    "classes": [
+      {
+        "start": "07.00",
+        "end": "08.00",
+        "matkulCode": "IF3141",
+        "matkulName": "Sistem Informasi",
+        "lecturer": "Dicky Prima Satya, S.T, M.T.",
+        "location": "Kuliah 7609 7610"
+      },
+      {
+        "start": "08.00",
+        "end": "10.00",
+        "matkulCode": "IF3140",
+        "matkulName": "Manajemen Basis Data",
+        "lecturer": "Tricya Esterina Widagdo, S.T., M.Sc.",
+        "location": "Kuliah 7602"
+      },
+      {
+        "start": "10.00",
+        "end": "11.00",
+        "matkulCode": "IF3151",
+        "matkulName": "Interaksi Manusia Komputer",
+        "lecturer": "Adi Mulyanto, S.T, M.T.",
+        "location": "Kuliah 7609 7610"
+      }
+    ]
+  }
+]
