@@ -25,6 +25,20 @@ import {
 } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 
+const Menu = ({href, label, Icon}) => {
+  return (
+    <DropdownMenuItem className="p-0">
+      <Link
+        href={href}
+        className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
+      >
+        <Icon size={16} />
+        <span>{label}</span>
+      </Link>
+    </DropdownMenuItem>
+  )
+}
+
 export default function Navbar() {
   const [isID, setIsID] = useState(true);
   return (
@@ -47,87 +61,16 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaFileAlt size={16} />
-                    <span>Kurikulum</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaRegUserCircle size={16} />
-                    <span>Status Mahasiswa</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaMoneyBill1Wave size={16} />
-                    <span>Keuangan & Beasiswa</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/jadwal"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaUsers size={16} />
-                    <span>Kelas</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaColumns size={16} />
-                    <span>Rencana Studi & Perwalian</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaSitemap size={16} />
-                    <span>Penjurusan TPB</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaTasks size={16} />
-                    <span>Evaluasi Perkuliahan & Portofolio</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
-                  >
-                    <FaGraduationCap size={16} />
-                    <span>Wisuda</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem className="p-0">
-                  <Link
-                    href="/"
-                    className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2 "
-                  >
-                    <FaCogs size={16} />
-                    <span>Control Panel</span>
-                  </Link>
-                </DropdownMenuItem>
+                <Menu href='/' label='Kurikulum' Icon={FaFileAlt}/>
+                <Menu href='/' label='Status Mahasiswa' Icon={FaRegUserCircle}/>
+                <Menu href='/' label='Keuangan & Beasiswa' Icon={FaMoneyBill1Wave}/>
+                <Menu href='/jadwal' label='Kelas' Icon={FaUsers}/>
+                <Menu href='/daftar-mata-kuliah' label='Daftar Mata Kuliah' Icon={FaUsers}/>
+                <Menu href='/' label='Rencana Studi & Perwalian' Icon={FaColumns}/>
+                <Menu href='/' label='Penjurusan TPB' Icon={FaSitemap}/>
+                <Menu href='/' label='Evaluasi Perkuliahan & Portofolio' Icon={FaTasks}/>
+                <Menu href='/' label='Wisuda' Icon={FaGraduationCap}/>
+                <Menu href='/' label='Control Panel' Icon={FaCogs}/>
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
