@@ -1,5 +1,4 @@
-import BreadcrumbStatusMahasiswa from "@/components/BreadcrumbStatusMahasiswa";
-import Footer from "@/components/Footer";
+
 import PageTemplate from "@/components/PageTemplate";
 
 export default function StatusMahasiswa() {
