@@ -72,6 +72,16 @@ module.exports = {
         "seven-selected-item-dark": "var(--seven-selected-item-dark)",
         "seven-hover-light": "var(--seven-hover-light)",
       },
+      fontSize: {
+        "seven-font-size-default": "var(--seven-font-size-default)",
+        "seven-font-size-page-title": "var(--seven-font-size-page-title)",
+        "seven-font-size-table-content": "var(--seven-font-size-page-title)",
+        "seven-font-size-footer-title": "var(--seven-font-size-footer-title)",
+        "seven-font-size-navbar-dropdown":
+          "var(--seven-font-size-navbar-dropdown)",
+        "seven-font-size-navbar-brand": "var(--seven-font-size-navbar-brand)",
+        "seven-font-size-table-heading": "var(--seven-font-size-table-heading)",
+      },
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
