@@ -13,78 +13,13 @@ import {
 import Link from "next/link";
 import { useRef, useState } from "react";
 import { FaFilter, FaSearch } from "react-icons/fa";
+import {DEFAULT_SUBJECTS, PAGE_SIZE, FACULTIES, STUDIES} from '@/app/daftar-mata-kuliah/data';
 
 const { default: PageTemplate } = require("@/components/PageTemplate")
 
-const DEFAULT_SUBJECTS = [
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'Wajib', schedule_href: '/'},
-]
 
-const PAGE_SIZE = 10;
-const TOTAL_PAGE = Math.ceil(DEFAULT_SUBJECTS.length / PAGE_SIZE);
-
-const FACULTIES = ['FMIPA', 'SITH', 'SF', 'FTTM', 'FITB', 'FTI', 'STEI', 'FTMD', 'FTSL', 'SAPPK', 'FSRD', 'SBM', 'SPS', 'NONFS'];
-
-const STUDIES = {
-    'FMIPA': {
-        'sarjana': [
-            {code: 101, name: 'Matematika'},
-            {code: 102, name: 'Fisika'},
-            {code: 103, name: 'Astronomi'},
-            {code: 105, name: 'Kimia'},
-            {code: 108, name: 'Aktuaria'},
-            {code: 160, name: 'Tahan Tahun Pertama FMIPA'},
-        ],
-        'magister': [
-            {code: 201, name: 'Matematika'},
-            {code: 202, name: 'Fisika'},
-            {code: 203, name: 'Astronomi'},
-            {code: 205, name: 'Kimia'},
-            {code: 208, name: 'Aktuaria'},
-            {code: 209, name: 'Sains Komputasi'},
-            {code: 246, name: 'Pengajaran Matematika'},
-            {code: 247, name: 'Pengajaran Fisika'},
-            {code: 248, name: 'Pengajaran Kimia'},
-            {code: 249, name: 'Ilmu dan Rekayasa Nuklir'},
-        ],
-        'doktor': [
-            {code: 301, name: 'Matematika'},
-            {code: 302, name: 'Fisika'},
-            {code: 303, name: 'Astronomi'},
-            {code: 305, name: 'Kimia'},
-            {code: 349, name: 'Rekayasa Nuklir'},
-        ]
-    },
-    'SITH': [], 
-    'SF': [], 
-    'FTTM': [], 
-    'FITB': [], 
-    'FTI': [], 
-    'STEI': {
-
-    }, 
-    'FTMD': [], 
-    'FTSL': [], 
-    'SAPPK': [], 
-    'FSRD': [], 
-    'SBM': [], 
-    'SPS': [], 
-    'NONFS': []
+const capitalizeFirstLetter = (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
 const TableContent = ({children, isHeader = false}) => {
@@ -93,6 +28,28 @@ const TableContent = ({children, isHeader = false}) => {
     ) : (
         <td className="px-2 py-[20px]">{children}</td>
     )
+}
+
+const getSubjects = ({page, faculty, studyCode, category, search}) => {
+
+    search = search.toLowerCase();
+
+    console.log(faculty);
+
+    const result = DEFAULT_SUBJECTS.filter((elmt) => {
+        if (faculty && elmt.faculty !== faculty) return false;
+        if (studyCode && elmt.study.code !== studyCode) return false;
+        if (category && elmt.category !== category) return false;
+        if (search && !(elmt.code.toLowerCase().includes(search) || elmt.name.toLowerCase().includes(search))) return false;
+        return true;
+
+    });
+
+    const start = (page-1) * PAGE_SIZE;
+    return {
+        data: result.slice(start, start + PAGE_SIZE),
+        total_page: Math.ceil(result.length / PAGE_SIZE)
+    };
 }
 
 const SubjectRow = ({subject, idx}) => {
@@ -106,7 +63,7 @@ const SubjectRow = ({subject, idx}) => {
             </TableContent>
             <TableContent>{subject.faculty}</TableContent>
             <TableContent>{`${subject.study.code} - ${subject.study.name}`}</TableContent>
-            <TableContent>{subject.category}</TableContent>
+            <TableContent>{ subject.category}</TableContent>
             <TableContent>
                 <Link className="underline text-seven-hyperlink" href={subject.schedule_href}>Link</Link>
             </TableContent>
@@ -166,10 +123,6 @@ const FacultyFilter = ({faculties = [], onChange}) => {
         </Select>
     )
 }
-
-function capitalizeFirstLetter(str) {
-    return str.charAt(0).toUpperCase() + str.slice(1);
-  }
   
 const StudyFilter = ({studies, onChange}) => {
     return (
@@ -191,12 +144,16 @@ const StudyFilter = ({studies, onChange}) => {
                     </SelectGroup>
                 ))}
                 {!studies &&
-                    <SelectItem disabled className="!text-seven-font-size-filter" value={null}>Pilih Fakultas Terlebih Dahulu</SelectItem>
+                    <SelectItem disabled className="!text-seven-font-size-filter pr-8" value={null}>Pilih Fakultas Terlebih Dahulu</SelectItem>
+                }
+                {studies && Object.keys(studies).length === 0 &&
+                    <SelectItem disabled className="!text-seven-font-size-filter pr-8" value={null}>Tidak ada program studi</SelectItem>
                 }
             </SelectContent>
         </Select>
     )
 }
+
 const CategoryFilter = ({onChange}) => {
     return (
         <Select onValueChange={onChange}>
@@ -213,34 +170,21 @@ const CategoryFilter = ({onChange}) => {
 
 const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
     return (
-        <Select defaultValue={defaultValue} onValueChange={onChange}>
+        <Select defaultValue={totalPage > 0 ? defaultValue : null} onValueChange={onChange}>
             <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
                 <SelectValue className="" placeholder='Page' />
             </SelectTrigger>
             <SelectContent>
                 {Array.from({ length: totalPage }, (_, idx) => (
-                    <SelectItem key={idx} value={idx + 1}>{idx + 1}</SelectItem>
+                    <SelectItem className="!text-seven-font-size-filter" key={idx} value={idx + 1}>{idx + 1}</SelectItem>
                 ))}
+
+                {totalPage === 0 &&
+                    <SelectItem className="!text-seven-font-size-filter pr-8" disabled>Tidak ada halaman</SelectItem>
+                }
             </SelectContent>
         </Select>
     )
-}
-
-const getSubjects = ({page, faculty, studyCode, category, search}) => {
-
-    search = search.toLowerCase();
-
-    const result = DEFAULT_SUBJECTS.filter((elmt) => {
-        if (faculty && elmt.faculty !== faculty) return false;
-        if (studyCode && elmt.study.code !== studyCode) return false;
-        if (category && elmt.category !== category) return false;
-        if (search && !(elmt.code.toLowerCase().includes(search) || elmt.name.toLowerCase().includes(search))) return false;
-        return true;
-
-    }).slice((page-1) * PAGE_SIZE, PAGE_SIZE);
-
-    console.log(result);
-    return result;
 }
 
 const DaftarMataKuliah = () => {
@@ -249,7 +193,7 @@ const DaftarMataKuliah = () => {
     const [showFilter, setShowFilter] = useState(false);
 
     const [faculty, setFaculty] = useState(null);
-
+    const [totalPage, setTotalPage] = useState(Math.ceil(DEFAULT_SUBJECTS.length / PAGE_SIZE));
     const pageRef = useRef(1);
     const facultyRef = useRef(null);
     const studyCodeRef = useRef(null);
@@ -262,13 +206,17 @@ const DaftarMataKuliah = () => {
     }
 
     const getCurrentSubjects = () => {
-        return getSubjects({
+        const result = getSubjects({
             page: pageRef.current, 
-            faculty, 
+            faculty: facultyRef.current, 
             studyCode: studyCodeRef.current, 
             category: categoryRef.current, 
             search: searchRef.current
         })
+
+        setTotalPage(result.total_page);
+
+        return result.data;
     }
 
     const onSelectPage = (value) => {
@@ -299,15 +247,22 @@ const DaftarMataKuliah = () => {
         setSubjects(getCurrentSubjects());
     }
 
+    const onEnterSearch = (event) => {
+        // Check if the pressed key is Enter (key code 13)
+        if (event.key === 'Enter') {
+            onSearch();
+        }
+    }
+
     return ( 
         <PageTemplate pageTitle='Daftar Mata Kuliah' breadCrumbs={[{href: '/daftar-mata-kuliah', label: 'Daftar Mata Kuliah'}]}>
             <div className="flex flex-col gap-5 sm:flex-row sm:justify-between">
                 <div className="flex flex-row gap-5 w-full">
                     <div className="w-fit">
-                        <SubjectPageSelect totalPage={TOTAL_PAGE} onChange={onSelectPage}/>
+                        <SubjectPageSelect totalPage={totalPage} onChange={onSelectPage} defaultValue={pageRef.current}/>
                     </div>
                     <div className="flex flex-row w-full sm:max-w-[500px]">
-                        <input onChange={e => searchRef.current = e.target.value} placeholder="Cari kode atau nama mata kuliah" maxLength={255} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
+                        <input onKeyDown={onEnterSearch} onChange={e => searchRef.current = e.target.value} placeholder="Cari kode atau nama mata kuliah" maxLength={255} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
                         <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
                             <FaSearch size={12}/>
                         </Button>
