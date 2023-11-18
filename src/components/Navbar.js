@@ -21,11 +21,11 @@ import {
   FaTasks,
   FaUser,
   FaUsers,
-  FaUniversity
+  FaUniversity,
 } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 
-const Menu = ({href, label, Icon}) => {
+const Menu = ({ href, label, Icon }) => {
   return (
     <DropdownMenuItem className="p-0">
       <Link
@@ -36,22 +36,34 @@ const Menu = ({href, label, Icon}) => {
         <span>{label}</span>
       </Link>
     </DropdownMenuItem>
-  )
-}
+  );
+};
 
 export default function Navbar() {
   const [isID, setIsID] = useState(true);
   const aplikasiItems = [
-    { icon: FaFileAlt, name: "Kurikulum" },
+    {
+      icon: FaFileAlt,
+      name: "Kurikulum",
+      href: "/kurikulum/struktur-kurikulum",
+    },
     { icon: FaRegUserCircle, name: "Status Mahasiswa" },
-    { icon: FaMoneyBill1Wave, name: "Keuangan & Beasiswa" },
-    { icon: FaUsers, name: "Kelas", href: "/jadwal" },
-    { icon: FaUniversity, name: "Daftar Mata Kuliah", href: "/daftar-mata-kuliah" },
+    {
+      icon: FaMoneyBill1Wave,
+      name: "Keuangan & Beasiswa",
+      href: "/keuangan-beasiswa/status",
+    },
+    { icon: FaUsers, name: "Kelas", href: "/kalender" },
+    {
+      icon: FaUniversity,
+      name: "Daftar Mata Kuliah",
+      href: "/daftar-mata-kuliah",
+    },
     { icon: FaColumns, name: "Rencana Studi & Perwalian" },
     { icon: FaSitemap, name: "Penjurusan TPB" },
     { icon: FaTasks, name: "Evaluasi Perkuliahan & Portofolio" },
     { icon: FaGraduationCap, name: "Wisuda" },
-    { icon: FaCogs, name: "Control Panel" },
+    { icon: FaCogs, name: "Control Panel", href: "/control-panel/itb-account" },
   ];
   const profileItems = [
     { icon: FaUser, name: "Profil" },
@@ -78,7 +90,12 @@ export default function Navbar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {aplikasiItems.map((elmt, idx) => (
-                  <Menu key={idx} href={elmt.href ?? '/'} label={elmt.name} Icon={elmt.icon}/>
+                  <Menu
+                    key={idx}
+                    href={elmt.href ?? "/"}
+                    label={elmt.name}
+                    Icon={elmt.icon}
+                  />
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
@@ -118,7 +135,12 @@ export default function Navbar() {
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {profileItems.map((elmt, idx) => (
-                  <Menu key={idx} href={elmt.href ?? '/'} label={elmt.name} Icon={elmt.icon}/>
+                  <Menu
+                    key={idx}
+                    href={elmt.href ?? "/"}
+                    label={elmt.name}
+                    Icon={elmt.icon}
+                  />
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
