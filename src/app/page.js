@@ -11,6 +11,12 @@ export default function Home() {
       >
         /jadwal
       </Link>
+      <Link
+        href="/status-mahasiswa"
+        className="py-1 px-3 rounded-xl bg-zinc-100 text-zinc-600 text-sm hover:bg-zinc-200"
+      >
+        /status-mahasiswa
+      </Link>
     </main>
   );
 }
