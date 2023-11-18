@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
- 
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -33,6 +33,25 @@
     --ring: 240 10% 3.9%;
  
     --radius: 0.5rem;
+
+    /* SEVEN */
+    --seven-hyperlink: #337AB7;
+    --seven-bg-navbar: #222222;
+    --seven-bg-bread: #F5F5F5;
+    --seven-foreground-light: #000000;
+    --seven-foreground-dark: #FFFFFF;
+    --seven-bg-table: #F9F9F9;
+    --seven-bg-blue-light:#D9EDF7;
+    --seven-page-heading: #003366;
+    --seven-bg-button-primary: #4DBADB;
+    --seven-bg-table-heading: #3277B2;
+    --seven-border-filter: #3C763D;
+    --seven-navbar-brand: #9D9D9D;
+    --seven-border-grey: #DDDDDD;
+    --seven-border-button-primary: #269ABC;
+    --seven-bg-presensi-exist: #52B2CF;
+    --seven-bg-presensi-skip: #D4AFB9;
+    --seven-bg-presensi-done: #9CADCE;
   }
  
   .dark {
