@@ -40,6 +40,22 @@ const Menu = ({href, label, Icon}) => {
 
 export default function Navbar() {
   const [isID, setIsID] = useState(true);
+  const aplikasiItems = [
+    { icon: FaFileAlt, name: "Kurikulum" },
+    { icon: FaRegUserCircle, name: "Status Mahasiswa" },
+    { icon: FaMoneyBill1Wave, name: "Keuangan & Beasiswa" },
+    { icon: FaUsers, name: "Kelas", href: "/jadwal" },
+    { icon: FaUsers, name: "Daftar Mata Kuliah", href: "/daftar-mata-kuliah" },
+    { icon: FaColumns, name: "Rencana Studi & Perwalian" },
+    { icon: FaSitemap, name: "Penjurusan TPB" },
+    { icon: FaTasks, name: "Evaluasi Perkuliahan & Portofolio" },
+    { icon: FaGraduationCap, name: "Wisuda" },
+    { icon: FaCogs, name: "Control Panel" },
+  ];
+  const profileItems = [
+    { icon: FaUser, name: "Profil" },
+    { icon: FaSignOutAlt, name: "Logout" },
+  ];
   return (
     <>
       <nav className="w-full py-1 px-4 xl:px-0 sticky top-0 bg-seven-bg-navbar">
@@ -60,16 +76,9 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <Menu href='/' label='Kurikulum' Icon={FaFileAlt}/>
-                <Menu href='/' label='Status Mahasiswa' Icon={FaRegUserCircle}/>
-                <Menu href='/' label='Keuangan & Beasiswa' Icon={FaMoneyBill1Wave}/>
-                <Menu href='/jadwal' label='Kelas' Icon={FaUsers}/>
-                <Menu href='/daftar-mata-kuliah' label='Daftar Mata Kuliah' Icon={FaUsers}/>
-                <Menu href='/' label='Rencana Studi & Perwalian' Icon={FaColumns}/>
-                <Menu href='/' label='Penjurusan TPB' Icon={FaSitemap}/>
-                <Menu href='/' label='Evaluasi Perkuliahan & Portofolio' Icon={FaTasks}/>
-                <Menu href='/' label='Wisuda' Icon={FaGraduationCap}/>
-                <Menu href='/' label='Control Panel' Icon={FaCogs}/>
+                {aplikasiItems.map((elmt, idx) => (
+                  <Menu key={idx} href={elmt.href ?? '/'} label={elmt.name} Icon={elmt.icon}/>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
@@ -107,8 +116,9 @@ export default function Navbar() {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <Menu href='/' label='Profil' Icon={FaUser}></Menu>
-                <Menu href='/' label='Logout' Icon={FaSignOutAlt}></Menu>
+                {profileItems.map((elmt, idx) => (
+                  <Menu key={idx} href={elmt.href ?? '/'} label={elmt.name} Icon={elmt.icon}/>
+                ))}
               </DropdownMenuContent>
             </DropdownMenu>
           </div>
