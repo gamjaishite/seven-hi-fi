@@ -10,7 +10,7 @@ export default function StatusMahasiswa() {
           Status Mahasiswa
         </h2>
       </div>
-      
+
       <Footer></Footer>
     </>
   );

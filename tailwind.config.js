@@ -69,6 +69,8 @@ module.exports = {
         "seven-bg-presensi-exist": "var(--seven-bg-presensi-exist)",
         "seven-bg-presensi-skip": "var(--seven-bg-presensi-skip)",
         "seven-bg-presensi-done": "var(--seven-bg-presensi-done)",
+        "seven-selected-item-dark": "var(--seven-selected-item-dark)",
+        "seven-hover-light": "var(--seven-hover-light)",
       },
       borderRadius: {
         lg: "var(--radius)",
