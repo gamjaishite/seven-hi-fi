@@ -11,18 +11,7 @@ import {
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
 const monthsName = [
-  "Januari",
-  "Februari",
-  "Maret",
-  "April",
-  "Mei",
-  "Juni",
-  "Juli",
-  "Agustus",
-  "September",
-  "Oktober",
-  "November",
-  "Desember",
+  "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember",
 ];
 
 function SelectSemester({ semester, setSemester }) {
