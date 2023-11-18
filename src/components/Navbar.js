@@ -21,6 +21,7 @@ import {
   FaTasks,
   FaUser,
   FaUsers,
+  FaUniversity
 } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
 
@@ -45,7 +46,7 @@ export default function Navbar() {
     { icon: FaRegUserCircle, name: "Status Mahasiswa" },
     { icon: FaMoneyBill1Wave, name: "Keuangan & Beasiswa" },
     { icon: FaUsers, name: "Kelas", href: "/jadwal" },
-    { icon: FaUsers, name: "Daftar Mata Kuliah", href: "/daftar-mata-kuliah" },
+    { icon: FaUniversity, name: "Daftar Mata Kuliah", href: "/daftar-mata-kuliah" },
     { icon: FaColumns, name: "Rencana Studi & Perwalian" },
     { icon: FaSitemap, name: "Penjurusan TPB" },
     { icon: FaTasks, name: "Evaluasi Perkuliahan & Portofolio" },
