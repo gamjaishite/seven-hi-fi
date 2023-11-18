@@ -1,5 +1,11 @@
 import { useState } from "react";
 
+const daysName = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"];
+
+const monthsName = [
+  "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember",
+];
+
 function getFirstDate(month, year) {
   const date = new Date(year, month - 1, 1);
 
@@ -53,15 +59,23 @@ export default function WeeklyCalendar({ semester, bulan }) {
 
   const [minggu, setMinggu] = useState(1);
 
+  const tanggal = [];
+  for (let i = 0; i < 5; i++) {
+    const date = new Date(getFirstDate(bulan, tahun));
+    date.setDate(date.getDate() + 7 * (minggu - 1) + i);
+    tanggal.push(date);
+  }
+
   return (
-    <>
+    <div className="flex flex-col">
       <div className="flex flex-row items-center justify-start">
-        {pilihanMinggu.map((item) => {
+        {pilihanMinggu.map((item, idx) => {
           return (
             <button
+              key={idx}
               className={`${
-                minggu === item ? "border-2 border-seven-border-gray" : "border-2 border-transparent"
-              } py-1 px-2.5 text-[12px]`}
+                minggu === item ? "border border-seven-border-gray" : "border border-transparent"
+              } py-1 px-2.5 text-[12px] font-bold`}
               onClick={() => setMinggu(item)}
             >
               Minggu {item}
@@ -69,6 +83,16 @@ export default function WeeklyCalendar({ semester, bulan }) {
           );
         })}
       </div>
-    </>
+      <div className="flex flex-row items-center justify-start">
+        {tanggal.map((item, idx) => {
+          return (
+            <div key={idx} className="flex flex-col flex-1 items-center justify-center w-[100px] h-[100px] border border-seven-border-gray">
+              <span className="text-[14px] font-bold">{daysName[item.getDay() - 1]}</span>
+              <span className="text-[16px] font-bold">{`${item.getDate()} ${monthsName[item.getMonth()]}`}</span>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }

@@ -42,9 +42,17 @@ const Menu = ({ href, label, Icon }) => {
 export default function Navbar() {
   const [isID, setIsID] = useState(true);
   const aplikasiItems = [
-    { icon: FaFileAlt, name: "Kurikulum" },
+    {
+      icon: FaFileAlt,
+      name: "Kurikulum",
+      href: "/kurikulum/struktur-kurikulum",
+    },
     { icon: FaRegUserCircle, name: "Status Mahasiswa" },
-    { icon: FaMoneyBill1Wave, name: "Keuangan & Beasiswa" },
+    {
+      icon: FaMoneyBill1Wave,
+      name: "Keuangan & Beasiswa",
+      href: "/keuangan-beasiswa/status",
+    },
     { icon: FaUsers, name: "Kelas", href: "/kalender" },
     {
       icon: FaUniversity,
@@ -55,7 +63,7 @@ export default function Navbar() {
     { icon: FaSitemap, name: "Penjurusan TPB" },
     { icon: FaTasks, name: "Evaluasi Perkuliahan & Portofolio" },
     { icon: FaGraduationCap, name: "Wisuda" },
-    { icon: FaCogs, name: "Control Panel" },
+    { icon: FaCogs, name: "Control Panel", href: "/control-panel/itb-account" },
   ];
   const profileItems = [
     { icon: FaUser, name: "Profil" },
