@@ -68,7 +68,7 @@ const SubjectRow = ({subject, idx}) => {
             </TableContent>
             <TableContent>{subject.faculty}</TableContent>
             <TableContent>{`${subject.study.code} - ${subject.study.name}`}</TableContent>
-            <TableContent>{ subject.category}</TableContent>
+            <TableContent>{ capitalizeFirstLetter(subject.category)}</TableContent>
             <TableContent>
                 <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover" href={getScheduleHref(subject)}>Link</Link>
             </TableContent>
