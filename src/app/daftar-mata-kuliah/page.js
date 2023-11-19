@@ -427,31 +427,40 @@ const DaftarMataKuliah = () => {
 
     return ( 
         <PageTemplate pageTitle='Daftar Mata Kuliah' breadCrumbs={[{href: '/daftar-mata-kuliah', label: 'Daftar Mata Kuliah'}]}>
-            <div className="flex flex-col gap-5 sm:flex-row sm:justify-between">
-                <div className="flex flex-row gap-5 w-full">
-                    <div className="w-fit">
-                        <SubjectPageSelect totalPage={totalPage} onChange={onSelectPage} defaultValue={pageRef.current}/>
+            <div className="flex flex-col gap-2">
+                <div className="flex gap-2 sm:gap-5 flex-row sm:justify-between">
+                    <div className="flex flex-row gap-2 sm:gap-5 w-full">
+                        <div className="w-fit">
+                            <SubjectPageSelect totalPage={totalPage} onChange={onSelectPage} defaultValue={pageRef.current}/>
+                        </div>
+                        <div className="flex flex-row w-full sm:max-w-[500px]">
+                            <input onKeyDown={onEnterSearch} onChange={e => searchRef.current = e.target.value} placeholder="Cari kode atau nama mata kuliah" maxLength={255} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
+                            <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
+                                <FaSearch size={12}/>
+                            </Button>
+                        </div>
                     </div>
-                    <div className="flex flex-row w-full sm:max-w-[500px]">
-                        <input onKeyDown={onEnterSearch} onChange={e => searchRef.current = e.target.value} placeholder="Cari kode atau nama mata kuliah" maxLength={255} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
-                        <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
-                            <FaSearch size={12}/>
+    
+                    <div className="flex flex-row gap-5 items-center w-auto justify-end">
+                        {showFilter &&
+                            <div className="sm:flex flex-row gap-5 items-center w-full hidden">
+                                <FacultyFilter value={faculty} faculties={FACULTIES} onChange={onSelectFaculty}/>
+                                <StudyFilter value={studyCode} studies={STUDIES[faculty]} onChange={onSelectStudy}/>
+                                <CategoryFilter value={category} onChange={onSelectCategory}/>
+                            </div>
+                        }
+                        <Button className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-seven-border-button-primary hover:bg-seven-bg-button-primary-hover" onClick={() => {setShowFilter(oldValue => !oldValue)}}>
+                            <FaFilter size={12}/>
                         </Button>
                     </div>
                 </div>
-  
-                <div className="flex flex-row gap-4 items-center w-full sm:w-auto justify-end">
-                    {showFilter &&
-                        <div className="flex flex-row gap-4 items-center w-full">
-                            <FacultyFilter value={faculty} faculties={FACULTIES} onChange={onSelectFaculty}/>
-                            <StudyFilter value={studyCode} studies={STUDIES[faculty]} onChange={onSelectStudy}/>
-                            <CategoryFilter value={category} onChange={onSelectCategory}/>
-                        </div>
-                    }
-                    <Button className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-seven-border-button-primary hover:bg-seven-bg-button-primary-hover" onClick={() => {setShowFilter(oldValue => !oldValue)}}>
-                        <FaFilter size={12}/>
-                    </Button>
-                </div>
+                {showFilter &&
+                    <div className="flex flex-row gap-2 items-center w-full sm:hidden">
+                        <FacultyFilter value={faculty} faculties={FACULTIES} onChange={onSelectFaculty}/>
+                        <StudyFilter value={studyCode} studies={STUDIES[faculty]} onChange={onSelectStudy}/>
+                        <CategoryFilter value={category} onChange={onSelectCategory}/>
+                    </div>
+                }
             </div>
             <SubjectsTable subjects={subjects}/>
         </PageTemplate>
