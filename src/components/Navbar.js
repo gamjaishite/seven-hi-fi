@@ -7,7 +7,7 @@ import {
   DropdownMenuTrigger,
 } from "./ui/dropdown-menu";
 import { Button } from "./ui/button";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   FaCaretDown,
   FaCogs,
@@ -38,6 +38,26 @@ const Menu = ({ href, label, Icon }) => {
     </DropdownMenuItem>
   );
 };
+
+function MobileNavbar() {
+  return (
+    <div className="flex lg:hidden">
+      <DropdownMenu>
+        <DropdownMenuTrigger asChild>
+          <Button className="bg-transparent flex items-center gap-1.5 text-seven-foreground-dark py-0 hover:bg-seven-selected-item-dark">
+            <FaCaretDown size={14} />
+          </Button>
+        </DropdownMenuTrigger>
+        <DropdownMenuContent>
+          <DropdownMenuItem>Profile</DropdownMenuItem>
+          <DropdownMenuItem>Billing</DropdownMenuItem>
+          <DropdownMenuItem>Team</DropdownMenuItem>
+          <DropdownMenuItem>Subscription</DropdownMenuItem>
+        </DropdownMenuContent>
+      </DropdownMenu>
+    </div>
+  );
+}
 
 export default function Navbar() {
   const [isID, setIsID] = useState(true);
@@ -73,24 +93,26 @@ export default function Navbar() {
               <h1 className="text-seven-font-size-navbar-brand">SIX </h1>
               <FaHome className="" size={18} />
             </Link>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="bg-transparent flex items-center gap-1.5 text-seven-foreground-dark py-0 hover:bg-seven-selected-item-dark">
-                  <span>Aplikasi</span>
-                  <FaCaretDown size={14} />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {aplikasiItems.map((elmt, idx) => (
-                  <Menu
-                    key={idx}
-                    href={elmt.href ?? "/"}
-                    label={elmt.name}
-                    Icon={elmt.icon}
-                  />
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="hidden lg:flex">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="bg-transparent flex items-center gap-1.5 text-seven-foreground-dark py-0 hover:bg-seven-selected-item-dark">
+                    <span>Aplikasi</span>
+                    <FaCaretDown size={14} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {aplikasiItems.map((elmt, idx) => (
+                    <Menu
+                      key={idx}
+                      href={elmt.href ?? "/"}
+                      label={elmt.name}
+                      Icon={elmt.icon}
+                    />
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
           <div className="flex gap-2 items-center">
             <Button
@@ -98,7 +120,7 @@ export default function Navbar() {
                 isID
                   ? "bg-seven-selected-item-dark text-seven-foreground-dark"
                   : "bg-transparent"
-              } hover:bg-seven-selected-item-dark`}
+              } hover:bg-seven-selected-item-dark hidden lg:flex`}
               onClick={() => {
                 !isID && setIsID(true);
               }}
@@ -110,32 +132,35 @@ export default function Navbar() {
                 isID
                   ? "bg-transparent"
                   : "bg-seven-selected-item-dark text-seven-foreground-dark"
-              } hover:bg-seven-selected-item-dark`}
+              } hover:bg-seven-selected-item-dark hidden lg:flex`}
               onClick={() => {
                 isID && setIsID(false);
               }}
             >
               EN
             </Button>
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button className="bg-transparent flex items-center gap-1.5 text-seven-foreground-dark py-0 hover:bg-seven-selected-item-dark">
-                  <FaRegUserCircle size={16} />
-                  <span>Sepuh Puh Sepuh</span>
-                  <FaCaretDown size={14} />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent>
-                {profileItems.map((elmt, idx) => (
-                  <Menu
-                    key={idx}
-                    href={elmt.href ?? "/"}
-                    label={elmt.name}
-                    Icon={elmt.icon}
-                  />
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+            <div className="hidden lg:flex">
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button className="bg-transparent flex items-center gap-1.5 text-seven-foreground-dark py-0 hover:bg-seven-selected-item-dark">
+                    <FaRegUserCircle size={16} />
+                    <span>Sepuh Puh Sepuh</span>
+                    <FaCaretDown size={14} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  {profileItems.map((elmt, idx) => (
+                    <Menu
+                      key={idx}
+                      href={elmt.href ?? "/"}
+                      label={elmt.name}
+                      Icon={elmt.icon}
+                    />
+                  ))}
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
+            <MobileNavbar />
           </div>
         </div>
       </nav>

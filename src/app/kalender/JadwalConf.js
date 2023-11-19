@@ -19,7 +19,12 @@ function SelectSemester({ semester, setSemester }) {
       <SelectContent>
         <SelectGroup>
           <SelectLabel>2023/2024</SelectLabel>
-          <SelectItem value="1-2023/2024">Semester 1 - 2023/2024</SelectItem>
+          <SelectItem
+            value="1-2023/2024"
+            className="text-seven-font-size-page-title"
+          >
+            Semester 1 - 2023/2024
+          </SelectItem>
         </SelectGroup>
         <SelectGroup>
           <SelectLabel>2022/2023</SelectLabel>
