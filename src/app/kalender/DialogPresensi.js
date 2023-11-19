@@ -89,7 +89,7 @@ export default function DialogPresensi({
   return (
     <>
       <Dialog>
-        <DialogTrigger className="text-left">{trigger}</DialogTrigger>
+        <DialogTrigger className="flex flex-col text-left h-full">{trigger}</DialogTrigger>
         <DialogContent className="text-seven-font-size-default">
           <DialogHeader>
             <DialogTitle className="text-seven max-w-md text-2xl font-normal">
