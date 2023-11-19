@@ -56,7 +56,7 @@ export default function DialogPresensi({
                 setPresensi({ ...presensi });
               }}
             >
-              Tandari Hadir
+              Tandai Hadir
             </Button>
           );
           break;
