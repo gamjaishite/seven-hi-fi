@@ -11,13 +11,24 @@ import {
 import { FaCaretLeft, FaCaretRight } from "react-icons/fa";
 
 const monthsName = [
-  "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember",
+  "Januari",
+  "Februari",
+  "Maret",
+  "April",
+  "Mei",
+  "Juni",
+  "Juli",
+  "Agustus",
+  "September",
+  "Oktober",
+  "November",
+  "Desember",
 ];
 
 function SelectSemester({ semester, setSemester }) {
   return (
     <Select defaultValue={semester} onValueChange={setSemester}>
-      <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max">
+      <SelectTrigger className="min-w-max space-x-2 border border-seven-border-filter">
         <SelectValue placeholder="Semester" />
       </SelectTrigger>
       <SelectContent>
@@ -54,22 +65,39 @@ function SelectMode({ mode, setMode }) {
   );
 }
 
-export default function JadwalConf({ semester, setSemester, mode, setMode, bulan, setBulan }) {
+export default function JadwalConf({
+  semester,
+  setSemester,
+  mode,
+  setMode,
+  bulan,
+  setBulan,
+}) {
   return (
     <>
-      <div className="flex-row-reverse w-full flex items-center justify-between">
+      <div className="flex w-full flex-row-reverse items-center justify-between">
         <div className="flex items-center gap-2">
           <SelectSemester semester={semester} setSemester={setSemester} />
           <SelectMode mode={mode} setMode={setMode} />
         </div>
 
-        {mode == "week" && (
+        {mode === "week" && (
           <div className="flex items-center gap-2">
-            <Button variant="ghost" className="px-1" onClick={() => setBulan((bulan + 10) % 12 + 1)}>
+            <Button
+              variant="ghost"
+              className="px-1"
+              onClick={() => setBulan(((bulan + 10) % 12) + 1)}
+            >
               <FaCaretLeft />
             </Button>
-            <span className="w-[125px] text-center">Bulan {monthsName[bulan - 1]}</span>
-            <Button variant="ghost" className="px-1" onClick={() => setBulan(bulan % 12 + 1)}>
+            <span className="w-[125px] text-center">
+              Bulan {monthsName[bulan - 1]}
+            </span>
+            <Button
+              variant="ghost"
+              className="px-1"
+              onClick={() => setBulan((bulan % 12) + 1)}
+            >
               <FaCaretRight />
             </Button>
           </div>

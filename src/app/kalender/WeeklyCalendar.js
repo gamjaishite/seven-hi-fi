@@ -91,7 +91,8 @@ export default function WeeklyCalendar({ semester, bulan }) {
         {pilihanMinggu.map((item, idx) => {
           return (
             <button
-              key={idx}
+              type="button"
+              key={item}
               className={`${
                 minggu === item
                   ? "border-seven-border-gray border"
@@ -108,7 +109,7 @@ export default function WeeklyCalendar({ semester, bulan }) {
         {tanggal.map((item, idx) => {
           return (
             <div
-              key={idx}
+              key={item}
               className="border-seven-border-gray flex flex-1 flex-col items-center justify-center gap-[5px] border py-2.5"
             >
               <span className="text-[14px] font-bold">
@@ -125,18 +126,18 @@ export default function WeeklyCalendar({ semester, bulan }) {
       {jam.map((jamItem, jamIdx) => {
         return (
           <div
-            key={jamIdx}
+            key={jamItem}
             className="relative flex flex-row items-center justify-start"
           >
             <span className="absolute -left-10 -top-2.5 text-[14px]">
               {jamItem}
             </span>
             {tanggal.map((tanggalItem, tanggalIdx) => {
-              const classes = jadwal[tanggalItem.getDay() - 1]["classes"];
+              const classes = jadwal[tanggalItem.getDay() - 1].classes;
               return (
                 <div
-                  key={tanggalIdx}
-                  className="border-seven-border-gray relative flex flex h-[60px] flex-1 flex-col items-center justify-center border p-[5px]"
+                  key={tanggalItem}
+                  className="border-seven-border-gray relative flex  h-[60px] flex-1 flex-col items-center justify-center border p-[5px]"
                 >
                   {classes.map((classItem, classIdx) => {
                     console.log(classItem);
@@ -146,7 +147,7 @@ export default function WeeklyCalendar({ semester, bulan }) {
                         50 + 60 * (classItem.duration - 1)
                       }px]`;
                       return (
-                        <div key={classIdx} className={className}>
+                        <div key={classItem} className={className}>
                           {classItem.matkulName}
                         </div>
                       );
