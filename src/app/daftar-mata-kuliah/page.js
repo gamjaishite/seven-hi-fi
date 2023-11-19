@@ -467,7 +467,9 @@ const DaftarMataKuliah = () => {
                     </div>
                 }
             </div>
-            <SubjectsTable subjects={subjects}/>
+            <div className="w-full overflow-x-auto">
+                <SubjectsTable subjects={subjects}/>
+            </div>
         </PageTemplate>
     );
 }

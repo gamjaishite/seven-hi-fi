@@ -38,8 +38,8 @@ export default function StatusMahasiswa() {
       >
         <div className="flex h-full w-[100%] flex-col gap-2 lg:flex-row">
           <div className="flex w-full flex-col items-center lg:w-2/6">
-            <div className="w-full rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
-              <div className="div-auto border-[#3277B2 text-[13px]] flex h-1/3 h-full w-full flex-col rounded-[5px] bg-[#f9f9f9]">
+            <div className="w-full rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
+              <div className="div-auto border-[#3277B2 text-[13px]] flex h-full w-full flex-col rounded-[5px] bg-[#f9f9f9]">
                 <div className="flex items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                   <p className="--seven-font-size-table-heading px-2">
                     Data Mahasiswa
@@ -214,13 +214,13 @@ export default function StatusMahasiswa() {
                 </div>
               </div>
             </div>
-            <div className="my-[16px] w-full rounded rounded-[5px] border border-[#3277B2]">
-              <div className="div-auto flex h-1/3 h-full w-full flex-col rounded-[5px] border-[#3277B2]">
+            <div className="my-[16px] w-full rounded-[5px] border border-[#3277B2]">
+              <div className="div-auto flex h-full w-full flex-col rounded-[5px] border-[#3277B2]">
                 <div className="flex h-full items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                   <p className="seven-font-size-table-heading px-2">Links</p>
                 </div>
                 <div className="flex h-full w-full flex-col items-center justify-center text-center ">
-                  <div className="h-full w-4/5 pb-7 pt-5 text-left text-[15px]">
+                  <div className="h-full w-4/5 pb-7 pt-5 text-left text-seven-font-size-default">
                     <ul className="list-disc">
                       <li className="underline-offset-2">
                         <a href="/jadwal" className="underline-offset-2">
@@ -266,15 +266,15 @@ export default function StatusMahasiswa() {
 
           <div className="mb-10 flex w-full flex-col lg:w-4/6">
             <div className="mb-5 flex flex-col md:mb-0 md:flex-row">
-              <div className="mb-5 w-full overflow-x-auto rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9] md:w-10/12">
-                <div className="div-auto flex h-1/3 h-full w-full min-w-[450px] flex-col rounded-[5px] border-[#3277B2] bg-[#f9f9f9]">
+              <div className="mb-5 w-full overflow-x-auto rounded-[5px] border border-[#3277B2] bg-[#f9f9f9] md:w-10/12">
+                <div className="div-auto flex h-full w-full min-w-[450px] flex-col rounded-[5px] border-[#3277B2] bg-[#f9f9f9]">
                   <div className="flex items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                     <p className="--seven-font-size-table-heading px-2">
                       Daftar Kuliah Semester 1-2023/2024
                     </p>
                   </div>
 
-                  <div className="my-[2px] flex w-full text-[13px] text-[13px]">
+                  <div className="my-[2px] flex w-full text-[13px]">
                     <div className="w-[15px]"></div>
                     <div className="w-1/12 font-bold ">Kode</div>
                     <div className="ml-2 w-7/12 font-bold">Mata Kuliah</div>
@@ -298,21 +298,21 @@ export default function StatusMahasiswa() {
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">2</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3130</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Jaringan Komputer
                     </div>
                     <div className="w-1/12 text-center">02</div>
-                    <div className="w-1/12 text-center">2</div>
+                    <div className="w-1/12 text-center">3</div>
                     <div className="w-2/12 text-center">100%</div>
                     <div className="w-1/12"></div>
                   </div>
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">3</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3140</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Manajemen Basis Data
                     </div>
                     <div className="w-1/12 text-center">02</div>
                     <div className="w-1/12 text-center">2</div>
@@ -322,21 +322,21 @@ export default function StatusMahasiswa() {
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">4</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3141</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Sistem Informasi
                     </div>
                     <div className="w-1/12 text-center">02</div>
-                    <div className="w-1/12 text-center">2</div>
+                    <div className="w-1/12 text-center">3</div>
                     <div className="w-2/12 text-center">100%</div>
                     <div className="w-1/12"></div>
                   </div>
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">5</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3150</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Manajemen Proyek Perangkat Lunak
                     </div>
                     <div className="w-1/12 text-center">02</div>
                     <div className="w-1/12 text-center">2</div>
@@ -346,9 +346,9 @@ export default function StatusMahasiswa() {
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">6</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3151</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Interaksi Manusia Komputer
                     </div>
                     <div className="w-1/12 text-center">02</div>
                     <div className="w-1/12 text-center">2</div>
@@ -358,9 +358,9 @@ export default function StatusMahasiswa() {
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">7</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3170</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Inteligensi Buatan
                     </div>
                     <div className="w-1/12 text-center">02</div>
                     <div className="w-1/12 text-center">2</div>
@@ -376,7 +376,7 @@ export default function StatusMahasiswa() {
               </div>
             </div>
             <div className="flex flex-col gap-2 lg:flex-row">
-              <div className="w-full overflow-x-auto rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
+              <div className="w-full overflow-x-auto rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
                 <div className="div-auto flex h-1/3 w-full min-w-[450px] flex-col rounded-[5px] border-[#3277B2] bg-[#f9f9f9]">
                   <div className="flex items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                     <p className="--seven-font-size-table-heading px-2">
@@ -389,7 +389,7 @@ export default function StatusMahasiswa() {
                   </div>
                 </div>
               </div>
-              <div className="flex h-fit w-full flex-col overflow-x-auto rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
+              <div className="flex h-fit w-full flex-col overflow-x-auto rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
                 <div className="flex w-full min-w-[300px] items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                   <p className="--seven-font-size-table-heading px-2">
                     Status Pendaftaran

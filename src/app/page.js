@@ -9,8 +9,8 @@ export default function Home() {
   return (
     <main className="mx-auto flex w-full max-w-[1140px] flex-1 flex-col items-center justify-center gap-4">
       <h1 className="text-6xl font-bold uppercase">Seven</h1>
-      <div className="flex flex-wrap items-center gap-4">
-        {links.map((link, index) => (
+      <div className="flex flex-wrap items-center gap-4 w-full flex-row justify-center">
+        {links.map((link) => (
           <Link
             href={link}
             className="rounded-xl bg-zinc-100 px-3 py-1 text-sm text-zinc-600 hover:bg-zinc-200"
