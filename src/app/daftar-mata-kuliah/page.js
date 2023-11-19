@@ -40,7 +40,6 @@ const getSubjects = ({page, faculty, studyCode, category, search}) => {
         if (category && elmt.category !== category) return false;
         if (search && !(elmt.code.toLowerCase().includes(search) || elmt.name.toLowerCase().includes(search))) return false;
         return true;
-
     });
 
     const start = (page-1) * PAGE_SIZE;
@@ -248,10 +247,22 @@ const CategoryFilter = ({onChange, value}) => {
 }
 
 const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
+    
+    const [value, setValue] = useState(defaultValue);
+
+    const onValueChange = (value) => {
+        setValue(value);
+        onChange(value);
+    }
+
+    useEffect(() => {
+        setValue( totalPage ? 1 : '');
+    }, [totalPage, setValue])
+
     return (
-        <Select defaultValue={totalPage > 0 ? defaultValue : null} onValueChange={onChange}>
+        <Select value={totalPage ? value : ''} onValueChange={onValueChange}>
             <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
-                <SelectValue className="" placeholder='Page' />
+                <SelectValue className="" placeholder='Halaman' />
             </SelectTrigger>
             <SelectContent>
                 {Array.from({ length: totalPage }, (_, idx) => (
