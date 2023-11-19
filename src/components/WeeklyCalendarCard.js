@@ -9,7 +9,6 @@ export function WeeklyCalendarCard(props) {
       textColor = "text-seven-hyperlink";
       break;
     case "open":
-      console.log(item.status);
       bgColor = "bg-seven-bg-presensi-exist";
       textColor = "text-seven-foreground-dark";
       break;

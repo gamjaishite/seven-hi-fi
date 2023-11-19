@@ -80,7 +80,7 @@ export default function WeeklyCalendar({ semester, bulan }) {
 
   const jam = [];
   for (let i = 7; i <= 17; i++) {
-    jam.push(`${i.toString().padStart(2, "0")}.00`);
+    jam.push(`${i.toString().padStart(2, "0")}:00`);
   }
 
   const jadwal = require("./jadwal.json");
