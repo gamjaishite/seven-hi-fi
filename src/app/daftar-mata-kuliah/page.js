@@ -12,28 +12,17 @@ import {
     SelectValue,
   } from "@/components/ui/select";
 import Link from "next/link";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { FaFilter, FaSearch } from "react-icons/fa";
+import {DEFAULT_SUBJECTS, PAGE_SIZE, FACULTIES, STUDIES} from '@/app/daftar-mata-kuliah/data';
 
 
 const { default: PageTemplate } = require("@/components/PageTemplate")
 
-const DEFAULT_SUBJECTS = [
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-    {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},{code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},{code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},{code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},{code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},{code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: 'Nama Program Studi', category: 'Wajib', schedule_href: '/'},
-]
+
+const capitalizeFirstLetter = (word) => {
+    return word.charAt(0).toUpperCase() + word.slice(1);
+}
 
 const TableContent = ({children, isHeader = false}) => {
     return isHeader ? (
@@ -41,6 +30,28 @@ const TableContent = ({children, isHeader = false}) => {
     ) : (
         <td className="px-2 py-[20px]">{children}</td>
     )
+}
+
+const getSubjects = ({page, faculty, studyCode, category, search}) => {
+
+    search = search.toLowerCase();
+
+    console.log(faculty);
+
+    const result = DEFAULT_SUBJECTS.filter((elmt) => {
+        if (faculty && elmt.faculty !== faculty) return false;
+        if (studyCode && elmt.study.code !== studyCode) return false;
+        if (category && elmt.category !== category) return false;
+        if (search && !(elmt.code.toLowerCase().includes(search) || elmt.name.toLowerCase().includes(search))) return false;
+        return true;
+
+    });
+
+    const start = (page-1) * PAGE_SIZE;
+    return {
+        data: result.slice(start, start + PAGE_SIZE),
+        total_page: Math.ceil(result.length / PAGE_SIZE)
+    };
 }
 
 const SubjectRow = ({subject, idx}) => {
@@ -53,8 +64,8 @@ const SubjectRow = ({subject, idx}) => {
                 <Link className="underline text-seven-hyperlink" href={'/'}>{subject.name}</Link>
             </TableContent>
             <TableContent>{subject.faculty}</TableContent>
-            <TableContent>{subject.study}</TableContent>
-            <TableContent>{subject.category}</TableContent>
+            <TableContent>{`${subject.study.code} - ${subject.study.name}`}</TableContent>
+            <TableContent>{ subject.category}</TableContent>
             <TableContent>
                 <Link className="underline text-seven-hyperlink" href={subject.schedule_href}>Link</Link>
             </TableContent>
@@ -90,53 +101,185 @@ const SubjectsTable = ({subjects = []}) => {
                     ))}
                 </tbody>
             </table>
+            {subjects.length === 0 &&
+                <div className="w-full flex flex-row justify-center py-[20px]">
+                    <span className="text-seven-font-size-table-content">Tidak ada mata kuliah yang memenuhi</span>
+                </div>
+            }
         </div>
     )
 }
 
-const SubjectFilter = ({label, onChange}) => {
+const FacultyFilter = ({faculties = [], onChange}) => {
     return (
         <Select onValueChange={onChange}>
-            <SelectTrigger className="text-[12px] space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter">
-                <SelectValue className="" placeholder={label} />
+            <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
+                <SelectValue className="" placeholder='Fakultas' />
             </SelectTrigger>
-            <SelectContent>
-                <SelectGroup>
-                <SelectLabel>2023/2024</SelectLabel>
-                <SelectItem value="1-2023/2024">Semester 1 - 2023/2024</SelectItem>
-                </SelectGroup>
-                <SelectGroup>
-                <SelectLabel>2022/2023</SelectLabel>
-                <SelectItem value="3-2022/2023">Semester 3 - 2022/2023</SelectItem>
-                <SelectItem value="2-2022/2023">Semester 2 - 2022/2023</SelectItem>
-                </SelectGroup>
+            <SelectContent className="max-h-[300px]">
+                {faculties.map((elmt, idx) => (
+                    <SelectItem key={idx} value={elmt} className="!text-seven-font-size-filter">{elmt}</SelectItem>
+                ))
+                }
             </SelectContent>
         </Select>
     )
 }
+  
+const StudyFilter = ({studies, onChange}) => {
+    return (
+        <Select onValueChange={onChange}>
+            <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
+                <SelectValue className="" placeholder='Program Studi' />
+            </SelectTrigger>
+            <SelectContent className="max-h-[300px]">
+                {studies && Object.keys(studies).map((elmt, idx) => (
+                    <SelectGroup key={idx}>
+                        <SelectLabel>{capitalizeFirstLetter(elmt)}</SelectLabel>
+                        {studies[elmt].map((elmt, idx) => (
+                            <SelectItem 
+                                key={elmt + idx} 
+                                className="!text-seven-font-size-filter" 
+                                value={elmt.code}
+                            >{`${elmt.code} - ${elmt.name}`}</SelectItem>
+                        ))}
+                    </SelectGroup>
+                ))}
+                {!studies &&
+                    <SelectItem disabled className="!text-seven-font-size-filter pr-8" value={null}>Pilih Fakultas Terlebih Dahulu</SelectItem>
+                }
+                {studies && Object.keys(studies).length === 0 &&
+                    <SelectItem disabled className="!text-seven-font-size-filter pr-8" value={null}>Tidak ada program studi</SelectItem>
+                }
+            </SelectContent>
+        </Select>
+    )
+}
+
+const CategoryFilter = ({onChange}) => {
+    return (
+        <Select onValueChange={onChange}>
+            <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
+                <SelectValue className="" placeholder='Kategori' />
+            </SelectTrigger>
+            <SelectContent>
+                <SelectItem value="wajib" className="!text-seven-font-size-filter">Wajib</SelectItem>
+                <SelectItem value="pilihan" className="!text-seven-font-size-filter">Pilihan</SelectItem>
+            </SelectContent>
+        </Select>
+    )
+}
+
+const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
+    return (
+        <Select defaultValue={totalPage > 0 ? defaultValue : null} onValueChange={onChange}>
+            <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
+                <SelectValue className="" placeholder='Page' />
+            </SelectTrigger>
+            <SelectContent>
+                {Array.from({ length: totalPage }, (_, idx) => (
+                    <SelectItem className="!text-seven-font-size-filter" key={idx} value={idx + 1}>{idx + 1}</SelectItem>
+                ))}
+
+                {totalPage === 0 &&
+                    <SelectItem className="!text-seven-font-size-filter pr-8" disabled>Tidak ada halaman</SelectItem>
+                }
+            </SelectContent>
+        </Select>
+    )
+}
+
 const DaftarMataKuliah = () => {
 
-    const [subjects, setSubjects] = useState(DEFAULT_SUBJECTS);
+    const [subjects, setSubjects] = useState(DEFAULT_SUBJECTS.slice(0, PAGE_SIZE));
     const [showFilter, setShowFilter] = useState(false);
+
+    const [faculty, setFaculty] = useState(null);
+    const [totalPage, setTotalPage] = useState(Math.ceil(DEFAULT_SUBJECTS.length / PAGE_SIZE));
+    const pageRef = useRef(1);
+    const facultyRef = useRef(null);
+    const studyCodeRef = useRef(null);
+    const categoryRef = useRef(null);
+    const searchRef = useRef('');
+
+    const setFacultyState = (value) => {
+        facultyRef.current = value;
+        setFaculty(value);
+    }
+
+    const getCurrentSubjects = () => {
+        const result = getSubjects({
+            page: pageRef.current, 
+            faculty: facultyRef.current, 
+            studyCode: studyCodeRef.current, 
+            category: categoryRef.current, 
+            search: searchRef.current
+        })
+
+        setTotalPage(result.total_page);
+
+        return result.data;
+    }
+
+    const onSelectPage = (value) => {
+        pageRef.current = value;
+        setSubjects(getCurrentSubjects())
+    }
+
+    const onSelectFaculty = (value) => {
+        pageRef.current = 1;
+        setFacultyState(value);
+        setSubjects(getCurrentSubjects());
+    }
+
+    const onSelectStudy = (value) => {
+        pageRef.current = 1;
+        studyCodeRef.current = value;
+        setSubjects(getCurrentSubjects());
+    }
+
+    const onSelectCategory = (value) => {
+        pageRef.current = 1;
+        categoryRef.current = value;
+        setSubjects(getCurrentSubjects());
+    }
+
+    const onSearch = () => {
+        pageRef.current = 1;
+        setSubjects(getCurrentSubjects());
+    }
+
+    const onEnterSearch = (event) => {
+        // Check if the pressed key is Enter (key code 13)
+        if (event.key === 'Enter') {
+            onSearch();
+        }
+    }
 
     return ( 
         <PageTemplate pageTitle='Daftar Mata Kuliah' breadCrumbs={[{href: '/daftar-mata-kuliah', label: 'Daftar Mata Kuliah'}]}>
             <div className="flex flex-col gap-5 sm:flex-row sm:justify-between">
-                <div className="flex flex-row w-full">
-                    <input maxLength={255} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
-                    <Button className="h-fit px-[12px] py-[8px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
-                        <FaSearch size={12}/>
-                    </Button>
+                <div className="flex flex-row gap-5 w-full">
+                    <div className="w-fit">
+                        <SubjectPageSelect totalPage={totalPage} onChange={onSelectPage} defaultValue={pageRef.current}/>
+                    </div>
+                    <div className="flex flex-row w-full sm:max-w-[500px]">
+                        <input onKeyDown={onEnterSearch} onChange={e => searchRef.current = e.target.value} placeholder="Cari kode atau nama mata kuliah" maxLength={255} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
+                        <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
+                            <FaSearch size={12}/>
+                        </Button>
+                    </div>
                 </div>
-                <div className="flex flex-row gap-4 items-center w-full sm:w-auto">
+  
+                <div className="flex flex-row gap-4 items-center w-full sm:w-auto justify-end">
                     {showFilter &&
                         <div className="flex flex-row gap-4 items-center w-full">
-                            <SubjectFilter label='Fakultas'/>
-                            <SubjectFilter label='Prodi'/>
-                            <SubjectFilter label='Wajib'/>
+                            <FacultyFilter faculties={FACULTIES} onChange={onSelectFaculty}/>
+                            <StudyFilter studies={STUDIES[faculty]} onChange={onSelectStudy}/>
+                            <CategoryFilter onChange={onSelectCategory}/>
                         </div>
                     }
-                    <Button className="h-fit px-[12px] py-[8px] bg-seven-bg-button-primary border border-seven-border-button-primary hover:bg-seven-bg-button-primary-hover" onClick={() => {setShowFilter(oldValue => !oldValue)}}>
+                    <Button className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-seven-border-button-primary hover:bg-seven-bg-button-primary-hover" onClick={() => {setShowFilter(oldValue => !oldValue)}}>
                         <FaFilter size={12}/>
                     </Button>
                 </div>
