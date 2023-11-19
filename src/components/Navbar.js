@@ -22,15 +22,23 @@ import {
   FaUser,
   FaUsers,
   FaUniversity,
+  FaBars,
 } from "react-icons/fa";
 import { FaMoneyBill1Wave } from "react-icons/fa6";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "./ui/accordion";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 
 const Menu = ({ href, label, Icon }) => {
   return (
     <DropdownMenuItem className="p-0">
       <Link
         href={href}
-        className="flex items-center space-x-2 text-seven-foreground-light hover:bg-seven-hover-light w-full px-4 py-2"
+        className="flex w-full items-center space-x-2 px-4 py-2 text-seven-foreground-light hover:bg-seven-hover-light"
       >
         <Icon size={16} />
         <span>{label}</span>
@@ -39,22 +47,65 @@ const Menu = ({ href, label, Icon }) => {
   );
 };
 
-function MobileNavbar() {
+function MobileNavbar(props) {
   return (
     <div className="flex lg:hidden">
-      <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button className="bg-transparent flex items-center gap-1.5 text-seven-foreground-dark py-0 hover:bg-seven-selected-item-dark">
-            <FaCaretDown size={14} />
+      <Popover>
+        <PopoverTrigger asChild>
+          <Button className="flex items-center gap-1.5 bg-transparent py-0 text-seven-foreground-dark hover:bg-seven-selected-item-dark">
+            <FaBars size={14} />
           </Button>
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuItem>Profile</DropdownMenuItem>
-          <DropdownMenuItem>Billing</DropdownMenuItem>
-          <DropdownMenuItem>Team</DropdownMenuItem>
-          <DropdownMenuItem>Subscription</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
+        </PopoverTrigger>
+        <PopoverContent className="max-h-[400px] overflow-auto px-4 py-1">
+          <div className="flex flex-col gap-2 lg:hidden">
+            <Accordion type="single" collapsible>
+              <AccordionItem value="aplikasi">
+                <AccordionTrigger className="hover:no-underline">
+                  Aplikasi
+                </AccordionTrigger>
+                <AccordionContent>
+                  {props.aplikasiItems.map(({ name, href, icon }, index) => {
+                    const Icon = icon;
+                    return (
+                      <Link
+                        key={name + index}
+                        href={href ?? "/"}
+                        className="flex w-full items-center space-x-2 px-4 py-2 text-seven-foreground-light hover:bg-seven-hover-light"
+                      >
+                        <Icon size={16} />
+                        <span>{name}</span>
+                      </Link>
+                    );
+                  })}
+                </AccordionContent>
+              </AccordionItem>
+              <AccordionItem value="profile" className="border-none">
+                <AccordionTrigger className="hover:no-underline">
+                  <div className="flex items-center gap-2">
+                    <FaRegUserCircle size={16} />
+                    <span>Sepuh Puh Sepuh</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  {props.profileItems.map(({ name, href, icon }, index) => {
+                    const Icon = icon;
+                    return (
+                      <Link
+                        key={name + index}
+                        href={href ?? "/"}
+                        className="flex w-full items-center space-x-2 px-4 py-2 text-seven-foreground-light hover:bg-seven-hover-light"
+                      >
+                        <Icon size={16} />
+                        <span>{name}</span>
+                      </Link>
+                    );
+                  })}
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
+          </div>
+        </PopoverContent>
+      </Popover>
     </div>
   );
 }
@@ -91,8 +142,8 @@ export default function Navbar() {
   ];
   return (
     <>
-      <nav className="w-full py-1 px-4 xl:px-0 sticky top-0 bg-seven-bg-navbar z-[100]">
-        <div className="w-full flex items-center justify-between text-seven-foreground-dark max-w-[1140px] mx-auto">
+      <nav className="sticky top-0 z-[100] w-full bg-seven-bg-navbar px-4 py-1 xl:px-0">
+        <div className="mx-auto flex w-full max-w-[1140px] items-center justify-between text-seven-foreground-dark">
           <div className="flex items-center gap-3">
             <Link
               href="/"
@@ -104,7 +155,7 @@ export default function Navbar() {
             <div className="hidden lg:flex">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button className="bg-transparent flex items-center gap-1.5 text-seven-foreground-dark py-0 hover:bg-seven-selected-item-dark">
+                  <Button className="flex items-center gap-1.5 bg-transparent py-0 text-seven-foreground-dark hover:bg-seven-selected-item-dark">
                     <span>Aplikasi</span>
                     <FaCaretDown size={14} />
                   </Button>
@@ -112,7 +163,7 @@ export default function Navbar() {
                 <DropdownMenuContent>
                   {aplikasiItems.map((elmt, idx) => (
                     <Menu
-                      key={idx}
+                      key={elmt.name + idx}
                       href={elmt.href ?? "/"}
                       label={elmt.name}
                       Icon={elmt.icon}
@@ -122,13 +173,13 @@ export default function Navbar() {
               </DropdownMenu>
             </div>
           </div>
-          <div className="flex gap-2 items-center">
+          <div className="flex items-center gap-2">
             <Button
               className={`${
                 isID
                   ? "bg-seven-selected-item-dark text-seven-foreground-dark"
                   : "bg-transparent"
-              } hover:bg-seven-selected-item-dark hidden lg:flex`}
+              } hover:bg-seven-selected-item-dark lg:flex`}
               onClick={() => {
                 !isID && setIsID(true);
               }}
@@ -140,7 +191,7 @@ export default function Navbar() {
                 isID
                   ? "bg-transparent"
                   : "bg-seven-selected-item-dark text-seven-foreground-dark"
-              } hover:bg-seven-selected-item-dark hidden lg:flex`}
+              } hover:bg-seven-selected-item-dark lg:flex`}
               onClick={() => {
                 isID && setIsID(false);
               }}
@@ -150,7 +201,7 @@ export default function Navbar() {
             <div className="hidden lg:flex">
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button className="bg-transparent flex items-center gap-1.5 text-seven-foreground-dark py-0 hover:bg-seven-selected-item-dark">
+                  <Button className="flex items-center gap-1.5 bg-transparent py-0 text-seven-foreground-dark hover:bg-seven-selected-item-dark">
                     <FaRegUserCircle size={16} />
                     <span>Sepuh Puh Sepuh</span>
                     <FaCaretDown size={14} />
@@ -159,7 +210,7 @@ export default function Navbar() {
                 <DropdownMenuContent>
                   {profileItems.map((elmt, idx) => (
                     <Menu
-                      key={idx}
+                      key={elmt.name + idx}
                       href={elmt.href ?? "/"}
                       label={elmt.name}
                       Icon={elmt.icon}
@@ -168,7 +219,12 @@ export default function Navbar() {
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
-            <MobileNavbar />
+            <MobileNavbar
+              aplikasiItems={aplikasiItems}
+              profileItems={profileItems}
+              isID={isID}
+              setIsID={setIsID}
+            />
           </div>
         </div>
       </nav>
