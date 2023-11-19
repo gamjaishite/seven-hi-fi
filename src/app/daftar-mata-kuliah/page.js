@@ -11,7 +11,7 @@ import {
     SelectValue,
   } from "@/components/ui/select";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { FaFilter, FaSearch } from "react-icons/fa";
 import {DEFAULT_SUBJECTS, PAGE_SIZE, FACULTIES, STUDIES} from '@/app/daftar-mata-kuliah/data';
 
@@ -34,15 +34,12 @@ const getSubjects = ({page, faculty, studyCode, category, search}) => {
 
     search = search.toLowerCase();
 
-    console.log(faculty);
-
     const result = DEFAULT_SUBJECTS.filter((elmt) => {
         if (faculty && elmt.faculty !== faculty) return false;
         if (studyCode && elmt.study.code !== studyCode) return false;
         if (category && elmt.category !== category) return false;
         if (search && !(elmt.code.toLowerCase().includes(search) || elmt.name.toLowerCase().includes(search))) return false;
         return true;
-
     });
 
     const start = (page-1) * PAGE_SIZE;
@@ -108,13 +105,40 @@ const SubjectsTable = ({subjects = []}) => {
     )
 }
 
-const FacultyFilter = ({faculties = [], onChange}) => {
+const FacultyFilter = ({faculties = [], value, onChange}) => {
+
+    const selectedValueRef = useRef(value);
+    const changeRef = useRef(true);
+
+    const onValueChange = (value) => {
+        selectedValueRef.current = value;
+    }
+
+    const onClickOutside = () => {
+        changeRef.current = false;
+    }
+
+    const onClose = () => {
+
+        if (!changeRef.current) {
+            changeRef.current = true;
+            return;
+        };
+
+        if (value === selectedValueRef.current)
+        {
+            selectedValueRef.current = "";
+        }
+
+        onChange(selectedValueRef.current);
+    }
+
     return (
-        <Select onValueChange={onChange}>
+        <Select value={value} onValueChange={onValueChange}>
             <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
                 <SelectValue className="" placeholder='Fakultas' />
             </SelectTrigger>
-            <SelectContent className="max-h-[300px]">
+            <SelectContent className="max-h-[300px]" onCloseAutoFocus={onClose} onPointerDownOutside={onClickOutside}>
                 {faculties.map((elmt, idx) => (
                     <SelectItem key={idx} value={elmt} className="!text-seven-font-size-filter">{elmt}</SelectItem>
                 ))
@@ -124,13 +148,40 @@ const FacultyFilter = ({faculties = [], onChange}) => {
     )
 }
   
-const StudyFilter = ({studies, onChange}) => {
+const StudyFilter = ({studies, value, onChange}) => {
+
+    const selectedValueRef = useRef(value);
+    const changeRef = useRef(true);
+
+    const onValueChange = (value) => {
+        selectedValueRef.current = value;
+    }
+
+    const onClickOutside = () => {
+        changeRef.current = false;
+    }
+
+    const onClose = () => {
+
+        if (!changeRef.current) {
+            changeRef.current = true;
+            return;
+        };
+
+        if (value === selectedValueRef.current)
+        {
+            selectedValueRef.current = "";
+        }
+
+        onChange(selectedValueRef.current);
+    }
+
     return (
-        <Select onValueChange={onChange}>
+        <Select value={value} onValueChange={onValueChange}>
             <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
                 <SelectValue className="" placeholder='Program Studi' />
             </SelectTrigger>
-            <SelectContent className="max-h-[300px]">
+            <SelectContent className="max-h-[300px]" onCloseAutoFocus={onClose} onPointerDownOutside={onClickOutside}>
                 {studies && Object.keys(studies).map((elmt, idx) => (
                     <SelectGroup key={idx}>
                         <SelectLabel>{capitalizeFirstLetter(elmt)}</SelectLabel>
@@ -154,13 +205,40 @@ const StudyFilter = ({studies, onChange}) => {
     )
 }
 
-const CategoryFilter = ({onChange}) => {
+const CategoryFilter = ({onChange, value}) => {
+
+    const selectedValueRef = useRef(value);
+    const changeRef = useRef(true);
+
+    const onValueChange = (value) => {
+        selectedValueRef.current = value;
+    }
+
+    const onClickOutside = () => {
+        changeRef.current = false;
+    }
+
+    const onClose = () => {
+
+        if (!changeRef.current) {
+            changeRef.current = true;
+            return;
+        };
+
+        if (value === selectedValueRef.current)
+        {
+            selectedValueRef.current = "";
+        }
+
+        onChange(selectedValueRef.current);
+    }
+
     return (
-        <Select onValueChange={onChange}>
+        <Select value={value} onValueChange={onValueChange}>
             <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
                 <SelectValue className="" placeholder='Kategori' />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent onCloseAutoFocus={onClose} onPointerDownOutside={onClickOutside}>
                 <SelectItem value="wajib" className="!text-seven-font-size-filter">Wajib</SelectItem>
                 <SelectItem value="pilihan" className="!text-seven-font-size-filter">Pilihan</SelectItem>
             </SelectContent>
@@ -169,15 +247,75 @@ const CategoryFilter = ({onChange}) => {
 }
 
 const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
+    
+    const [value, setValue] = useState(defaultValue);
+    const searchRef = useRef(null);
+    const searchDebounceTimerRef = useRef(null);
+
+    const [search, setSearch] = useState('');
+
+    const onValueChange = (value) => {
+        setValue(value);
+        onChange(value);
+    }
+
+    const onKeyDown = (event) => {
+
+        if (event.key === 'Enter') {
+            onSearch();
+        }
+
+        if (!(event.key === 'Backspace') && !/[0-9]/.test(event.key)) {
+            event.preventDefault();
+        }
+    }
+
+    const onSearchChange = (e) => {
+        searchRef.current = e.target.value;
+
+        // debounce for onsearch with time 500 ms
+        if (searchDebounceTimerRef.current) {
+            clearTimeout(searchDebounceTimerRef.current);
+        }
+      
+          // Set a new timeout for 500 milliseconds
+        searchDebounceTimerRef.current = setTimeout(() => {
+            onSearch();
+        }, 500);
+    }
+
+    const onSearch = () => {
+        if (searchDebounceTimerRef.current) {
+            clearTimeout(searchDebounceTimerRef.current);
+        }
+        setSearch(searchRef.current);
+    }
+
+    useEffect(() => {
+        setValue( totalPage ? 1 : '');
+    }, [totalPage, setValue])
+
+    // onChange={e => searchRef.current = e.target.value}
+
     return (
-        <Select defaultValue={totalPage > 0 ? defaultValue : null} onValueChange={onChange}>
+        <Select value={totalPage ? value : ''} onValueChange={onValueChange}>
             <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
-                <SelectValue className="" placeholder='Page' />
+                <SelectValue className="" placeholder='Halaman' />
             </SelectTrigger>
             <SelectContent>
-                {Array.from({ length: totalPage }, (_, idx) => (
-                    <SelectItem className="!text-seven-font-size-filter" key={idx} value={idx + 1}>{idx + 1}</SelectItem>
-                ))}
+                <div className="flex flex-row justify-between mb-1">
+                    <input onKeyDown={onKeyDown} onChange={onSearchChange} onBlur={e => e.preventDefault()} placeholder="Cari halaman" maxLength={3} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
+                    <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
+                        <FaSearch size={12}/>
+                    </Button>
+                </div>
+                {Array.from({ length: totalPage }, (_, idx) => {
+                    const val = idx + 1;
+
+                    return  (
+                        <SelectItem className={`!text-seven-font-size-filter ${val.toString().startsWith(search) ? '' : 'hidden'}`} key={idx} value={val}>{'\0' + val}</SelectItem>
+                    );
+                })}
 
                 {totalPage === 0 &&
                     <SelectItem className="!text-seven-font-size-filter pr-8" disabled>Tidak ada halaman</SelectItem>
@@ -192,17 +330,31 @@ const DaftarMataKuliah = () => {
     const [subjects, setSubjects] = useState(DEFAULT_SUBJECTS.slice(0, PAGE_SIZE));
     const [showFilter, setShowFilter] = useState(false);
 
-    const [faculty, setFaculty] = useState(null);
+    const [faculty, setFaculty] = useState("");
+    const [studyCode, setStudyCode] = useState("");
+    const [category, setCategory] = useState("");
+
     const [totalPage, setTotalPage] = useState(Math.ceil(DEFAULT_SUBJECTS.length / PAGE_SIZE));
+
     const pageRef = useRef(1);
-    const facultyRef = useRef(null);
-    const studyCodeRef = useRef(null);
-    const categoryRef = useRef(null);
+    const facultyRef = useRef(faculty);
+    const studyCodeRef = useRef(studyCode);
+    const categoryRef = useRef(category);
     const searchRef = useRef('');
 
     const setFacultyState = (value) => {
         facultyRef.current = value;
         setFaculty(value);
+    }
+
+    const setStudyCodeState = (value) => {
+        studyCodeRef.current = value;
+        setStudyCode(value);
+    }
+
+    const setCategoryState = (value) => {
+        categoryRef.current = value;
+        setCategory(value);
     }
 
     const getCurrentSubjects = () => {
@@ -226,19 +378,24 @@ const DaftarMataKuliah = () => {
 
     const onSelectFaculty = (value) => {
         pageRef.current = 1;
+
+        setStudyCodeState("");
+
         setFacultyState(value);
         setSubjects(getCurrentSubjects());
     }
 
     const onSelectStudy = (value) => {
         pageRef.current = 1;
-        studyCodeRef.current = value;
+
+        setStudyCodeState(value);
         setSubjects(getCurrentSubjects());
     }
 
     const onSelectCategory = (value) => {
         pageRef.current = 1;
-        categoryRef.current = value;
+
+        setCategoryState(value);
         setSubjects(getCurrentSubjects());
     }
 
@@ -272,9 +429,9 @@ const DaftarMataKuliah = () => {
                 <div className="flex flex-row gap-4 items-center w-full sm:w-auto justify-end">
                     {showFilter &&
                         <div className="flex flex-row gap-4 items-center w-full">
-                            <FacultyFilter faculties={FACULTIES} onChange={onSelectFaculty}/>
-                            <StudyFilter studies={STUDIES[faculty]} onChange={onSelectStudy}/>
-                            <CategoryFilter onChange={onSelectCategory}/>
+                            <FacultyFilter value={faculty} faculties={FACULTIES} onChange={onSelectFaculty}/>
+                            <StudyFilter value={studyCode} studies={STUDIES[faculty]} onChange={onSelectStudy}/>
+                            <CategoryFilter value={category} onChange={onSelectCategory}/>
                         </div>
                     }
                     <Button className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-seven-border-button-primary hover:bg-seven-bg-button-primary-hover" onClick={() => {setShowFilter(oldValue => !oldValue)}}>
