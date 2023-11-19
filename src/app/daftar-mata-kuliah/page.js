@@ -249,15 +249,53 @@ const CategoryFilter = ({onChange, value}) => {
 const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
     
     const [value, setValue] = useState(defaultValue);
+    const searchRef = useRef(null);
+    const searchDebounceTimerRef = useRef(null);
+
+    const [search, setSearch] = useState('');
 
     const onValueChange = (value) => {
         setValue(value);
         onChange(value);
     }
 
+    const onKeyDown = (event) => {
+
+        if (event.key === 'Enter') {
+            onSearch();
+        }
+
+        if (!(event.key === 'Backspace') && !/[0-9]/.test(event.key)) {
+            event.preventDefault();
+        }
+    }
+
+    const onSearchChange = (e) => {
+        searchRef.current = e.target.value;
+
+        // debounce for onsearch with time 500 ms
+        if (searchDebounceTimerRef.current) {
+            clearTimeout(searchDebounceTimerRef.current);
+        }
+      
+          // Set a new timeout for 500 milliseconds
+        searchDebounceTimerRef.current = setTimeout(() => {
+            onSearch();
+        }, 500);
+    }
+
+    const onSearch = () => {
+        if (searchDebounceTimerRef.current) {
+            clearTimeout(searchDebounceTimerRef.current);
+        }
+        setSearch(searchRef.current);
+    }
+
     useEffect(() => {
         setValue( totalPage ? 1 : '');
     }, [totalPage, setValue])
+
+    // onChange={e => searchRef.current = e.target.value}
 
     return (
         <Select value={totalPage ? value : ''} onValueChange={onValueChange}>
@@ -265,9 +303,19 @@ const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
                 <SelectValue className="" placeholder='Halaman' />
             </SelectTrigger>
             <SelectContent>
-                {Array.from({ length: totalPage }, (_, idx) => (
-                    <SelectItem className="!text-seven-font-size-filter" key={idx} value={idx + 1}>{idx + 1}</SelectItem>
-                ))}
+                <div className="flex flex-row justify-between mb-1">
+                    <input onKeyDown={onKeyDown} onChange={onSearchChange} onBlur={e => e.preventDefault()} placeholder="Cari halaman" maxLength={3} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
+                    <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
+                        <FaSearch size={12}/>
+                    </Button>
+                </div>
+                {Array.from({ length: totalPage }, (_, idx) => {
+                    const val = idx + 1;
+
+                    return  (
+                        <SelectItem className={`!text-seven-font-size-filter ${val.toString().startsWith(search) ? '' : 'hidden'}`} key={idx} value={val}>{'\0' + val}</SelectItem>
+                    );
+                })}
 
                 {totalPage === 0 &&
                     <SelectItem className="!text-seven-font-size-filter pr-8" disabled>Tidak ada halaman</SelectItem>
