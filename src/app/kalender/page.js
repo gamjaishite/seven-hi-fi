@@ -20,7 +20,11 @@ export default function Jadwal() {
   const [mode, setMode] = useState("month");
   const [presensi, setPresensi] = useState({
     "8/1/2023": { IF3151: "ATTEND" },
-    "8/2/2023": { IF4031: "NOT ATTEND", IF3141: "ACTIVE" },
+    "8/2/2023": {
+      IF4031: "NOT ATTEND",
+      IF3141: "ACTIVE",
+      IF3170: "WILL ACTIVE",
+    },
   });
 
   const presensiAttributes = {
@@ -36,6 +40,10 @@ export default function Jadwal() {
       class: "bg-seven-bg-presensi-exist text-seven-foreground-dark",
       icon: <FaRegCircle />,
     },
+    "WILL ACTIVE": {
+      class: "bg-seven-bg-presensi-exist text-seven-foreground-dark",
+      icon: <FaRegCircle />,
+    },
   };
 
   const breadCrumbItems = [
@@ -45,12 +53,12 @@ export default function Jadwal() {
 
   const secNav = {
     "/kalender": [
-      <FaCalendarAlt className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
+      <FaCalendarAlt className="hover:text-seven-hyperlink-hover text-seven-hyperlink" />,
       <FaCalendarAlt />,
       "Kalender",
     ],
     "/jadwal": [
-      <FaClipboardList className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
+      <FaClipboardList className="hover:text-seven-hyperlink-hover text-seven-hyperlink" />,
       <FaClipboardList className="" />,
       "Jadwal Kuliah",
     ],
@@ -74,6 +82,7 @@ export default function Jadwal() {
         <MonthlyCalendar
           semester={semester}
           presensi={presensi}
+          setPresensi={setPresensi}
           presensiAttributes={presensiAttributes}
         />
       )}

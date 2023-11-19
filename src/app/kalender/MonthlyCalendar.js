@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { FaRegCircle } from "react-icons/fa";
+import DialogPresensi from "./DialogPresensi";
 
 function getMonthAndYears(semester) {
   const months = [];
@@ -44,7 +45,12 @@ function getMonthAndYears(semester) {
   return months;
 }
 
-function Calendar({ selectedMonth, presensi, presensiAttributes }) {
+function Calendar({
+  selectedMonth,
+  presensi,
+  presensiAttributes,
+  setPresensi,
+}) {
   const date = new Date(selectedMonth.year, selectedMonth.month);
   date.setDate(date.getDate() - date.getDay());
 
@@ -79,7 +85,7 @@ function Calendar({ selectedMonth, presensi, presensiAttributes }) {
                 return (
                   <TableCell
                     className="h-full min-h-[107px] border border-seven-border-grey p-2 align-top"
-                    key={item}
+                    key={`j ${idx}`}
                   >
                     <div className="flex w-full min-w-[180px] flex-col gap-1 ">
                       <span
@@ -98,7 +104,7 @@ function Calendar({ selectedMonth, presensi, presensiAttributes }) {
                       <div className="flex flex-col [&>*:not(:last-child)]:border-b">
                         {item.classes.map((cls, idx) => (
                           <div
-                            key={cls}
+                            key={`${idx} - item`}
                             className={`
                            flex items-start gap-1 py-2 text-xs`}
                           >
@@ -139,49 +145,57 @@ function Calendar({ selectedMonth, presensi, presensiAttributes }) {
                               )}
                             </span>
                             <div className="flex flex-col gap-2">
-                              <span
-                                className={`${
-                                  (presensi[
-                                    date.toLocaleDateString("en-US", {
-                                      year: "numeric",
-                                      month: "numeric",
-                                      day: "numeric",
-                                    })
-                                  ] &&
-                                    presensi[
-                                      date.toLocaleDateString("en-US", {
-                                        year: "numeric",
-                                        month: "numeric",
-                                        day: "numeric",
-                                      })
-                                    ][cls.matkulCode] &&
-                                    presensiAttributes[
-                                      presensi[
+                              <DialogPresensi
+                                cls={cls}
+                                date={new Date(date.toLocaleDateString())}
+                                presensi={presensi}
+                                setPresensi={setPresensi}
+                                trigger={
+                                  <span
+                                    className={`${
+                                      (presensi[
                                         date.toLocaleDateString("en-US", {
                                           year: "numeric",
                                           month: "numeric",
                                           day: "numeric",
                                         })
-                                      ][cls.matkulCode]
-                                    ] &&
-                                    presensiAttributes[
-                                      presensi[
-                                        date.toLocaleDateString("en-US", {
-                                          year: "numeric",
-                                          month: "numeric",
-                                          day: "numeric",
-                                        })
-                                      ][cls.matkulCode]
-                                    ].class) ??
-                                  "text-seven-hyperlink hover:text-seven-hyperlink-hover"
-                                } line-clamp-2 cursor-pointer rounded-md px-1 hover:underline`}
-                              >
-                                {cls.start}-{cls.end}{" "}
-                                <span className="font-bold">
-                                  {cls.matkulCode}
-                                </span>{" "}
-                                {cls.matkulName}
-                              </span>
+                                      ] &&
+                                        presensi[
+                                          date.toLocaleDateString("en-US", {
+                                            year: "numeric",
+                                            month: "numeric",
+                                            day: "numeric",
+                                          })
+                                        ][cls.matkulCode] &&
+                                        presensiAttributes[
+                                          presensi[
+                                            date.toLocaleDateString("en-US", {
+                                              year: "numeric",
+                                              month: "numeric",
+                                              day: "numeric",
+                                            })
+                                          ][cls.matkulCode]
+                                        ] &&
+                                        presensiAttributes[
+                                          presensi[
+                                            date.toLocaleDateString("en-US", {
+                                              year: "numeric",
+                                              month: "numeric",
+                                              day: "numeric",
+                                            })
+                                          ][cls.matkulCode]
+                                        ].class) ??
+                                      "hover:text-seven-hyperlink-hover text-seven-hyperlink"
+                                    } line-clamp-2 cursor-pointer rounded-md px-1 hover:underline`}
+                                  >
+                                    {cls.start}-{cls.end}{" "}
+                                    <span className="font-bold">
+                                      {cls.matkulCode}
+                                    </span>{" "}
+                                    {cls.matkulName}
+                                  </span>
+                                }
+                              />
                               <span className="px-1">{cls.location}</span>
                             </div>
                           </div>
@@ -203,6 +217,7 @@ export default function MonthlyCalendar({
   semester,
   presensiAttributes,
   presensi,
+  setPresensi,
 }) {
   const monthAndYears = getMonthAndYears(semester);
   const [selectedMonth, setSelectedMonth] = useState(monthAndYears[0]);
@@ -215,9 +230,9 @@ export default function MonthlyCalendar({
     <>
       <div className="flex flex-col">
         <div className="flex flex-wrap items-center gap-1">
-          {monthAndYears.map((item) => (
+          {monthAndYears.map((item, idx) => (
             <Button
-              key={item}
+              key={`${idx} - my`}
               className={`${
                 selectedMonth.label === item.label
                   ? "rounded-b-none rounded-t-sm border border-b-0 border-seven-border-grey text-seven-foreground-light"
@@ -234,6 +249,7 @@ export default function MonthlyCalendar({
           selectedMonth={selectedMonth}
           presensi={presensi}
           presensiAttributes={presensiAttributes}
+          setPresensi={setPresensi}
         />
       </div>
     </>
