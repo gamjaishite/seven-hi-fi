@@ -113,4 +113,8 @@
   a {
     @apply text-seven-hyperlink;
   }
+
+  a:hover {
+    @apply text-seven-hyperlink-hover;
+  }
 }
