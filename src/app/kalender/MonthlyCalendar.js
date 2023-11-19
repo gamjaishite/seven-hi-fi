@@ -80,7 +80,7 @@ function Calendar({
               className="border border-seven-border-grey"
               key={`${i}trow`}
             >
-              {jadwal.map((item, idx) => {
+              {jadwal.map((item, j) => {
                 date.setDate(date.getDate() + 1);
                 if (date.getDay() === 6) {
                   date.setDate(date.getDate() + 2);
@@ -88,7 +88,7 @@ function Calendar({
                 return (
                   <TableCell
                     className="h-full min-h-[107px] border border-seven-border-grey p-2 align-top"
-                    key={`j ${idx}`}
+                    key={`${j}-tcell`}
                   >
                     <div className="flex w-full min-w-[180px] flex-col gap-1 ">
                       <span
