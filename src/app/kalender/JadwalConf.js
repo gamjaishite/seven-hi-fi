@@ -28,23 +28,37 @@ const monthsName = [
 function SelectSemester({ semester, setSemester }) {
   return (
     <Select defaultValue={semester} onValueChange={setSemester}>
-      <SelectTrigger className="min-w-max space-x-2 border border-seven-border-filter">
+      <SelectTrigger className="min-w-max space-x-2 border border-seven-border-filter !text-seven-font-size-filter">
         <SelectValue placeholder="Semester" />
       </SelectTrigger>
       <SelectContent>
         <SelectGroup>
-          <SelectLabel>2023/2024</SelectLabel>
+          <SelectLabel className="!text-seven-font-size-filter">
+            2023/2024
+          </SelectLabel>
           <SelectItem
             value="1-2023/2024"
-            className="text-seven-font-size-page-title"
+            className="!text-seven-font-size-filter"
           >
             Semester 1 - 2023/2024
           </SelectItem>
         </SelectGroup>
         <SelectGroup>
-          <SelectLabel>2022/2023</SelectLabel>
-          <SelectItem value="3-2022/2023">Semester 3 - 2022/2023</SelectItem>
-          <SelectItem value="2-2022/2023">Semester 2 - 2022/2023</SelectItem>
+          <SelectLabel className="!text-seven-font-size-filter">
+            2022/2023
+          </SelectLabel>
+          <SelectItem
+            className="!text-seven-font-size-filter"
+            value="3-2022/2023"
+          >
+            Semester 3 - 2022/2023
+          </SelectItem>
+          <SelectItem
+            className="!text-seven-font-size-filter"
+            value="2-2022/2023"
+          >
+            Semester 2 - 2022/2023
+          </SelectItem>
         </SelectGroup>
       </SelectContent>
     </Select>
@@ -54,12 +68,16 @@ function SelectSemester({ semester, setSemester }) {
 function SelectMode({ mode, setMode }) {
   return (
     <Select defaultValue={mode} onValueChange={setMode}>
-      <SelectTrigger className="space-x-2 border border-seven-border-filter">
+      <SelectTrigger className="space-x-2 border border-seven-border-filter !text-seven-font-size-filter">
         <SelectValue placeholder="Mode" />
       </SelectTrigger>
       <SelectContent>
-        <SelectItem value="month">Bulan</SelectItem>
-        <SelectItem value="week">Minggu</SelectItem>
+        <SelectItem value="month" className="!text-seven-font-size-filter">
+          Bulan
+        </SelectItem>
+        <SelectItem value="week" className="!text-seven-font-size-filter">
+          Minggu
+        </SelectItem>
       </SelectContent>
     </Select>
   );

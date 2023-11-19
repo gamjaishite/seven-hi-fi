@@ -11,7 +11,7 @@
         "lecturer": "Dr. Agung Dewandaru, S.T., M.Sc.",
         "location": "Kuliah 7609 7610",
         "duration": 2,
-        "status": "skipped"
+        "status": "empty"
       },
       {
         "start": "09:00",
@@ -21,7 +21,7 @@
         "lecturer": "Dr. Eng. Ayu Purwarianti, S.T, M.T.",
         "location": "Kuliah 7602",
         "duration": 2,
-        "status": "filled"
+        "status": "empty"
       },
       {
         "start": "15:00",
@@ -31,7 +31,7 @@
         "lecturer": "Dr. techn. Muhammad Zuhri Catur Candra, S.T, M.T.",
         "location": "Kuliah 7604",
         "duration": 2,
-        "status": "filled"
+        "status": "empty"
       }
     ]
   },
@@ -57,7 +57,7 @@
         "lecturer": "Ir. Afwarman, M.Sc., Ph.D.",
         "location": "Kuliah 7602",
         "duration": 3,
-        "status": "skipped"
+        "status": "empty"
       }
     ]
   },
@@ -73,7 +73,7 @@
         "lecturer": "Dr. techn. Muhammad Zuhri Catur Candra, S.T, M.T.",
         "location": "Kuliah 7603",
         "duration": 1,
-        "status": "filled"
+        "status": "skipped"
       },
       {
         "start": "08:00",
@@ -83,7 +83,7 @@
         "lecturer": "Dicky Prima Satya, S.T, M.T.",
         "location": "Kuliah 7609 7610",
         "duration": 2,
-        "status": "empty"
+        "status": "open"
       },
       {
         "start": "10:00",
@@ -93,7 +93,7 @@
         "lecturer": "Dr. Eng. Ayu Purwarianti, S.T, M.T.",
         "location": "Kuliah 7602",
         "duration": 1,
-        "status": "filled"
+        "status": "open"
       }
     ]
   },
@@ -109,7 +109,7 @@
         "lecturer": "Dr. Yani Widyani, S.T, M.T.",
         "location": "Kuliah 7609 7610",
         "duration": 2,
-        "status": "skipped"
+        "status": "empty"
       }
     ]
   },
@@ -135,7 +135,7 @@
         "lecturer": "Tricya Esterina Widagdo, S.T., M.Sc.",
         "location": "Kuliah 7602",
         "duration": 2,
-        "status": "open"
+        "status": "empty"
       },
       {
         "start": "10:00",
@@ -145,7 +145,7 @@
         "lecturer": "Adi Mulyanto, S.T, M.T.",
         "location": "Kuliah 7609 7610",
         "duration": 1,
-        "status": "open"
+        "status": "empty"
       }
     ]
   }

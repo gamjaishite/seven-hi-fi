@@ -13,6 +13,7 @@ export default function DialogPresensi({
   date,
   presensi,
   setPresensi,
+  setStatus,
 }) {
   const presensiState =
     presensi[
@@ -45,7 +46,6 @@ export default function DialogPresensi({
             <Button
               className="hover:bg-seven-hyperlink-hover mx-auto my-4 max-w-max bg-seven-hyperlink"
               onClick={() => {
-                console.log("baka");
                 presensi[
                   date.toLocaleDateString("en-US", {
                     year: "numeric",
@@ -54,6 +54,9 @@ export default function DialogPresensi({
                   })
                 ][cls.matkulCode] = "ATTEND";
                 setPresensi({ ...presensi });
+                if (setStatus) {
+                  setStatus("filled");
+                }
               }}
             >
               Tandai Hadir

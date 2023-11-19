@@ -86,7 +86,14 @@ export default function Jadwal() {
           presensiAttributes={presensiAttributes}
         />
       )}
-      {mode === "week" && <WeeklyCalendar semester={semester} bulan={bulan} />}
+      {mode === "week" && (
+        <WeeklyCalendar
+          semester={semester}
+          presensi={presensi}
+          setPresensi={setPresensi}
+          bulan={bulan}
+        />
+      )}
     </PageTemplate>
   );
 }

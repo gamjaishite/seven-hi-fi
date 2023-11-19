@@ -50,7 +50,12 @@ function getLastDate(month, year) {
   return date;
 }
 
-export default function WeeklyCalendar({ semester, bulan }) {
+export default function WeeklyCalendar({
+  semester,
+  bulan,
+  presensi,
+  setPresensi,
+}) {
   let tahun;
   if (semester.startsWith("1")) {
     tahun = parseInt(semester.split("-")[1].split("/")[0]);
@@ -145,6 +150,9 @@ export default function WeeklyCalendar({ semester, bulan }) {
                       return WeeklyCalendarCard({
                         item: classItem,
                         idx: classIdx,
+                        presensi: presensi,
+                        setPresensi: setPresensi,
+                        date: tanggalItem,
                       });
                     }
                   })}
