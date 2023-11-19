@@ -23,9 +23,8 @@ export default function Jadwal() {
           { href: "/", label: "Kelas" },
           { href: null, label: "Jadwal Kuliah" },
         ]}
-      >
-        <SecondaryNavbar secNav={secNav} />
-      </PageTemplate>
+        secondarynavbars={secNav}
+      />
     </>
   );
 }
