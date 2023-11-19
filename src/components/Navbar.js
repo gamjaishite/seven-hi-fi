@@ -71,7 +71,7 @@ export default function Navbar() {
   ];
   return (
     <>
-      <nav className="w-full py-1 px-4 xl:px-0 sticky top-0 bg-seven-bg-navbar">
+      <nav className="w-full py-1 px-4 xl:px-0 sticky top-0 bg-seven-bg-navbar z-[100]">
         <div className="w-full flex items-center justify-between text-seven-foreground-dark max-w-[1140px] mx-auto">
           <div className="flex items-center gap-3">
             <Link
