@@ -3,7 +3,7 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 export default function MonthlyCalendar() {
   return (
     <>
-      <Tabs defaultValue="account" className="w-[400px]">
+      <Tabs defaultValue="1" className="overflow-x-auto" orientation="vertical">
         <TabsList>
           <TabsTrigger value="1">Agu 2023</TabsTrigger>
           <TabsTrigger value="2">Sep 2023</TabsTrigger>

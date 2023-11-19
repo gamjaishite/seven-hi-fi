@@ -3,7 +3,18 @@ import { useState } from "react";
 const daysName = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"];
 
 const monthsName = [
-  "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember",
+  "Januari",
+  "Februari",
+  "Maret",
+  "April",
+  "Mei",
+  "Juni",
+  "Juli",
+  "Agustus",
+  "September",
+  "Oktober",
+  "November",
+  "Desember",
 ];
 
 function getFirstDate(month, year) {
@@ -49,7 +60,7 @@ export default function WeeklyCalendar({ semester, bulan }) {
   const weekCount = Math.ceil(
     (getLastDate(bulan, tahun).getTime() -
       getFirstDate(bulan, tahun).getTime()) /
-      (1000 * 3600 * 24 * 7)
+      (1000 * 3600 * 24 * 7),
   );
 
   const pilihanMinggu = [];
@@ -66,6 +77,14 @@ export default function WeeklyCalendar({ semester, bulan }) {
     tanggal.push(date);
   }
 
+  const jam = [];
+  for (let i = 7; i <= 17; i++) {
+    jam.push(`${i.toString().padStart(2, "0")}.00`);
+  }
+
+  const jadwal = require("./jadwal.json");
+  console.log(jadwal);
+
   return (
     <div className="flex flex-col">
       <div className="flex flex-row items-center justify-start">
@@ -74,8 +93,10 @@ export default function WeeklyCalendar({ semester, bulan }) {
             <button
               key={idx}
               className={`${
-                minggu === item ? "border border-seven-border-gray" : "border border-transparent"
-              } py-1 px-2.5 text-[12px] font-bold`}
+                minggu === item
+                  ? "border-seven-border-gray border"
+                  : "border border-transparent"
+              } px-2.5 py-1 text-[12px] font-bold`}
               onClick={() => setMinggu(item)}
             >
               Minggu {item}
@@ -86,13 +107,57 @@ export default function WeeklyCalendar({ semester, bulan }) {
       <div className="flex flex-row items-center justify-start">
         {tanggal.map((item, idx) => {
           return (
-            <div key={idx} className="flex flex-col flex-1 items-center justify-center w-[100px] h-[100px] border border-seven-border-gray">
-              <span className="text-[14px] font-bold">{daysName[item.getDay() - 1]}</span>
-              <span className="text-[16px] font-bold">{`${item.getDate()} ${monthsName[item.getMonth()]}`}</span>
+            <div
+              key={idx}
+              className="border-seven-border-gray flex flex-1 flex-col items-center justify-center gap-[5px] border py-2.5"
+            >
+              <span className="text-[14px] font-bold">
+                {daysName[item.getDay() - 1]}
+              </span>
+              <span className="text-[16px] font-bold">{`${item.getDate()} ${
+                monthsName[item.getMonth()]
+              }`}</span>
             </div>
           );
         })}
       </div>
+
+      {jam.map((jamItem, jamIdx) => {
+        return (
+          <div
+            key={jamIdx}
+            className="relative flex flex-row items-center justify-start"
+          >
+            <span className="absolute -left-10 -top-2.5 text-[14px]">
+              {jamItem}
+            </span>
+            {tanggal.map((tanggalItem, tanggalIdx) => {
+              const classes = jadwal[tanggalItem.getDay() - 1]["classes"];
+              return (
+                <div
+                  key={tanggalIdx}
+                  className="border-seven-border-gray relative flex flex h-[60px] flex-1 flex-col items-center justify-center border p-[5px]"
+                >
+                  {classes.map((classItem, classIdx) => {
+                    console.log(classItem);
+                    console.log(jamItem);
+                    if (classItem.start === jamItem) {
+                      const className = `absolute flex border-seven-border-gray z-10 top-[5px] w-[calc(100%-10px)] rounded-lg border bg-[#F8F8F8] px-2.5 py-1 text-[12px] font-bold h-[${
+                        50 + 60 * (classItem.duration - 1)
+                      }px]`;
+                      return (
+                        <div key={classIdx} className={className}>
+                          {classItem.matkulName}
+                        </div>
+                      );
+                    }
+                  })}
+                </div>
+              );
+            })}
+          </div>
+        );
+      })}
     </div>
   );
 }
