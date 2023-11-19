@@ -53,6 +53,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         "seven-hyperlink": "var(--seven-hyperlink)",
+        "seven-hyperlink-hover": "var(--seven-hyperlink-hover)",
         "seven-bg-navbar": "var(--seven-bg-navbar)",
         "seven-bg-bread": "var(--seven-bg-bread)",
         "seven-foreground-light": "var(--seven-foreground-light)",
@@ -60,6 +61,7 @@ module.exports = {
         "seven-bg-table": "var(--seven-bg-table)",
         "seven-bg-blue-light": "var(--seven-bg-blue-light)",
         "seven-page-heading": "var(--seven-page-heading)",
+        "seven-page-subheading": "var(--seven-page-subheading)",
         "seven-bg-button-primary": "var(--seven-bg-button-primary)",
         "seven-bg-table-heading": "var(--seven-bg-table-heading)",
         "seven-border-filter": "var(--seven-border-filter)",
@@ -77,6 +79,7 @@ module.exports = {
       fontSize: {
         "seven-font-size-default": "var(--seven-font-size-default)",
         "seven-font-size-page-title": "var(--seven-font-size-page-title)",
+        "seven-font-size-page-subtitle": "var(--seven-font-size-page-subtitle)",
         "seven-font-size-table-content": "var(--seven-font-size-table-content)",
         "seven-font-size-footer-title": "var(--seven-font-size-footer-title)",
         "seven-font-size-footer-body": "var(--seven-font-size-footer-body)",

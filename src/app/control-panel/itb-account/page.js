@@ -6,12 +6,12 @@ export default function ITBAccount() {
   /* eslint-disable react/jsx-key */
   const secNav = {
     "/control-panel/itb-account": [
-      <FaUser className="text-seven-hyperlink" />,
+      <FaUser className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
       <FaUser className="" />,
       "ITB Account",
     ],
     "/control-panel/itb-orangtua": [
-      <FaUser className="text-seven-hyperlink" />,
+      <FaUser className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
       <FaUser className="" />,
       "Account Orang Tua",
     ],

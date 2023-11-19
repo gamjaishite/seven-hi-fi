@@ -5,20 +5,38 @@ import JadwalConf from "./JadwalConf";
 import { useState } from "react";
 import MonthlyCalendar from "./MonthlyCalendar";
 import WeeklyCalendar from "./WeeklyCalendar";
-import SecondaryNavbar from "@/components/SecondNavBar";
 import {
   FaCalendarAlt,
   FaClipboardList,
-  FaInfoCircle,
-  FaInstagram,
-  FaTable,
+  FaRegCheckCircle,
+  FaRegCircle,
 } from "react-icons/fa";
+import { FaRegCircleXmark } from "react-icons/fa6";
 
 // Status Enum: "NONE", "ACTIVE", "ATTEND", "NOT ATTEND"
 export default function Jadwal() {
   const [bulan, setBulan] = useState(8);
   const [semester, setSemester] = useState("1-2023/2024");
   const [mode, setMode] = useState("month");
+  const [presensi, setPresensi] = useState({
+    "8/1/2023": { IF3151: "ATTEND" },
+    "8/2/2023": { IF4031: "NOT ATTEND", IF3141: "ACTIVE" },
+  });
+
+  const presensiAttributes = {
+    "NOT ATTEND": {
+      class: "bg-seven-bg-presensi-skip text-seven-foreground-dark",
+      icon: <FaRegCircleXmark />,
+    },
+    ATTEND: {
+      class: "bg-seven-bg-presensi-done text-seven-foreground-dark",
+      icon: <FaRegCheckCircle />,
+    },
+    ACTIVE: {
+      class: "bg-seven-bg-presensi-exist text-seven-foreground-dark",
+      icon: <FaRegCircle />,
+    },
+  };
 
   const breadCrumbItems = [
     { href: "/", label: "Kelas" },
@@ -27,12 +45,12 @@ export default function Jadwal() {
 
   const secNav = {
     "/kalender": [
-      <FaCalendarAlt className="text-seven-hyperlink" />,
+      <FaCalendarAlt className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
       <FaCalendarAlt />,
       "Kalender",
     ],
     "/jadwal": [
-      <FaClipboardList className="text-seven-hyperlink" />,
+      <FaClipboardList className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
       <FaClipboardList className="" />,
       "Jadwal Kuliah",
     ],
@@ -42,8 +60,8 @@ export default function Jadwal() {
     <PageTemplate
       breadCrumbs={breadCrumbItems}
       pageTitle="Jadwal Perkuliahan Mahasiswa"
+      secondarynavbars={secNav}
     >
-      <SecondaryNavbar secNav={secNav} />
       <JadwalConf
         semester={semester}
         setSemester={setSemester}
@@ -52,7 +70,13 @@ export default function Jadwal() {
         bulan={bulan}
         setBulan={setBulan}
       />
-      {mode === "month" && <MonthlyCalendar />}
+      {mode === "month" && (
+        <MonthlyCalendar
+          semester={semester}
+          presensi={presensi}
+          presensiAttributes={presensiAttributes}
+        />
+      )}
       {mode === "week" && <WeeklyCalendar semester={semester} bulan={bulan} />}
     </PageTemplate>
   );

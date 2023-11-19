@@ -7,6 +7,8 @@ import Footer from "@/components/Footer";
 export const fontSans = FontSans({
   subsets: ["latin"],
   weight: ["100", "300", "400", "500", "700", "900"],
+  display: "block",
+  preload: false,
   variable: "--font-sans",
 });
 
@@ -19,7 +21,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={cn("flex flex-col min-h-screen w-full", fontSans.className)}
+        className={cn("flex min-h-screen w-full flex-col", fontSans.className)}
       >
         <Navbar />
         {children}

@@ -14,10 +14,10 @@ export default function Footer() {
           </span>
           <div className="flex items-center gap-1 text-seven-font-size-footer-icons py-1">
             <span className="text-seven-font-size-footer-body">Direktorat Pendidikan</span>
-            <FaInfoCircle className="text-seven-hyperlink" />
-            <FaInstagram className="text-seven-hyperlink" />
-            <FaTwitter className="text-seven-hyperlink" />
-            <FaComment className="text-seven-hyperlink" />
+            <FaInfoCircle className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />
+            <FaInstagram className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />
+            <FaTwitter className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />
+            <FaComment className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />
           </div>
         </div>
       </div>

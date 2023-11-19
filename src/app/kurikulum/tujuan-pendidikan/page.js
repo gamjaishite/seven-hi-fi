@@ -6,12 +6,12 @@ export default function Kurikulum() {
   /* eslint-disable react/jsx-key */
   const secNav = {
     "/kurikulum/struktur-kurikulum": [
-      <FaCalendarAlt className="text-seven-hyperlink" />,
+      <FaCalendarAlt className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
       <FaCalendarAlt className="" />,
       "Struktur Kurikulum",
     ],
     "/kurikulum/tujuan-pendidikan": [
-      <FaTable className="text-seven-hyperlink" />,
+      <FaTable className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
       <FaTable className="" />,
       "Tujuan Pendidikan & Capaian (Outcomes) Lulusan Program Studi",
     ],
