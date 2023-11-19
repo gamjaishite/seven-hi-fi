@@ -1,5 +1,6 @@
 import Breadcrumb from "@/components/Breadcrumb";
 import SecondaryNavbar from "@/components/SecondNavBar";
+import Footer from "./Footer";
 
 const PageTemplate = ({
   children,
@@ -9,6 +10,7 @@ const PageTemplate = ({
   pageSubTitle
 }) => {
   return (
+
     <div className="mx-auto flex w-full max-w-[1140px] flex-1 flex-col gap-4 px-4 py-5 xl:px-0">
       <div className="hidden lg:block">
         <Breadcrumb breadCrumbs={breadCrumbs} />

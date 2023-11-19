@@ -4,8 +4,6 @@ import {
   FaInstagram,
   FaTwitter,
 } from "react-icons/fa";
-import { FaCircleInfo } from "react-icons/fa6";
-import { TbMessageCircle2Filled } from "react-icons/tb";
 export default function Footer() {
   return (
     <>
@@ -14,7 +12,7 @@ export default function Footer() {
           <span className="text-seven-font-size-footer-title text-seven-page-heading font-light py-1">
             Institut Teknologi Bandung
           </span>
-          <div className="flex items-center gap-1 text-seven-font-size-footer-icons">
+          <div className="flex items-center gap-1 text-seven-font-size-footer-icons py-1">
             <span className="text-seven-font-size-footer-body">Direktorat Pendidikan</span>
             <FaInfoCircle className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />
             <FaInstagram className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />

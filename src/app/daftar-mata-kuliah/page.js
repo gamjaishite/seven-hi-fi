@@ -1,5 +1,6 @@
-"use client";
 
+"use client";
+import SecondaryNavbar from "@/components/SecondNavBar";
 import { Button } from "@/components/ui/button";
 import {
     Select,
@@ -14,6 +15,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaFilter, FaSearch } from "react-icons/fa";
 import {DEFAULT_SUBJECTS, PAGE_SIZE, FACULTIES, STUDIES} from '@/app/daftar-mata-kuliah/data';
+
 
 const { default: PageTemplate } = require("@/components/PageTemplate")
 
@@ -49,6 +51,10 @@ const getSubjects = ({page, faculty, studyCode, category, search}) => {
     };
 }
 
+const getScheduleHref = (subject) => {
+    return `/jadwal#${subject.code}`;
+}
+
 const SubjectRow = ({subject, idx}) => {
 
     const silabus_href = `/kurikulum/silabus/${subject.code}`
@@ -64,7 +70,7 @@ const SubjectRow = ({subject, idx}) => {
             <TableContent>{`${subject.study.code} - ${subject.study.name}`}</TableContent>
             <TableContent>{ subject.category}</TableContent>
             <TableContent>
-                <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover" href={subject.schedule_href}>Link</Link>
+                <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover" href={getScheduleHref(subject)}>Link</Link>
             </TableContent>
         </tr>
     )
