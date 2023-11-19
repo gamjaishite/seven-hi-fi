@@ -139,7 +139,7 @@ const FacultyFilter = ({faculties = [], value, onChange}) => {
                 <SelectValue className="" placeholder='Fakultas' />
             </SelectTrigger>
             <SelectContent className="max-h-[300px]" onCloseAutoFocus={onClose} onPointerDownOutside={onClickOutside}>
-                {faculties.map((elmt, idx) => (
+                {faculties.sort((s1, s2) => s1 < s2 ? -1 : 1).map((elmt, idx) => (
                     <SelectItem key={idx} value={elmt} className="!text-seven-font-size-filter">{elmt}</SelectItem>
                 ))
                 }
@@ -246,6 +246,15 @@ const CategoryFilter = ({onChange, value}) => {
     )
 }
 
+function isNotPrefixOfAny(number, n) {
+    for (let i = 1; i <= n; i++) {
+        if (String(i).startsWith(String(number))) {
+            return false; // The number is a prefix of at least one number from 1 to n
+        }
+    }
+    return true; // The number is not a prefix of any number from 1 to n
+}
+
 const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
     
     const [value, setValue] = useState(defaultValue);
@@ -278,10 +287,10 @@ const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
             clearTimeout(searchDebounceTimerRef.current);
         }
       
-          // Set a new timeout for 500 milliseconds
+        // Set a new timeout for 500 milliseconds
         searchDebounceTimerRef.current = setTimeout(() => {
             onSearch();
-        }, 500);
+        }, 250);
     }
 
     const onSearch = () => {
@@ -289,6 +298,11 @@ const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
             clearTimeout(searchDebounceTimerRef.current);
         }
         setSearch(searchRef.current);
+    }
+    
+    const onClose = () => {
+        searchRef.current = '';
+        setSearch('');
     }
 
     useEffect(() => {
@@ -299,10 +313,10 @@ const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
 
     return (
         <Select value={totalPage ? value : ''} onValueChange={onValueChange}>
-            <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter">
+            <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter" >
                 <SelectValue className="" placeholder='Halaman' />
             </SelectTrigger>
-            <SelectContent>
+            <SelectContent onCloseAutoFocus={onClose}>
                 <div className="flex flex-row justify-between mb-1">
                     <input onKeyDown={onKeyDown} onChange={onSearchChange} onBlur={e => e.preventDefault()} placeholder="Cari halaman" maxLength={3} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
                     <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
@@ -317,7 +331,7 @@ const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
                     );
                 })}
 
-                {totalPage === 0 &&
+                {(totalPage === 0 || isNotPrefixOfAny(search, totalPage)) &&
                     <SelectItem className="!text-seven-font-size-filter pr-8" disabled>Tidak ada halaman</SelectItem>
                 }
             </SelectContent>
