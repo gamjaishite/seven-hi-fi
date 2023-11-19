@@ -119,7 +119,7 @@ export default function StatusMahasiswa() {
                   </div>
                   <div className="flex w-2/3 place-content-between text-left">
                     <span className="--seven-font-size-table-content text-[13px]">
-                      Sepuhnya Sepuh, S.T, M.A., Ph.D.
+                      Prof. Sepuhnya Sepuh, S.T, M.A., Ph.D.
                     </span>
                   </div>
                 </div>
@@ -371,7 +371,7 @@ export default function StatusMahasiswa() {
               </div>
               <div className="md:w-2/12 md:px-5">
                 <div className="rounded-[5px] border p-1">
-                  <img src="./pasfoto.png" className="rounded-[3px]"></img>
+                  <img src="./miku.jpg" className="rounded-[3px]"></img>
                 </div>
               </div>
             </div>
