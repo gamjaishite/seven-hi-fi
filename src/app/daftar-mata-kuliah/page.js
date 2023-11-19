@@ -324,12 +324,9 @@ const SubjectPageSelect = ({onChange, totalPage, defaultValue}) => {
             <SelectTrigger className="space-x-2 border border-seven-border-filter min-w-max py-[5px] px-[10px] h-fit text-seven-filter !text-seven-font-size-filter" >
                 <SelectValue className="" placeholder='Halaman' />
             </SelectTrigger>
-            <SelectContent onCloseAutoFocus={onClose}>
+            <SelectContent className="max-h-[300px]" onCloseAutoFocus={onClose}>
                 <div className="flex flex-row justify-between mb-1">
-                    <input onKeyDown={onKeyDown} onChange={onSearchChange} onBlur={e => e.preventDefault()} placeholder="Cari halaman" maxLength={3} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
-                    <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
-                        <FaSearch size={12}/>
-                    </Button>
+                    <input onKeyDown={onKeyDown} onChange={onSearchChange} onBlur={e => e.preventDefault()} placeholder="Cari halaman" maxLength={3} className="border border-seven-border-button-primary rounded-sm py-1 outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
                 </div>
                 {Array.from({ length: totalPage }, (_, idx) => {
                     const val = idx + 1;
