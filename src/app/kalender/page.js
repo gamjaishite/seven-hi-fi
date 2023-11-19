@@ -48,7 +48,7 @@ export default function Jadwal() {
 
   const breadCrumbItems = [
     { href: "/", label: "Kelas" },
-    { href: null, label: "Jadwal Perkuliahan Mahasiswa" },
+    { href: null, label: "Kalender Perkuliahan" },
   ];
 
   const secNav = {
@@ -58,7 +58,7 @@ export default function Jadwal() {
         className="hover:text-seven-hyperlink-hover text-seven-hyperlink"
       />,
       <FaCalendarAlt key={"default"} />,
-      "Kalender",
+      "Kalender Perkuliahan",
     ],
     "/jadwal": [
       <FaClipboardList
@@ -73,7 +73,7 @@ export default function Jadwal() {
   return (
     <PageTemplate
       breadCrumbs={breadCrumbItems}
-      pageTitle="Jadwal Perkuliahan Mahasiswa"
+      pageTitle="Kalender Perkuliahan"
       secondarynavbars={secNav}
     >
       <JadwalConf
