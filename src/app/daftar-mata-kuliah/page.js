@@ -1,5 +1,6 @@
-"use client";
 
+"use client";
+import SecondaryNavbar from "@/components/SecondNavBar";
 import { Button } from "@/components/ui/button";
 import {
     Select,
@@ -14,6 +15,7 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaFilter, FaSearch } from "react-icons/fa";
 import {DEFAULT_SUBJECTS, PAGE_SIZE, FACULTIES, STUDIES} from '@/app/daftar-mata-kuliah/data';
+
 
 const { default: PageTemplate } = require("@/components/PageTemplate")
 

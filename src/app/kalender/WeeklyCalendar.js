@@ -1,3 +1,4 @@
+import { WeeklyCalendarCard } from "@/components/WeeklyCalendarCard";
 import { useState } from "react";
 
 const daysName = ["Senin", "Selasa", "Rabu", "Kamis", "Jumat"];
@@ -140,17 +141,11 @@ export default function WeeklyCalendar({ semester, bulan }) {
                   className="border-seven-border-gray relative flex  h-[60px] flex-1 flex-col items-center justify-center border p-[5px]"
                 >
                   {classes.map((classItem, classIdx) => {
-                    console.log(classItem);
-                    console.log(jamItem);
                     if (classItem.start === jamItem) {
-                      const className = `absolute flex border-seven-border-gray z-10 top-[5px] w-[calc(100%-10px)] rounded-lg border bg-[#F8F8F8] px-2.5 py-1 text-[12px] font-bold h-[${
-                        50 + 60 * (classItem.duration - 1)
-                      }px]`;
-                      return (
-                        <div key={classItem} className={className}>
-                          {classItem.matkulName}
-                        </div>
-                      );
+                      return WeeklyCalendarCard({
+                        item: classItem,
+                        idx: classIdx,
+                      });
                     }
                   })}
                 </div>
