@@ -16,6 +16,7 @@ import {
 
 // Status Enum: "NONE", "ACTIVE", "ATTEND", "NOT ATTEND"
 export default function Jadwal() {
+  const [bulan, setBulan] = useState(8);
   const [semester, setSemester] = useState("1-2023/2024");
   const [mode, setMode] = useState("month");
 
@@ -48,9 +49,11 @@ export default function Jadwal() {
         setSemester={setSemester}
         mode={mode}
         setMode={setMode}
+        bulan={bulan}
+        setBulan={setBulan}
       />
       {mode === "month" && <MonthlyCalendar />}
-      {mode === "week" && <WeeklyCalendar />}
+      {mode === "week" && <WeeklyCalendar semester={semester} bulan={bulan} />}
     </PageTemplate>
   );
 }

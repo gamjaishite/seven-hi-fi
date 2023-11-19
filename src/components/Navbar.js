@@ -62,9 +62,17 @@ function MobileNavbar() {
 export default function Navbar() {
   const [isID, setIsID] = useState(true);
   const aplikasiItems = [
-    { icon: FaFileAlt, name: "Kurikulum" },
+    {
+      icon: FaFileAlt,
+      name: "Kurikulum",
+      href: "/kurikulum/struktur-kurikulum",
+    },
     { icon: FaRegUserCircle, name: "Status Mahasiswa" },
-    { icon: FaMoneyBill1Wave, name: "Keuangan & Beasiswa" },
+    {
+      icon: FaMoneyBill1Wave,
+      name: "Keuangan & Beasiswa",
+      href: "/keuangan-beasiswa/status",
+    },
     { icon: FaUsers, name: "Kelas", href: "/kalender" },
     {
       icon: FaUniversity,
@@ -75,7 +83,7 @@ export default function Navbar() {
     { icon: FaSitemap, name: "Penjurusan TPB" },
     { icon: FaTasks, name: "Evaluasi Perkuliahan & Portofolio" },
     { icon: FaGraduationCap, name: "Wisuda" },
-    { icon: FaCogs, name: "Control Panel" },
+    { icon: FaCogs, name: "Control Panel", href: "/control-panel/itb-account" },
   ];
   const profileItems = [
     { icon: FaUser, name: "Profil" },
@@ -83,7 +91,7 @@ export default function Navbar() {
   ];
   return (
     <>
-      <nav className="w-full py-1 px-4 xl:px-0 sticky top-0 bg-seven-bg-navbar">
+      <nav className="w-full py-1 px-4 xl:px-0 sticky top-0 bg-seven-bg-navbar z-[100]">
         <div className="w-full flex items-center justify-between text-seven-foreground-dark max-w-[1140px] mx-auto">
           <div className="flex items-center gap-3">
             <Link

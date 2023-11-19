@@ -54,6 +54,8 @@
     --seven-bg-presensi-done: #9CADCE;
     --seven-selected-item-dark: #080808;
     --seven-hover-light: #e8e8e8;
+    --seven-filter: #555;
+    --seven-bg-button-primary-hover: #2aabd2;
 
     --seven-font-size-default: 14px;
     --seven-font-size-page-title: 36px;
@@ -64,6 +66,7 @@
     --seven-font-size-navbar-dropdown: 15px;
     --seven-font-size-navbar-brand: 18px;
     --seven-font-size-table-heading: 16px;
+    --seven-font-size-filter: 12px;
   }
  
   .dark {
