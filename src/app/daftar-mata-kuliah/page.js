@@ -55,16 +55,16 @@ const SubjectRow = ({subject, idx}) => {
     return (
         <tr className={`${idx % 2 === 1 ? 'bg-seven-bg-table' : ''} text-seven-font-size-table-content border-b-[1px] border-seven-border-grey align-top`}>
             <TableContent>
-                <Link className="underline text-seven-hyperlink font-medium" href={silabus_href}>{subject.code}</Link>
+                <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover font-medium" href={silabus_href}>{subject.code}</Link>
             </TableContent>
             <TableContent>
-                <Link className="underline text-seven-hyperlink" href={silabus_href}>{subject.name}</Link>
+                <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover" href={silabus_href}>{subject.name}</Link>
             </TableContent>
             <TableContent>{subject.faculty}</TableContent>
             <TableContent>{`${subject.study.code} - ${subject.study.name}`}</TableContent>
             <TableContent>{ subject.category}</TableContent>
             <TableContent>
-                <Link className="underline text-seven-hyperlink" href={subject.schedule_href}>Link</Link>
+                <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover" href={subject.schedule_href}>Link</Link>
             </TableContent>
         </tr>
     )

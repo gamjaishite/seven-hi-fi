@@ -173,7 +173,7 @@ function Calendar({ selectedMonth, presensi, presensiAttributes }) {
                                         })
                                       ][cls.matkulCode]
                                     ].class) ??
-                                  "text-seven-hyperlink"
+                                  "text-seven-hyperlink hover:text-seven-hyperlink-hover"
                                 } line-clamp-2 cursor-pointer rounded-md px-1 hover:underline`}
                               >
                                 {cls.start}-{cls.end}{" "}

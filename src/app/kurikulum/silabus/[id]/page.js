@@ -8,12 +8,12 @@ const Silabus = ({params}) => {
 
     const secNav = {
         "/kurikulum/struktur-kurikulum": [
-          <FaCalendarAlt key={1} className="text-seven-hyperlink" />,
+          <FaCalendarAlt key={1} className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
           <FaCalendarAlt key={2} className="" />,
           "Struktur Kurikulum",
         ],
         "/kurikulum/tujuan-pendidikan": [
-          <FaTable key={1} className="text-seven-hyperlink" />,
+          <FaTable key={1} className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
           <FaTable key={2} className="" />,
           "Tujuan Pendidikan & Capaian (Outcomes) Lulusan Program Studi",
         ],
@@ -25,7 +25,7 @@ const Silabus = ({params}) => {
             pageSubTitle={id + ' - 2019'}
             breadCrumbs={[
                 { href: "/kurikulum/struktur-kurikulum", label: "Kurikulum" },
-                { href: "/kurikulum/struktur-kurikulum", label: "Silabus Mata Kuliah" },
+                { label: "Silabus Mata Kuliah" },
             ]}
             secondarynavbars={secNav}
         />

@@ -53,6 +53,7 @@ module.exports = {
           foreground: "hsl(var(--card-foreground))",
         },
         "seven-hyperlink": "var(--seven-hyperlink)",
+        "seven-hyperlink-hover": "var(--seven-hyperlink-hover)",
         "seven-bg-navbar": "var(--seven-bg-navbar)",
         "seven-bg-bread": "var(--seven-bg-bread)",
         "seven-foreground-light": "var(--seven-foreground-light)",
