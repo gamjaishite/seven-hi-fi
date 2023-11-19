@@ -10,7 +10,8 @@
         "matkulName": "Pengembangan Aplikasi Berbasis Web",
         "lecturer": "Dr. Agung Dewandaru, S.T., M.Sc.",
         "location": "Kuliah 7609 7610",
-        "duration": 2
+        "duration": 2,
+        "status": "skipped"
       },
       {
         "start": "09.00",
@@ -19,7 +20,8 @@
         "matkulName": "Inteligensi Buatan",
         "lecturer": "Dr. Eng. Ayu Purwarianti, S.T, M.T.",
         "location": "Kuliah 7602",
-        "duration": 2
+        "duration": 2,
+        "status": "filled"
       },
       {
         "start": "15.00",
@@ -28,7 +30,8 @@
         "matkulName": "Pengembangan Aplikasi Terdistribusi",
         "lecturer": "Dr. techn. Muhammad Zuhri Catur Candra, S.T, M.T.",
         "location": "Kuliah 7604",
-        "duration": 2
+        "duration": 2,
+        "status": "filled"
       }
     ]
   },
@@ -43,7 +46,8 @@
         "matkulName": "Interaksi Manusia Komputer",
         "lecturer": "Adi Mulyanto, S.T, M.T.",
         "location": "Kuliah 7609 7610",
-        "duration": 2
+        "duration": 2,
+        "status": "filled"
       },
       {
         "start": "09.00",
@@ -52,7 +56,8 @@
         "matkulName": "Jaringan Komputer",
         "lecturer": "Ir. Afwarman, M.Sc., Ph.D.",
         "location": "Kuliah 7602",
-        "duration": 3
+        "duration": 3,
+        "status": "skipped"
       }
     ]
   },
@@ -67,7 +72,8 @@
         "matkulName": "Pengembangan Aplikasi Terdistribusi",
         "lecturer": "Dr. techn. Muhammad Zuhri Catur Candra, S.T, M.T.",
         "location": "Kuliah 7603",
-        "duration": 1
+        "duration": 1,
+        "status": "filled"
       },
       {
         "start": "08.00",
@@ -76,7 +82,8 @@
         "matkulName": "Sistem Informasi",
         "lecturer": "Dicky Prima Satya, S.T, M.T.",
         "location": "Kuliah 7609 7610",
-        "duration": 2
+        "duration": 2,
+        "status": "empty"
       },
       {
         "start": "10.00",
@@ -85,7 +92,8 @@
         "matkulName": "Inteligensi Buatan",
         "lecturer": "Dr. Eng. Ayu Purwarianti, S.T, M.T.",
         "location": "Kuliah 7602",
-        "duration": 1
+        "duration": 1,
+        "status": "filled"
       }
     ]
   },
@@ -100,7 +108,8 @@
         "matkulName": "Manajemen Proyek Perangkat Lunak",
         "lecturer": "Dr. Yani Widyani, S.T, M.T.",
         "location": "Kuliah 7609 7610",
-        "duration": 2
+        "duration": 2,
+        "status": "skipped"
       }
     ]
   },
@@ -115,7 +124,8 @@
         "matkulName": "Sistem Informasi",
         "lecturer": "Dicky Prima Satya, S.T, M.T.",
         "location": "Kuliah 7609 7610",
-        "duration": 1
+        "duration": 1,
+        "status": "empty"
       },
       {
         "start": "08.00",
@@ -124,7 +134,8 @@
         "matkulName": "Manajemen Basis Data",
         "lecturer": "Tricya Esterina Widagdo, S.T., M.Sc.",
         "location": "Kuliah 7602",
-        "duration": 2
+        "duration": 2,
+        "status": "open"
       },
       {
         "start": "10.00",
@@ -133,7 +144,8 @@
         "matkulName": "Interaksi Manusia Komputer",
         "lecturer": "Adi Mulyanto, S.T, M.T.",
         "location": "Kuliah 7609 7610",
-        "duration": 1
+        "duration": 1,
+        "status": "open"
       }
     ]
   }
