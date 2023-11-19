@@ -43,6 +43,7 @@
     --seven-bg-table: #F9F9F9;
     --seven-bg-blue-light:#D9EDF7;
     --seven-page-heading: #003366;
+    --seven-page-subheading: #777777;
     --seven-bg-button-primary: #4DBADB;
     --seven-bg-table-heading: #3277B2;
     --seven-border-filter: #3C763D;
@@ -59,6 +60,7 @@
 
     --seven-font-size-default: 14px;
     --seven-font-size-page-title: 36px;
+    --seven-font-size-page-subtitle: 23.4px;
     --seven-font-size-table-content: 13px;
     --seven-font-size-footer-title: 28px;
     --seven-font-size-footer-body: 12px;

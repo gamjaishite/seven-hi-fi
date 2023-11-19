@@ -50,13 +50,15 @@ const getSubjects = ({page, faculty, studyCode, category, search}) => {
 }
 
 const SubjectRow = ({subject, idx}) => {
+
+    const silabus_href = `/kurikulum/silabus/${subject.code}`
     return (
         <tr className={`${idx % 2 === 1 ? 'bg-seven-bg-table' : ''} text-seven-font-size-table-content border-b-[1px] border-seven-border-grey align-top`}>
             <TableContent>
-                <Link className="underline text-seven-hyperlink font-medium" href={'/'}>{subject.code}</Link>
+                <Link className="underline text-seven-hyperlink font-medium" href={silabus_href}>{subject.code}</Link>
             </TableContent>
             <TableContent>
-                <Link className="underline text-seven-hyperlink" href={'/'}>{subject.name}</Link>
+                <Link className="underline text-seven-hyperlink" href={silabus_href}>{subject.name}</Link>
             </TableContent>
             <TableContent>{subject.faculty}</TableContent>
             <TableContent>{`${subject.study.code} - ${subject.study.name}`}</TableContent>
@@ -188,7 +190,7 @@ const StudyFilter = ({studies, value, onChange}) => {
                         {studies[elmt].map((elmt, idx) => (
                             <SelectItem 
                                 key={elmt + idx} 
-                                className="!text-seven-font-size-filter" 
+                                className="!text-seven-font-size-filter pr-8" 
                                 value={elmt.code}
                             >{`${elmt.code} - ${elmt.name}`}</SelectItem>
                         ))}
