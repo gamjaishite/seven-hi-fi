@@ -78,6 +78,9 @@ export function WeeklyCalendarCard(props) {
           </>
         }
       />
+      <div className="h-[60px] w-0 absolute"></div>
+      <div className="h-[130px] w-0 absolute"></div>
+      <div className="h-[200px] w-0 absolute"></div>
     </div>
   );
 }
