@@ -214,13 +214,13 @@ export default function StatusMahasiswa() {
                 </div>
               </div>
             </div>
-            <div className="my-[16px] w-full rounded rounded-[5px] border border-[#3277B2]">
-              <div className="div-auto flex h-1/3 h-full w-full flex-col rounded-[5px] border-[#3277B2]">
+            <div className="my-[16px] w-full rounded-[5px] border border-[#3277B2]">
+              <div className="div-auto flex h-full w-full flex-col rounded-[5px] border-[#3277B2]">
                 <div className="flex h-full items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                   <p className="seven-font-size-table-heading px-2">Links</p>
                 </div>
                 <div className="flex h-full w-full flex-col items-center justify-center text-center ">
-                  <div className="h-full w-4/5 pb-7 pt-5 text-left text-[15px]">
+                  <div className="h-full w-4/5 pb-7 pt-5 text-left text-seven-font-size-default">
                     <ul className="list-disc">
                       <li className="underline-offset-2">
                         <a href="/jadwal" className="underline-offset-2">
