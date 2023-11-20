@@ -24,9 +24,11 @@ export default function DialogPresensi({
       })
     ];
 
+  var presensiStatus;
+
   let presensiDisplay;
   if (presensiState) {
-    const presensiStatus = presensiState[cls.matkulCode];
+    presensiStatus = presensiState[cls.matkulCode];
     if (presensiStatus) {
       switch (presensiStatus) {
         case "ATTEND":
@@ -44,7 +46,7 @@ export default function DialogPresensi({
         case "ACTIVE":
           presensiDisplay = (
             <Button
-              className="border border-seven-border-button-dark bg-seven-bg-button-dark mx-auto my-4 max-w-max font-light text-seven-foreground-dark hover:bg-seven-bg-button-dark-hover"
+              className="border border-seven-border-button-dark bg-seven-bg-button-dark mx-auto my-4 max-w-max font-light text-seven-foreground-dark hover:bg-seven-bg-button-dark-hover !text-seven-font-size-filter px-[10px] py-[5px] w-fit h-fit"
               onClick={() => {
                 presensi[
                   date.toLocaleDateString("en-US", {
@@ -94,34 +96,44 @@ export default function DialogPresensi({
         </DialogTrigger>
         <DialogContent className="mr-2 text-seven-font-size-default">
           <DialogHeader>
-            <DialogTitle className="text-seven max-w-md text-left text-seven-font-size-modal-title font-normal">
+            <DialogTitle className="text-seven max-w-md text-left text-seven-font-size-modal-title font-normal pb-[9px]">
               {cls.matkulCode} - {cls.matkulName}
             </DialogTitle>
-            <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2 text-seven-font-size-modal-content">
-                <span className="text-left">
-                  {cls.start} - {cls.end}
-                </span>
-                <span>|</span>
-                <span>
-                  {date.toLocaleDateString("id-ID", {
-                    year: "numeric",
-                    month: "long",
-                    day: "numeric",
-                  })}
-                </span>
-              </div>
-              <div className="text-left">
-                <p className="font-bold text-seven-font-size-default">{cls.lecturer}</p>
-                <p className="text-seven-font-size-modal-content">{cls.location}</p>
-              </div>
-              <div className="text-left">
-                <p className="font-bold text-seven-font-size-default">Topik</p>
-                <p className="text-seven-font-size-modal-content">Topik Perkuliahan</p>
-              </div>
-              <div className="text-left">
-                <p className="font-bold text-seven-font-size-default">Catatan</p>
-                <p className="text-seven-font-size-modal-content">Catatan Perkuliahan</p>
+            <div className="flex flex-col gap-2">
+              <div className={`flex flex-col gap-4 ${presensiStatus !== 'ACTIVE' ? 'border-b-[1px] pb-6' : ''}`}>
+                <div className="text-left">
+                  <p className="font-bold text-seven-font-size-default">Kuliah - Tatap Muka</p>
+                  <div className="flex items-center gap-2 text-seven-font-size-modal-content">
+                    <span className="text-left">
+                      {cls.start} - {cls.end}
+                    </span>
+                    <span>|</span>
+                    <span>
+                      {date.toLocaleDateString("id-ID", {
+                        year: "numeric",
+                        month: "long",
+                        day: "numeric",
+                      })}
+                    </span>
+                  </div>
+                </div>
+                <div className="text-left">
+                  <p className="font-bold text-seven-font-size-default">Dosen</p>
+                  <p className="text-seven-font-size-modal-content">{cls.lecturer}</p>
+                </div>
+
+                <div className="text-left">
+                  <p className="font-bold text-seven-font-size-default">Ruang</p>
+                  <p className="text-seven-font-size-modal-content">{cls.location}</p>
+                </div>
+                <div className="text-left">
+                  <p className="font-bold text-seven-font-size-default">Topik</p>
+                  <p className="text-seven-font-size-modal-content">Topik Perkuliahan</p>
+                </div>
+                <div className="text-left">
+                  <p className="font-bold text-seven-font-size-default">Catatan</p>
+                  <p className="text-seven-font-size-modal-content">Catatan Perkuliahan</p>
+                </div>
               </div>
               {presensiDisplay}
             </div>
