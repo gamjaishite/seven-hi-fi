@@ -31,12 +31,12 @@ export default function DialogPresensi({
       switch (presensiStatus) {
         case "ATTEND":
           presensiDisplay = (
-            <p className="py-4 text-center text-zinc-400">Sudah Tandai Hadir</p>
+            <p className="py-4 text-center text-seven-foreground-light">Sudah Tandai Hadir</p>
           );
           break;
         case "NOT ATTEND":
           presensiDisplay = (
-            <p className="py-4 text-center text-zinc-400">
+            <p className="py-4 text-center text-seven-foreground-light">
               Anda tidak mengisi presensi
             </p>
           );
