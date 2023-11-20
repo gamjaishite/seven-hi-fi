@@ -48,7 +48,7 @@ export default function DialogPresensi({
         case "ACTIVE":
           presensiDisplay = (
             <Button
-              className="border border-seven-border-button-dark bg-seven-bg-button-dark mx-auto my-4 max-w-max font-light text-seven-foreground-dark hover:bg-seven-bg-button-dark-hover !text-seven-font-size-filter px-[10px] py-[5px] w-fit h-fit"
+              className="border border-seven-border-button-dark mx-auto my-4 max-w-max font-light text-seven-foreground-dark hover:from-seven-bg-button-dark-hover hover:to-seven-bg-button-dark-hover !text-seven-font-size-filter px-[10px] py-[5px] w-fit h-fit bg-gradient-to-b from-seven-bg-button-dark to-seven-bg-button-dark-hover"
               onClick={() => {
                 presensi[
                   date.toLocaleDateString("en-US", {
