@@ -69,7 +69,7 @@ export default function DialogPresensi({
               <p className="text-center text-seven-font-size-default text-seven-foreground-light">
                 Presensi mandiri dapat dilakukan pada
               </p>
-              <p className="text-center text-seven-font-size-default text-seven-foreground-light font-bold">
+              <p className="text-center text-seven-font-size-default font-bold text-seven-foreground-light">
                 {date.toLocaleDateString("id-ID", {
                   year: "numeric",
                   month: "long",
@@ -89,15 +89,17 @@ export default function DialogPresensi({
   return (
     <>
       <Dialog>
-        <DialogTrigger className="flex flex-col text-left h-full">{trigger}</DialogTrigger>
-        <DialogContent className="text-seven-font-size-default">
+        <DialogTrigger className="flex h-full flex-col text-left">
+          {trigger}
+        </DialogTrigger>
+        <DialogContent className="mr-2 text-seven-font-size-default">
           <DialogHeader>
-            <DialogTitle className="text-seven max-w-md text-2xl font-normal">
+            <DialogTitle className="text-seven max-w-md text-left text-2xl font-normal">
               {cls.matkulCode} - {cls.matkulName}
             </DialogTitle>
             <div className="flex flex-col gap-4">
               <div className="flex items-center gap-2">
-                <span>
+                <span className="text-left">
                   {cls.start} - {cls.end}
                 </span>
                 <span>|</span>
@@ -109,15 +111,15 @@ export default function DialogPresensi({
                   })}
                 </span>
               </div>
-              <div>
+              <div className="text-left">
                 <p className="font-bold">{cls.lecturer}</p>
                 <p>{cls.location}</p>
               </div>
-              <div>
+              <div className="text-left">
                 <p className="font-bold">Topik</p>
                 <p>Topik Perkuliahan</p>
               </div>
-              <div>
+              <div className="text-left">
                 <p className="font-bold">Catatan</p>
                 <p>Catatan Perkuliahan</p>
               </div>
