@@ -330,7 +330,7 @@ export default function StatusMahasiswa() {
                   <p className="text-seven-font-size-table-heading">Links</p>
                 </div>
                 <div className="flex h-full w-full flex-col items-center justify-center text-center ">
-                  <div className="h-full w-full px-14 pb-6 pt-5 text-left text-[15px]">
+                  <div className="h-full w-full px-14 pb-6 pt-5 text-left text-seven-font-size-default">
                     <ul className="list-disc">
                       <li className="cursor-pointer">
                         <a
