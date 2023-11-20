@@ -42,12 +42,12 @@ export function WeeklyCalendarCard(props) {
         trigger={
           <>
             <p
-              className={`overflow-hidden text-ellipsis whitespace-nowrap ${statusConf[status].textColor}`}
+              className={`truncate w-full ${statusConf[status].textColor}`}
             >
               {item.start} - {item.end}
             </p>
             <p
-              className={`overflow-hidden text-ellipsis whitespace-nowrap ${statusConf[status].textColor}`}
+              className={`truncate w-full ${statusConf[status].textColor}`}
             >
               {item.matkulCode}{" "}
               <span className="font-normal">{item.matkulName}</span>
