@@ -54,7 +54,7 @@ const SecondaryNavbar = ({ secNav }) => {
               <li
                 className={`p-2 text-seven-font-size-default cursor-default relative block ${
                   isActive
-                    ? "border border-solid border-seven-border-grey rounded-t-lg text-seven-selected-item-dark border-b-transparent"
+                    ? "border border-solid border-seven-border-grey rounded-t-lg text-seven-filter border-b-transparent"
                     : "border-transparent hover:bg-seven-hover-light cursor-pointer"
                 } border-b-0 flex justify-center items-center gap-1`}
               >
