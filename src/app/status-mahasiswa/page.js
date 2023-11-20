@@ -367,7 +367,6 @@ export default function StatusMahasiswa() {
             <img src="./qr.png" className="h-[140px] w-[140px]" />
           </div>
 
-
           <div className="mb-10 flex w-full flex-col lg:w-4/6">
             <div className="mb-5 flex flex-col md:mb-0 md:flex-row">
               <div className="mb-5 flex w-full flex-col rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9] md:w-10/12">
@@ -384,8 +383,10 @@ export default function StatusMahasiswa() {
                       <div className="ml-2 w-7/12 font-bold">Mata Kuliah</div>
                       <div className="w-1/12 text-center font-bold">Kelas</div>
                       <div className="w-1/12 text-center font-bold">SKS</div>
-                      <div className="w-2/12 font-bold text-right">Kehadiran</div>
-                      <div className="w-1/12 font-bold text-center">Nilai</div>
+                      <div className="w-2/12 text-right font-bold">
+                        Kehadiran
+                      </div>
+                      <div className="w-1/12 text-center font-bold">Nilai</div>
                     </div>
 
                     {DaftarKuliah.map((data, index) => {
@@ -417,7 +418,7 @@ export default function StatusMahasiswa() {
               </div>
               <div className="md:w-2/12 md:pl-5">
                 <div className="rounded-[5px] border p-1">
-                  <img src="./pasfoto.png" className="rounded-[3px]"></img>
+                  <img src="./miku.jpg" className="rounded-[3px]"></img>
                 </div>
               </div>
             </div>
