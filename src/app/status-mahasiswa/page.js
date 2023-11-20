@@ -376,8 +376,8 @@ export default function StatusMahasiswa() {
                   </p>
                 </div>
                 <div className="overflow-x-auto">
-                  <div className="div-auto flex h-1/3 h-full w-full min-w-[450px] flex-col rounded-[5px] border-[#3277B2] bg-[#f9f9f9]">
-                    <div className="my-[2px] flex w-full text-seven-font-size-table-content text-seven-font-size-table-content">
+                  <div className="div-auto flex h-full w-full min-w-[450px] flex-col rounded-[5px] border-[#3277B2] bg-[#f9f9f9]">
+                    <div className="my-[2px] flex w-full text-seven-font-size-table-content">
                       <div className="w-[15px]"></div>
                       <div className="w-1/12 font-bold ">Kode</div>
                       <div className="ml-2 w-7/12 font-bold">Mata Kuliah</div>
