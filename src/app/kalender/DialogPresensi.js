@@ -46,7 +46,7 @@ export default function DialogPresensi({
         case "ACTIVE":
           presensiDisplay = (
             <Button
-              className="hover:bg-seven-hyperlink-hover mx-auto my-4 max-w-max bg-seven-hyperlink font-light"
+              className="border-seven-border-button-dark bg-seven-bg-button-dark hover:bg-seven-bg-button-dark-hover mx-auto my-4 max-w-max border font-light text-seven-foreground-dark"
               onClick={() => {
                 presensi[
                   date.toLocaleDateString("en-US", {
@@ -96,11 +96,11 @@ export default function DialogPresensi({
         </DialogTrigger>
         <DialogContent className="max-w-sm pb-10 text-seven-font-size-default">
           <DialogHeader>
-            <DialogTitle className="text-seven max-w-xs text-left text-2xl font-normal">
+            <DialogTitle className="text-seven text-seven-font-size-modal-title max-w-xs text-left font-normal">
               {cls.matkulCode} - {cls.matkulName}
             </DialogTitle>
             <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2">
+              <div className="text-seven-font-size-modal-content flex items-center gap-2">
                 <span className="text-left">
                   {cls.start} - {cls.end}
                 </span>
@@ -114,16 +114,26 @@ export default function DialogPresensi({
                 </span>
               </div>
               <div className="text-left">
-                <p className="font-bold">{cls.lecturer}</p>
-                <p>{cls.location}</p>
+                <p className="text-seven-font-size-default font-bold">
+                  {cls.lecturer}
+                </p>
+                <p className="text-seven-font-size-modal-content">
+                  {cls.location}
+                </p>
               </div>
               <div className="text-left">
-                <p className="font-bold">Topik</p>
-                <p>Topik Perkuliahan</p>
+                <p className="text-seven-font-size-default font-bold">Topik</p>
+                <p className="text-seven-font-size-modal-content">
+                  Topik Perkuliahan
+                </p>
               </div>
               <div className="text-left">
-                <p className="font-bold">Catatan</p>
-                <p>Catatan Perkuliahan</p>
+                <p className="text-seven-font-size-default font-bold">
+                  Catatan
+                </p>
+                <p className="text-seven-font-size-modal-content">
+                  Catatan Perkuliahan
+                </p>
               </div>
               {presensiDisplay}
             </div>
