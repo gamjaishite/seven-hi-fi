@@ -31,12 +31,12 @@ export default function DialogPresensi({
       switch (presensiStatus) {
         case "ATTEND":
           presensiDisplay = (
-            <p className="py-4 text-center text-zinc-400">Sudah Tandai Hadir</p>
+            <p className="py-4 text-center text-seven-foreground-light">Sudah Tandai Hadir</p>
           );
           break;
         case "NOT ATTEND":
           presensiDisplay = (
-            <p className="py-4 text-center text-zinc-400">
+            <p className="py-4 text-center text-seven-foreground-light">
               Anda tidak mengisi presensi
             </p>
           );
@@ -44,7 +44,7 @@ export default function DialogPresensi({
         case "ACTIVE":
           presensiDisplay = (
             <Button
-              className="hover:bg-seven-hyperlink-hover mx-auto my-4 max-w-max bg-seven-hyperlink"
+              className="hover:bg-seven-hyperlink-hover mx-auto my-4 max-w-max bg-seven-hyperlink font-light"
               onClick={() => {
                 presensi[
                   date.toLocaleDateString("en-US", {
