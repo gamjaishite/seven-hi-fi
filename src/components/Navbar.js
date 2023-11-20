@@ -118,23 +118,47 @@ export default function Navbar() {
       name: "Kurikulum",
       href: "/kurikulum/struktur-kurikulum",
     },
-    { icon: FaRegUserCircle, name: "Status Mahasiswa" },
+    { 
+      icon: FaRegUserCircle, 
+      name: "Status Mahasiswa",
+      href: "/status-mahasiswa" 
+    },
     {
       icon: FaMoneyBill1Wave,
       name: "Keuangan & Beasiswa",
       href: "/keuangan-beasiswa/status",
     },
-    { icon: FaUsers, name: "Kelas", href: "/kalender" },
+    { 
+      icon: FaUsers, 
+      name: "Kelas", 
+      href: "/kalender" 
+    },
     {
       icon: FaUniversity,
       name: "Daftar Mata Kuliah",
       href: "/daftar-mata-kuliah",
     },
-    { icon: FaColumns, name: "Rencana Studi & Perwalian" },
-    { icon: FaSitemap, name: "Penjurusan TPB" },
-    { icon: FaTasks, name: "Evaluasi Perkuliahan & Portofolio" },
-    { icon: FaGraduationCap, name: "Wisuda" },
-    { icon: FaCogs, name: "Control Panel", href: "/control-panel/itb-account" },
+    { 
+      icon: FaColumns, 
+      name: "Rencana Studi & Perwalian" 
+    },
+    { 
+      icon: FaSitemap, 
+      name: "Penjurusan TPB" 
+    },
+    { 
+      icon: FaTasks, 
+      name: "Evaluasi Perkuliahan & Portofolio" 
+    },
+    { 
+      icon: FaGraduationCap, 
+      name: "Wisuda" 
+    },
+    { 
+      icon: FaCogs, 
+      name: "Control Panel", 
+      href: "/control-panel/itb-account" 
+    },
   ];
   const profileItems = [
     { icon: FaUser, name: "Profil" },
