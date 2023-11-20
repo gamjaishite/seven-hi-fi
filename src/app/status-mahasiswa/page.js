@@ -384,8 +384,8 @@ export default function StatusMahasiswa() {
                       <div className="ml-2 w-7/12 font-bold">Mata Kuliah</div>
                       <div className="w-1/12 text-center font-bold">Kelas</div>
                       <div className="w-1/12 text-center font-bold">SKS</div>
-                      <div className="w-2/12 font-bold">Kehadiran</div>
-                      <div className="w-1/12 font-bold">Nilai</div>
+                      <div className="w-2/12 font-bold text-right">Kehadiran</div>
+                      <div className="w-1/12 font-bold text-center">Nilai</div>
                     </div>
 
                     {DaftarKuliah.map((data, index) => {
@@ -408,7 +408,7 @@ export default function StatusMahasiswa() {
                           <div className="w-2/12 text-right">
                             {data.Kehadiran}
                           </div>
-                          <div className="w-1/12"></div>
+                          <div className="w-1/12 text-center"></div>
                         </div>
                       );
                     })}
