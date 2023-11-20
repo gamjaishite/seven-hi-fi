@@ -244,14 +244,14 @@ export default function StatusMahasiswa() {
                     </span>
                     {isIpIpk ? (
                       <FaEye
-                        className="my-auto mr-1"
+                        className="my-auto mr-1 hover:cursor-pointer"
                         onClick={() => {
                           setIsIpIpk(false);
                         }}
                       ></FaEye>
                     ) : (
                       <FaEyeSlash
-                        className="my-auto mr-1"
+                        className="my-auto mr-1 hover:cursor-pointer"
                         onClick={() => {
                           setIsIpIpk(true);
                         }}
@@ -281,14 +281,14 @@ export default function StatusMahasiswa() {
                     </span>
                     {isIpTPB ? (
                       <FaEye
-                        className="my-auto mr-1"
+                        className="my-auto mr-1 hover:cursor-pointer"
                         onClick={() => {
                           setIsIpTPB(false);
                         }}
                       ></FaEye>
                     ) : (
                       <FaEyeSlash
-                        className="my-auto mr-1"
+                        className="my-auto mr-1 hover:cursor-pointer"
                         onClick={() => {
                           setIsIpTPB(true);
                         }}
@@ -307,14 +307,14 @@ export default function StatusMahasiswa() {
                     </span>
                     {isNR ? (
                       <FaEye
-                        className="my-auto mr-1"
+                        className="my-auto mr-1 hover:cursor-pointer"
                         onClick={() => {
                           setIsNR(false);
                         }}
                       ></FaEye>
                     ) : (
                       <FaEyeSlash
-                        className="my-auto mr-1"
+                        className="my-auto mr-1 hover:cursor-pointer"
                         onClick={() => {
                           setIsNR(true);
                         }}
@@ -438,7 +438,7 @@ export default function StatusMahasiswa() {
                   </p>
                   {isIMG ? (
                     <FaEye
-                      className=""
+                      className="hover:cursor-pointer"
                       onClick={() => {
                         setIsIMG(false);
                       }}
@@ -448,7 +448,7 @@ export default function StatusMahasiswa() {
                       onClick={() => {
                         setIsIMG(true);
                       }}
-                      className=""
+                      className="hover:cursor-pointer"
                     ></FaEyeSlash>
                   )}
                 </div>
