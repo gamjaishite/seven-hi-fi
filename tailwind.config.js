@@ -75,6 +75,9 @@ module.exports = {
         "seven-hover-light": "var(--seven-hover-light)",
         "seven-filter": "var(--seven-filter)",
         "seven-bg-button-primary-hover": "var(--seven-bg-button-primary-hover)",
+        "seven-bg-button-dark": "var(--seven-bg-button-dark)",
+        "seven-border-button-dark": "var(--seven-border-button-dark)",
+        "seven-bg-button-dark-hover": "var(--seven-bg-button-dark-hover)"
       },
       fontSize: {
         "seven-font-size-default": "var(--seven-font-size-default)",
@@ -90,7 +93,7 @@ module.exports = {
         "seven-font-size-table-heading": "var(--seven-font-size-table-heading)",
         "seven-font-size-filter": "var(--seven-font-size-filter)",
         "seven-font-size-modal-title": "var(--seven-font-size-modal-title)",
-        "seven-font-size-modal-content": "var(--seven-font-size-modal-content)"
+        "seven-font-size-modal-content": "var(--seven-font-size-modal-content)",
       },
       borderRadius: {
         lg: "var(--radius)",

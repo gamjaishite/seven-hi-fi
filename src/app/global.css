@@ -58,6 +58,9 @@
     --seven-filter: #555;
     --seven-bg-button-primary-hover: #2aabd2;
     --seven-hyperlink-hover: #23527c;
+    --seven-bg-button-dark: #337ab7;
+    --seven-border-button-dark: #245580;
+    --seven-bg-button-dark-hover: #265a88;
     
     --seven-font-size-default: 14px;
     --seven-font-size-page-title: 36px;
