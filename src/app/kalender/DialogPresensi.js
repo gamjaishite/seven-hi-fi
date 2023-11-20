@@ -44,7 +44,7 @@ export default function DialogPresensi({
         case "ACTIVE":
           presensiDisplay = (
             <Button
-              className="hover:bg-seven-hyperlink-hover mx-auto my-4 max-w-max bg-seven-hyperlink"
+              className="hover:bg-seven-hyperlink-hover mx-auto my-4 max-w-max bg-seven-hyperlink font-light"
               onClick={() => {
                 presensi[
                   date.toLocaleDateString("en-US", {
