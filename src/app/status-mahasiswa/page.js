@@ -16,8 +16,8 @@ const statusPendaftaran = [
     Tahun: 2023,
     Semester: "1 - Ganjil",
     Status: "Sudah Daftar",
-    "#MK": 8,
-    SKS: 24,
+    "#MK": 7,
+    SKS: 18,
   },
   {
     Tahun: 2022,
