@@ -298,21 +298,21 @@ export default function StatusMahasiswa() {
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">2</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3130</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Jaringan Komputer
                     </div>
                     <div className="w-1/12 text-center">02</div>
-                    <div className="w-1/12 text-center">2</div>
+                    <div className="w-1/12 text-center">3</div>
                     <div className="w-2/12 text-center">100%</div>
                     <div className="w-1/12"></div>
                   </div>
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">3</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3140</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Manajemen Basis Data
                     </div>
                     <div className="w-1/12 text-center">02</div>
                     <div className="w-1/12 text-center">2</div>
@@ -322,21 +322,21 @@ export default function StatusMahasiswa() {
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">4</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3141</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Sistem Informasi
                     </div>
                     <div className="w-1/12 text-center">02</div>
-                    <div className="w-1/12 text-center">2</div>
+                    <div className="w-1/12 text-center">3</div>
                     <div className="w-2/12 text-center">100%</div>
                     <div className="w-1/12"></div>
                   </div>
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">5</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3150</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Manajemen Proyek Perangkat Lunak
                     </div>
                     <div className="w-1/12 text-center">02</div>
                     <div className="w-1/12 text-center">2</div>
@@ -346,9 +346,9 @@ export default function StatusMahasiswa() {
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">6</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3151</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Interaksi Manusia Komputer
                     </div>
                     <div className="w-1/12 text-center">02</div>
                     <div className="w-1/12 text-center">2</div>
@@ -358,9 +358,9 @@ export default function StatusMahasiswa() {
 
                   <div className="flex w-full border bg-white py-[2px] text-[13px]">
                     <div className="w-[15px] text-center font-bold">7</div>
-                    <div className="w-1/12">IF3110</div>
+                    <div className="w-1/12">IF3170</div>
                     <div className="ml-2 w-7/12">
-                      Pengembangan Aplikasi Berbasis Web
+                      Inteligensi Buatan
                     </div>
                     <div className="w-1/12 text-center">02</div>
                     <div className="w-1/12 text-center">2</div>
