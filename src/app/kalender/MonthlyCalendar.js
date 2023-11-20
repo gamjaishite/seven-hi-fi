@@ -150,7 +150,7 @@ function Calendar({
                             <div className="flex flex-col gap-2">
                               <DialogPresensi
                                 cls={cls}
-                                date={new Date(date.toLocaleDateString())}
+                                date={new Date(date)}
                                 presensi={presensi}
                                 setPresensi={setPresensi}
                                 trigger={
