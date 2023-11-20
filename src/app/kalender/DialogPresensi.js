@@ -66,10 +66,10 @@ export default function DialogPresensi({
         case "WILL ACTIVE":
           presensiDisplay = (
             <div className="flex flex-col items-center py-4">
-              <p className="text-center text-sm text-zinc-400">
+              <p className="text-center text-seven-font-size-default text-seven-foreground-light">
                 Presensi mandiri dapat dilakukan pada
               </p>
-              <p className="text-center text-lg text-zinc-400">
+              <p className="text-center text-seven-font-size-default text-seven-foreground-light font-bold">
                 {date.toLocaleDateString("id-ID", {
                   year: "numeric",
                   month: "long",
