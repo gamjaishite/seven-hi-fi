@@ -218,7 +218,7 @@ export default function StatusMahasiswa() {
 
                   {DaftarKuliah.map((data,index)=>{
                     return(
-                      <div className={((index % 2) === 0)? "text-seven-font-size-table-content py-[2px] flex w-full text-left bg-white border" : "text-seven-font-size-table-content py-[2px] flex w-full bg-white border"}>
+                      <div key={index} className={((index % 2) === 0)? "text-seven-font-size-table-content py-[2px] flex w-full text-left bg-white border" : "text-seven-font-size-table-content py-[2px] flex w-full bg-white border"}>
                         <div className="w-[15px] font-bold text-center">
                           {index+1}
                         </div>
@@ -300,7 +300,7 @@ export default function StatusMahasiswa() {
                   
                   {statusPendaftaran.map((data,index)=>{
                     return(
-                    <div className={((index % 2) === 0)? "text-seven-font-size-table-content py-[2px] flex w-full text-left px-1 bg-white border" : "text-seven-font-size-table-content my-[2px] flex w-full text-left px-1"}>
+                    <div key={index} className={((index % 2) === 0)? "text-seven-font-size-table-content py-[2px] flex w-full text-left px-1 bg-white border" : "text-seven-font-size-table-content my-[2px] flex w-full text-left px-1"}>
                       <div className="w-1/6">
                         {data.Tahun}
                       </div>
