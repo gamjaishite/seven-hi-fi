@@ -147,7 +147,7 @@ const FacultyFilter = ({faculties = [], value, onChange}) => {
                 <SelectValue className="" placeholder='Fakultas' />
             </SelectTrigger>
             <SelectContent className="max-h-[300px]" onCloseAutoFocus={onClose} onPointerDownOutside={onClickOutside}>
-                {faculties.sort((s1, s2) => s1 < s2 ? -1 : 1).map((elmt, idx) => (
+                {faculties.map((elmt, idx) => (
                     <SelectItem key={idx} value={elmt} className="!text-seven-font-size-filter">{elmt}</SelectItem>
                 ))
                 }
