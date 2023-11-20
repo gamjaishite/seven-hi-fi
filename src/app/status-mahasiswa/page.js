@@ -47,21 +47,21 @@ export default function StatusMahasiswa() {
           <div className="w-full lg:w-2/6 flex flex-col items-center">
             <div className="border rounded bg-[#f9f9f9] rounded-[5px] w-full border-[#3277B2]">
               <div className="div-auto flex flex-col h-full bg-[#f9f9f9] w-full h-1/3 rounded-[5px] border-[#3277B2 text-seven-font-size-table-content]">
-                <div className="p-[4px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center">
-                  <p className="px-2 --seven-font-size-table-heading">Data Mahasiswa</p>
+                <div className="py-[10px] px-[15px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center">
+                  <p className="text-seven-font-size-table-heading">Data Mahasiswa</p>
                 </div>
 
                 <div className="text-seven-font-size-table-content my-[2px] flex place-content-between ">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">NIM</div>
-                  <div className="w-2/3 text-left"><span className="--seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">NIM</div>
+                  <div className="w-2/3 text-left"><span className="text-seven-font-size-table-content">
                     13521000
                   </span>
                   </div>
                 </div>
 
                 <div className="text-seven-font-size-table-content py-[2px] border flex place-content-between bg-white">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">Nama</div>
-                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">Nama</div>
+                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     Sepuh puh puh
                   </span>
                   <FaMale className="mr-1"></FaMale>
@@ -69,48 +69,48 @@ export default function StatusMahasiswa() {
                 </div>
 
                 <div className="text-seven-font-size-table-content my-[2px] flex place-content-between">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">Fakultas</div>
-                  <div className="w-2/3 text-left"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">Fakultas</div>
+                  <div className="w-2/3 text-left"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     STEI
                   </span>
                   </div>
                 </div>
 
                 <div className="text-seven-font-size-table-content py-[2px] border flex place-content-between bg-white">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">Program Studi</div>
-                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">Program Studi</div>
+                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     135 / Teknik Informatika
                   </span>
                   </div>
                 </div>
                 
                 <div className="text-seven-font-size-table-content my-[2px] flex place-content-between">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">Kelas</div>
-                  <div className="w-2/3 text-left"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">Kelas</div>
+                  <div className="w-2/3 text-left"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     Ganesha
                   </span>
                   </div>
                 </div>
 
                 <div className="text-seven-font-size-table-content py-[2px] border flex place-content-between bg-white">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">Tahun Masuk</div>
-                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">Tahun Masuk</div>
+                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     2021 semester 1
                   </span>
                   </div>
                 </div>
 
                 <div className="text-seven-font-size-table-content my-[2px] flex place-content-between">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">Dosen Wali</div>
-                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">Dosen Wali</div>
+                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     Sepuhnya Sepuh, S.T, M.A., Ph.D.
                   </span>
                   </div>
                 </div>
 
                 <div className="text-seven-font-size-table-content py-[2px] border flex place-content-between bg-white">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">IP & IPK</div>
-                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">IP & IPK</div>
+                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     {isIpIpk?'4.00 / 4.00':null}
                   </span>
                   {isIpIpk?<FaEye className="mr-1 my-auto" onClick={()=>{setIsIpIpk(false)}}></FaEye> : <FaEyeSlash className="mr-1 my-auto" onClick={()=>{setIsIpIpk(true)}}></FaEyeSlash>}
@@ -118,16 +118,16 @@ export default function StatusMahasiswa() {
                 </div>
 
                 <div className="text-seven-font-size-table-content my-[2px] flex place-content-between">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">SKS</div>
-                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">SKS</div>
+                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     Lulus 144 SKS / Nilai T 0 SKS
                   </span>
                   </div>
                 </div>
 
                 <div className="text-seven-font-size-table-content py-[2px] border flex place-content-between bg-white">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">IP TPB</div>
-                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">IP TPB</div>
+                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     {isIpTPB?'4.00 / Lulus 36 SKS':null}
                   </span>
                   {isIpTPB?<FaEye className="mr-1 my-auto" onClick={()=>{setIsIpTPB(false)}}></FaEye> : <FaEyeSlash className="mr-1 my-auto" onClick={()=>{setIsIpTPB(true)}}></FaEyeSlash>}
@@ -135,8 +135,8 @@ export default function StatusMahasiswa() {
                 </div>
 
                 <div className="text-seven-font-size-table-content my-[2px] flex place-content-between">
-                  <div className="mx-[1px] w-1/3 text-left font-bold --seven-font-size-table-content">NR (2-2023-2025)</div>
-                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content --seven-font-size-table-content">
+                  <div className="mx-[1px] w-1/3 text-left font-bold text-seven-font-size-table-content">NR (2-2023-2025)</div>
+                  <div className="w-2/3 text-left flex place-content-between"><span className="text-seven-font-size-table-content text-seven-font-size-table-content">
                     {isNR?'4.00 / 24 SKS':null}
                   </span>
                   {isNR?<FaEye className="mr-1 my-auto" onClick={()=>{setIsNR(false)}}></FaEye> : <FaEyeSlash className="mr-1 my-auto" onClick={()=>{setIsNR(true)}}></FaEyeSlash>}
@@ -146,8 +146,8 @@ export default function StatusMahasiswa() {
             </div>
             <div className="border w-full rounded rounded-[5px] border-[#3277B2] my-[16px]">
               <div className="div-auto flex flex-col h-full w-full h-1/3 rounded-[5px] border-[#3277B2]">
-                <div className="p-[4px] h-full bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center">
-                  <p className="px-2 seven-font-size-table-heading">Links</p>
+                <div className="py-[10px] px-[15px] h-full bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center">
+                  <p className="text-seven-font-size-table-heading">Links</p>
                 </div>
                 <div className="text-center h-full w-full flex flex-col justify-center items-center ">
                   <div className="px-14 w-full pt-5 pb-6 text-left h-full text-[15px]">
@@ -186,8 +186,8 @@ export default function StatusMahasiswa() {
           <div className="mb-10 w-full lg:w-4/6 flex flex-col">
             <div className="flex flex-col md:flex-row mb-5 md:mb-0">
               <div className="border flex-col flex rounded bg-[#f9f9f9] rounded-[5px] w-full md:w-10/12 border-[#3277B2] mb-5">
-                  <div className="py-[10px] bg-seven-bg-table-heading text-white w-full rounded-t-[5px] flex items-center">
-                    <p className="px-[15px] --seven-font-size-table-heading">Daftar Kuliah Semester 1-2023/2024</p>
+                  <div className="py-[10px] px-[15px] bg-seven-bg-table-heading text-white w-full rounded-t-[5px] flex items-center">
+                    <p className="text-seven-font-size-table-heading">Daftar Kuliah Semester 1-2023/2024</p>
                   </div>
                 <div className="overflow-x-auto">
 
@@ -258,9 +258,9 @@ export default function StatusMahasiswa() {
             </div>
             <div className="flex flex-col lg:flex-row gap-2">
               <div className="border rounded bg-[#f9f9f9] rounded-[5px] w-full border-[#3277B2] h-fit">
-                  <div className="py-[10px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center w-full place-content-between">
-                    <p className="px-[15px] --seven-font-size-table-heading">Perkembangan Hasil Studi</p>
-                    {isIMG?<FaEye className="mr-2" onClick={()=>{setIsIMG(false)}}></FaEye> : <FaEyeSlash onClick={()=>{setIsIMG(true)}} className="mr-2"></FaEyeSlash>}
+                  <div className="py-[10px] px-[15px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center w-full place-content-between">
+                    <p className=" text-seven-font-size-table-heading">Perkembangan Hasil Studi</p>
+                    {isIMG?<FaEye className="" onClick={()=>{setIsIMG(false)}}></FaEye> : <FaEyeSlash onClick={()=>{setIsIMG(true)}} className=""></FaEyeSlash>}
                   </div>
                   <div className="overflow-x-auto">
 
@@ -273,8 +273,8 @@ export default function StatusMahasiswa() {
                 </div>
               </div>
               <div className="border flex flex-col rounded bg-[#f9f9f9] rounded-[5px] w-full border-[#3277B2]  h-fit">
-                  <div className="p-[4px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center w-full">
-                    <p className="px-2 --seven-font-size-table-heading">Status Pendaftaran</p>
+                  <div className="py-[10px] px-[15px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center w-full">
+                    <p className="text-seven-font-size-table-heading">Status Pendaftaran</p>
                   </div>
                   <div className="overflow-x-auto">
 
