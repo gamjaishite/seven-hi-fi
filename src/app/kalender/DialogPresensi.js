@@ -96,13 +96,13 @@ export default function DialogPresensi({
         <DialogTrigger className="flex h-full flex-col text-left">
           {trigger}
         </DialogTrigger>
-        <DialogContent className="max-w-sm pb-10 text-seven-font-size-default">
+        <DialogContent className="max-w-sm pb-7 text-seven-font-size-default">
           <DialogHeader>
             <DialogTitle className="text-seven max-w-xs text-left text-seven-font-size-modal-title font-normal pb-[9px]">
               {cls.matkulCode} - {cls.matkulName}
             </DialogTitle>
             <div className="flex flex-col gap-2">
-              <div className={`flex flex-col gap-4 ${presensiStatus !== 'ACTIVE' ? 'border-b-[1px] pb-6' : ''}`}>
+              <div className={`flex flex-col gap-4 ${presensiStatus !== 'ACTIVE' && presensiDisplay ? 'border-b-[1px] pb-6' : ''}`}>
                 <div className="text-left">
                   <p className="font-bold text-seven-font-size-default">Kuliah - Tatap Muka</p>
                   <div className="flex items-center gap-2 text-seven-font-size-modal-content">
