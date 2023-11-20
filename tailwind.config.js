@@ -88,7 +88,9 @@ module.exports = {
           "var(--seven-font-size-navbar-dropdown)",
         "seven-font-size-navbar-brand": "var(--seven-font-size-navbar-brand)",
         "seven-font-size-table-heading": "var(--seven-font-size-table-heading)",
-        "seven-font-size-filter": "var(--seven-font-size-filter)"
+        "seven-font-size-filter": "var(--seven-font-size-filter)",
+        "seven-font-size-modal-title": "var(--seven-font-size-modal-title)",
+        "seven-font-size-modal-content": "var(--seven-font-size-modal-content)"
       },
       borderRadius: {
         lg: "var(--radius)",

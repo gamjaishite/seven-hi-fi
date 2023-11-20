@@ -92,11 +92,11 @@ export default function DialogPresensi({
         <DialogTrigger className="flex flex-col text-left h-full">{trigger}</DialogTrigger>
         <DialogContent className="text-seven-font-size-default">
           <DialogHeader>
-            <DialogTitle className="text-seven max-w-md text-2xl font-normal">
+            <DialogTitle className="text-seven max-w-md text-seven-font-size-modal-title font-normal">
               {cls.matkulCode} - {cls.matkulName}
             </DialogTitle>
             <div className="flex flex-col gap-4">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 text-seven-font-size-modal-content">
                 <span>
                   {cls.start} - {cls.end}
                 </span>
@@ -110,16 +110,16 @@ export default function DialogPresensi({
                 </span>
               </div>
               <div>
-                <p className="font-bold">{cls.lecturer}</p>
-                <p>{cls.location}</p>
+                <p className="font-bold text-seven-font-size-default">{cls.lecturer}</p>
+                <p className="text-seven-font-size-modal-content">{cls.location}</p>
               </div>
               <div>
-                <p className="font-bold">Topik</p>
-                <p>Topik Perkuliahan</p>
+                <p className="font-bold text-seven-font-size-default">Topik</p>
+                <p className="text-seven-font-size-modal-content">Topik Perkuliahan</p>
               </div>
               <div>
-                <p className="font-bold">Catatan</p>
-                <p>Catatan Perkuliahan</p>
+                <p className="font-bold text-seven-font-size-default">Catatan</p>
+                <p className="text-seven-font-size-modal-content">Catatan Perkuliahan</p>
               </div>
               {presensiDisplay}
             </div>

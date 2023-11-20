@@ -70,6 +70,8 @@
     --seven-font-size-navbar-brand: 18px;
     --seven-font-size-table-heading: 16px;
     --seven-font-size-filter: 12px;
+    --seven-font-size-modal-title: 22px;
+    --seven-font-size-modal-content: 11.9px;
   }
  
   .dark {
