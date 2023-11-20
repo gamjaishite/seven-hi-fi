@@ -47,7 +47,7 @@ export default function StatusMahasiswa() {
           <div className="w-full lg:w-2/6 flex flex-col items-center">
             <div className="border rounded bg-[#f9f9f9] rounded-[5px] w-full border-[#3277B2]">
               <div className="div-auto flex flex-col h-full bg-[#f9f9f9] w-full h-1/3 rounded-[5px] border-[#3277B2 text-seven-font-size-table-content]">
-                <div className="p-[4px] bg-[#3277B2] text-white rounded-t-[5px] flex items-center">
+                <div className="p-[4px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center">
                   <p className="px-2 --seven-font-size-table-heading">Data Mahasiswa</p>
                 </div>
 
@@ -146,7 +146,7 @@ export default function StatusMahasiswa() {
             </div>
             <div className="border w-full rounded rounded-[5px] border-[#3277B2] my-[16px]">
               <div className="div-auto flex flex-col h-full w-full h-1/3 rounded-[5px] border-[#3277B2]">
-                <div className="p-[4px] h-full bg-[#3277B2] text-white rounded-t-[5px] flex items-center">
+                <div className="p-[4px] h-full bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center">
                   <p className="px-2 seven-font-size-table-heading">Links</p>
                 </div>
                 <div className="text-center h-full w-full flex flex-col justify-center items-center ">
@@ -186,8 +186,8 @@ export default function StatusMahasiswa() {
           <div className="mb-10 w-full lg:w-4/6 flex flex-col">
             <div className="flex flex-col md:flex-row mb-5 md:mb-0">
               <div className="border flex-col flex rounded bg-[#f9f9f9] rounded-[5px] w-full md:w-10/12 border-[#3277B2] mb-5">
-                  <div className="p-[4px] bg-[#3277B2] text-white w-full rounded-t-[5px] flex items-center">
-                    <p className="px-2 --seven-font-size-table-heading">Daftar Kuliah Semester 1-2023/2024</p>
+                  <div className="py-[10px] bg-seven-bg-table-heading text-white w-full rounded-t-[5px] flex items-center">
+                    <p className="px-[15px] --seven-font-size-table-heading">Daftar Kuliah Semester 1-2023/2024</p>
                   </div>
                 <div className="overflow-x-auto">
 
@@ -258,8 +258,8 @@ export default function StatusMahasiswa() {
             </div>
             <div className="flex flex-col lg:flex-row gap-2">
               <div className="border rounded bg-[#f9f9f9] rounded-[5px] w-full border-[#3277B2] h-fit">
-                  <div className="p-[4px] bg-[#3277B2] text-white rounded-t-[5px] flex items-center w-full place-content-between">
-                    <p className="px-2 --seven-font-size-table-heading">Perkembangan Hasil Studi</p>
+                  <div className="py-[10px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center w-full place-content-between">
+                    <p className="px-[15px] --seven-font-size-table-heading">Perkembangan Hasil Studi</p>
                     {isIMG?<FaEye className="mr-2" onClick={()=>{setIsIMG(false)}}></FaEye> : <FaEyeSlash onClick={()=>{setIsIMG(true)}} className="mr-2"></FaEyeSlash>}
                   </div>
                   <div className="overflow-x-auto">
@@ -273,7 +273,7 @@ export default function StatusMahasiswa() {
                 </div>
               </div>
               <div className="border flex flex-col rounded bg-[#f9f9f9] rounded-[5px] w-full border-[#3277B2]  h-fit">
-                  <div className="p-[4px] bg-[#3277B2] text-white rounded-t-[5px] flex items-center w-full">
+                  <div className="p-[4px] bg-seven-bg-table-heading text-white rounded-t-[5px] flex items-center w-full">
                     <p className="px-2 --seven-font-size-table-heading">Status Pendaftaran</p>
                   </div>
                   <div className="overflow-x-auto">
