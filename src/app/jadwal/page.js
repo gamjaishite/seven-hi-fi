@@ -10,7 +10,7 @@ export default function Jadwal() {
         className="hover:text-seven-hyperlink-hover text-seven-hyperlink"
       />,
       <FaCalendarAlt key={"default"} />,
-      "Kalender",
+      "Kalender Perkuliahan",
     ],
     "/jadwal": [
       <FaClipboardList
