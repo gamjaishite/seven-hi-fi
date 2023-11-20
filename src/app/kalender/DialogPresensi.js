@@ -31,7 +31,9 @@ export default function DialogPresensi({
       switch (presensiStatus) {
         case "ATTEND":
           presensiDisplay = (
-            <p className="py-4 text-center text-seven-foreground-light">Sudah Tandai Hadir</p>
+            <p className="py-4 text-center text-seven-foreground-light">
+              Sudah Tandai Hadir
+            </p>
           );
           break;
         case "NOT ATTEND":
@@ -92,9 +94,9 @@ export default function DialogPresensi({
         <DialogTrigger className="flex h-full flex-col text-left">
           {trigger}
         </DialogTrigger>
-        <DialogContent className="mr-2 text-seven-font-size-default">
+        <DialogContent className="max-w-sm pb-10 text-seven-font-size-default">
           <DialogHeader>
-            <DialogTitle className="text-seven max-w-md text-left text-2xl font-normal">
+            <DialogTitle className="text-seven max-w-xs text-left text-2xl font-normal">
               {cls.matkulCode} - {cls.matkulName}
             </DialogTitle>
             <div className="flex flex-col gap-4">
