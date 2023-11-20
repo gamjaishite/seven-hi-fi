@@ -266,15 +266,15 @@ export default function StatusMahasiswa() {
 
           <div className="mb-10 flex w-full flex-col lg:w-4/6">
             <div className="mb-5 flex flex-col md:mb-0 md:flex-row">
-              <div className="mb-5 w-full overflow-x-auto rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9] md:w-10/12">
-                <div className="div-auto flex h-1/3 h-full w-full min-w-[450px] flex-col rounded-[5px] border-[#3277B2] bg-[#f9f9f9]">
+              <div className="mb-5 w-full overflow-x-auto rounded-[5px] border border-[#3277B2] bg-[#f9f9f9] md:w-10/12">
+                <div className="div-auto flex h-full w-full min-w-[450px] flex-col rounded-[5px] border-[#3277B2] bg-[#f9f9f9]">
                   <div className="flex items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                     <p className="--seven-font-size-table-heading px-2">
                       Daftar Kuliah Semester 1-2023/2024
                     </p>
                   </div>
 
-                  <div className="my-[2px] flex w-full text-[13px] text-[13px]">
+                  <div className="my-[2px] flex w-full text-[13px]">
                     <div className="w-[15px]"></div>
                     <div className="w-1/12 font-bold ">Kode</div>
                     <div className="ml-2 w-7/12 font-bold">Mata Kuliah</div>
@@ -376,7 +376,7 @@ export default function StatusMahasiswa() {
               </div>
             </div>
             <div className="flex flex-col gap-2 lg:flex-row">
-              <div className="w-full overflow-x-auto rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
+              <div className="w-full overflow-x-auto rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
                 <div className="div-auto flex h-1/3 w-full min-w-[450px] flex-col rounded-[5px] border-[#3277B2] bg-[#f9f9f9]">
                   <div className="flex items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                     <p className="--seven-font-size-table-heading px-2">
@@ -389,7 +389,7 @@ export default function StatusMahasiswa() {
                   </div>
                 </div>
               </div>
-              <div className="flex h-fit w-full flex-col overflow-x-auto rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
+              <div className="flex h-fit w-full flex-col overflow-x-auto rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
                 <div className="flex w-full min-w-[300px] items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                   <p className="--seven-font-size-table-heading px-2">
                     Status Pendaftaran
