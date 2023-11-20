@@ -208,10 +208,10 @@ export default function StatusMahasiswa() {
                     <div className="w-1/12 font-bold text-center">
                       SKS
                     </div>
-                    <div className="w-2/12 font-bold">
+                    <div className="w-2/12 font-bold text-right">
                       Kehadiran
                     </div>
-                    <div className="w-1/12 font-bold">
+                    <div className="w-1/12 font-bold text-center">
                       Nilai
                     </div>
                   </div>
@@ -234,10 +234,10 @@ export default function StatusMahasiswa() {
                         <div className="w-1/12 text-center">
                           {data.SKS}
                         </div>
-                        <div className="w-2/12 text-center">
+                        <div className="w-2/12 text-right">
                           {data.Kehadiran}
                         </div>
-                        <div className="w-1/12">
+                        <div className="w-1/12 text-center">
                           
                         </div>
                       </div>
