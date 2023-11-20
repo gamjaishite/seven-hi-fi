@@ -4,7 +4,6 @@ export default function Home() {
   const links = [
     "/status-mahasiswa",
     "/kalender",
-    "/jadwal",
     "/daftar-mata-kuliah",
   ];
   return (
