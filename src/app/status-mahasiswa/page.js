@@ -302,7 +302,7 @@ export default function StatusMahasiswa() {
                     NR (2-2023-2025)
                   </div>
                   <div className="flex w-2/3 place-content-between text-left">
-                    <span className="text-seven-font-size-table-content text-seven-font-size-table-content">
+                    <span className="text-seven-font-size-table-content">
                       {isNR ? "4.00 / 24 SKS" : null}
                     </span>
                     {isNR ? (
