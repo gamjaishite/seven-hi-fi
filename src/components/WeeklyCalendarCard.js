@@ -26,12 +26,30 @@ export function WeeklyCalendarCard(props) {
     },
   };
 
+  let statusPresensi;
+  switch (status) {
+    case "empty":
+      statusPresensi = null;
+      break;
+    case "open":
+      statusPresensi = "ACTIVE";
+      break;
+    case "filled":
+      statusPresensi = "ATTEND";
+      break;
+    case "skipped":
+      statusPresensi = "NOT ATTEND";
+      break;
+  }
+
+  let cardClassName = `border-seven-border-gray absolute top-[5px] z-10 flex w-[calc(100%-10px)] flex-col rounded-lg border px-2.5 py-[5px] ${
+    statusConf[status].bgColor
+  } text-[12px] font-bold h-[${60 + 70 * (item.duration - 1)}px]`;
+
   return (
     <div
       key={idx}
-      className={`border-seven-border-gray absolute top-[5px] z-10 flex w-[calc(100%-10px)] flex-col rounded-lg border px-2.5 py-[5px] ${
-        statusConf[status].bgColor
-      } text-[12px] font-bold h-[${50 + 60 * (item.duration - 1)}px]`}
+      className={cardClassName}
     >
       <DialogPresensi
         cls={item}
@@ -41,16 +59,21 @@ export function WeeklyCalendarCard(props) {
         setStatus={setStatus}
         trigger={
           <>
-            <p
-              className={`truncate w-full ${statusConf[status].textColor}`}
-            >
-              {item.start} - {item.end}
-            </p>
-            <p
-              className={`truncate w-full ${statusConf[status].textColor}`}
-            >
+            <div className="flex w-full flex-row items-center">
+              <p className={`w-full truncate ${statusConf[status].textColor}`}>
+                {item.start} - {item.end}
+              </p>
+
+              {statusPresensi &&
+                props.presensiAttributes[statusPresensi] &&
+                props.presensiAttributes[statusPresensi].icon}
+            </div>
+            <p className={`w-full truncate ${statusConf[status].textColor}`}>
               {item.matkulCode}{" "}
               <span className="font-normal">{item.matkulName}</span>
+            </p>
+            <p className={`w-full truncate ${statusConf[status].textColor} font-normal`}>
+              {item.location}{" "}
             </p>
           </>
         }

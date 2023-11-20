@@ -55,6 +55,7 @@ export default function WeeklyCalendar({
   bulan,
   presensi,
   setPresensi,
+  presensiAttributes,
 }) {
   let tahun;
   if (semester.startsWith("1")) {
@@ -143,7 +144,7 @@ export default function WeeklyCalendar({
               return (
                 <div
                   key={tanggalItem}
-                  className="border-seven-border-gray relative flex  h-[60px] flex-1 flex-col items-center justify-center border p-[5px]"
+                  className="border-seven-border-gray relative flex  h-[70px] flex-1 flex-col items-center justify-center border p-[5px]"
                 >
                   {classes.map((classItem, classIdx) => {
                     if (classItem.start === jamItem) {
@@ -153,6 +154,7 @@ export default function WeeklyCalendar({
                         presensi: presensi,
                         setPresensi: setPresensi,
                         date: tanggalItem,
+                        presensiAttributes: presensiAttributes,
                       });
                     }
                   })}
