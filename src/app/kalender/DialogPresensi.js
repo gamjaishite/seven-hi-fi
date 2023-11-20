@@ -26,7 +26,7 @@ export default function DialogPresensi({
 
   let presensiDisplay;
   if (presensiState) {
-    let presensiStatus = presensiState[cls.matkulCode];
+    const presensiStatus = presensiState[cls.matkulCode];
     if (presensiStatus) {
       switch (presensiStatus) {
         case "ATTEND":

@@ -5,13 +5,19 @@ import { FaCalendarAlt, FaClipboardList } from "react-icons/fa";
 export default function Jadwal() {
   const secNav = {
     "/kalender": [
-      <FaCalendarAlt className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
-      <FaCalendarAlt />,
+      <FaCalendarAlt
+        key={"hover"}
+        className="hover:text-seven-hyperlink-hover text-seven-hyperlink"
+      />,
+      <FaCalendarAlt key={"default"} />,
       "Kalender",
     ],
     "/jadwal": [
-      <FaClipboardList className="text-seven-hyperlink hover:text-seven-hyperlink-hover" />,
-      <FaClipboardList className="" />,
+      <FaClipboardList
+        key={"hover"}
+        className="hover:text-seven-hyperlink-hover text-seven-hyperlink"
+      />,
+      <FaClipboardList key={"default"} />,
       "Jadwal Kuliah",
     ],
   };

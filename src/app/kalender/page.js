@@ -53,13 +53,19 @@ export default function Jadwal() {
 
   const secNav = {
     "/kalender": [
-      <FaCalendarAlt className="hover:text-seven-hyperlink-hover text-seven-hyperlink" />,
-      <FaCalendarAlt />,
+      <FaCalendarAlt
+        key={"hover"}
+        className="hover:text-seven-hyperlink-hover text-seven-hyperlink"
+      />,
+      <FaCalendarAlt key={"default"} />,
       "Kalender",
     ],
     "/jadwal": [
-      <FaClipboardList className="hover:text-seven-hyperlink-hover text-seven-hyperlink" />,
-      <FaClipboardList className="" />,
+      <FaClipboardList
+        key={"hover"}
+        className="hover:text-seven-hyperlink-hover text-seven-hyperlink"
+      />,
+      <FaClipboardList key={"default"} className="" />,
       "Jadwal Kuliah",
     ],
   };
