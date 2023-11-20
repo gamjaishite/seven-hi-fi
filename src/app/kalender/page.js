@@ -97,6 +97,7 @@ export default function Jadwal() {
           semester={semester}
           presensi={presensi}
           setPresensi={setPresensi}
+          presensiAttributes={presensiAttributes}
           bulan={bulan}
         />
       )}
