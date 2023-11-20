@@ -38,8 +38,8 @@ export default function StatusMahasiswa() {
       >
         <div className="flex h-full w-[100%] flex-col gap-2 lg:flex-row">
           <div className="flex w-full flex-col items-center lg:w-2/6">
-            <div className="w-full rounded rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
-              <div className="div-auto border-[#3277B2 text-[13px]] flex h-1/3 h-full w-full flex-col rounded-[5px] bg-[#f9f9f9]">
+            <div className="w-full rounded-[5px] border border-[#3277B2] bg-[#f9f9f9]">
+              <div className="div-auto border-[#3277B2 text-[13px]] flex h-full w-full flex-col rounded-[5px] bg-[#f9f9f9]">
                 <div className="flex items-center rounded-t-[5px] bg-[#3277B2] p-[4px] text-white">
                   <p className="--seven-font-size-table-heading px-2">
                     Data Mahasiswa

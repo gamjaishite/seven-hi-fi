@@ -173,7 +173,7 @@ export default function Navbar() {
               href="/"
               className="flex items-center gap-1 text-seven-navbar-brand hover:text-seven-foreground-dark"
             >
-              <h1 className="text-seven-font-size-navbar-brand">SIX </h1>
+              <h1 className="text-seven-font-size-navbar-brand">SEVEN </h1>
               <FaHome className="" size={18} />
             </Link>
             <div className="hidden lg:flex">
