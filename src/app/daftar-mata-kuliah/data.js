@@ -25,6 +25,9 @@ const DEFAULT_SUBJECTS = [
     {code: 'AK2263', name: 'Makroekonomi', faculty: 'FMIPA', study: {code: 108, name: 'Aktuaria'}, category: 'wajib'},
     {code: 'AK3081', name: 'Pengantar Model Kesintasan', faculty: 'FMIPA', study: {code: 108, name: 'Aktuaria'}, category: 'pilihan'},
     {code: 'AK3062', name: 'Matematika Investasi dan Kredit', faculty: 'FMIPA', study: {code: 108, name: 'Aktuaria'}, category: 'pilihan'},
+    {code: 'MB2107', name: 'Bisnis Terpadu Asia 1', faculty: 'SBM', study: {code: 190, name: 'Manajemen'}, category: 'pilihan'},
+    {code: 'MK3004', name: 'Berpikir Disain untuk Inovasi (P)', faculty: 'SBM', study: {code: 192, name: 'Kewirausahaan'}, category: 'pilihan'},
+    {code: 'MB2004', name: 'Pengantar Bisnis Internasional', faculty: 'SBM', study: {code: 190, name: 'Manajemen'}, category: 'pilihan'},
     {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'wajib'},
     {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'wajib'},
     {code: 'KKXXXX', name: 'Nama Mata Kuliah', faculty: 'FXXX', study: {code: 'XXX', name: 'Nama Program Studi'}, category: 'wajib'},
@@ -97,7 +100,12 @@ const STUDIES = {
     'FTSL': {}, 
     'SAPPK': {}, 
     'FSRD': {}, 
-    'SBM': {}, 
+    'SBM': {
+        'sarjana': [
+            {code: 190, name: 'Manajemen'},
+            {code: 192, name: 'Kewirausahaan'},
+        ],
+    }, 
     'SPS': {}, 
     'NONFS': {}
 }
