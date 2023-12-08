@@ -1,6 +1,4 @@
-
 "use client";
-import SecondaryNavbar from "@/components/SecondNavBar";
 import { Button } from "@/components/ui/button";
 import {
     Select,
@@ -15,7 +13,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { FaFilter, FaSearch } from "react-icons/fa";
 import {DEFAULT_SUBJECTS, PAGE_SIZE, FACULTIES, STUDIES} from '@/app/daftar-mata-kuliah/data';
-
+import { TooltipProvider } from "@radix-ui/react-tooltip";
+import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
 
 const { default: PageTemplate } = require("@/components/PageTemplate")
 
@@ -24,11 +23,11 @@ const capitalizeFirstLetter = (word) => {
     return word.charAt(0).toUpperCase() + word.slice(1);
 }
 
-const TableContent = ({children, isHeader = false}) => {
+const TableContent = ({children, isHeader = false, className}) => {
     return isHeader ? (
-        <th className="p-2">{children}</th>
+        <th className={`p-2 ${className}`}>{children}</th>
     ) : (
-        <td className="px-2 py-[20px]">{children}</td>
+        <td className={`px-2 py-[20px] z-[500] ${className}`}>{children}</td>
     )
 }
 
@@ -55,28 +54,76 @@ const getScheduleHref = (subject) => {
     return `/jadwal#${subject.code}`;
 }
 
-const SubjectRow = ({subject, idx}) => {
+const SubjectRow = ({subject, idx, isJadwalHintOpen, isSilabusHintOpen, handleSilabusHintChange, handleJadwalHintChange}) => {
 
     const silabus_href = `/kurikulum/silabus/${subject.code}`
     return (
         <tr className={`${idx % 2 === 1 ? 'bg-seven-bg-table' : ''} text-seven-font-size-table-content border-b-[1px] border-seven-border-grey align-top`}>
-            <TableContent>
-                <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover font-medium" href={silabus_href}>{subject.code}</Link>
-            </TableContent>
-            <TableContent>
-                <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover" href={silabus_href}>{subject.name}</Link>
-            </TableContent>
+            {idx === 0 ?
+                (
+                    <>
+                        <TableContent>
+                            <TooltipProvider>
+                                <Tooltip open={isSilabusHintOpen} onOpenChange={handleSilabusHintChange}>
+                                    <TooltipTrigger asChild>
+                                        <Link className={`underline text-seven-hyperlink hover:text-seven-hyperlink-hover font-medium ${isSilabusHintOpen ? 'absolute z-10' : ''}`} href={silabus_href}>{subject.code}</Link>
+                                    </TooltipTrigger>
+                                    <TooltipContent>
+                                        <div className="sm:max-w-[500px]">
+                                            <p className="text-seven-font-size-filter">Pranala silabus mata kuliah</p>
+                                        </div>
+                                    </TooltipContent>
+                                </Tooltip>
+                            </TooltipProvider>
+                        </TableContent>
+                        <TableContent>
+                            <Link className={`underline text-seven-hyperlink hover:text-seven-hyperlink-hover ${isSilabusHintOpen ? 'absolute z-10' : ''}`} href={silabus_href}>{subject.name}</Link>
+                        </TableContent>
+                    </>
+                ) :
+                (
+                    <>
+                    <TableContent>
+                        <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover font-medium" href={silabus_href}>{subject.code}</Link>
+                    </TableContent>
+                    <TableContent>
+                        <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover" href={silabus_href}>{subject.name}</Link>
+                    </TableContent>
+                    </>
+                )
+            }
             <TableContent>{subject.faculty}</TableContent>
             <TableContent>{`${subject.study.code} - ${subject.study.name}`}</TableContent>
             <TableContent>{ capitalizeFirstLetter(subject.category)}</TableContent>
-            <TableContent>
-                <Link className="underline text-seven-hyperlink hover:text-seven-hyperlink-hover" href={getScheduleHref(subject)}>Link</Link>
-            </TableContent>
+
+            {idx === 0 ?
+                (
+                    <TableContent>
+                        <TooltipProvider>
+                            <Tooltip open={isJadwalHintOpen} onOpenChange={handleJadwalHintChange}>
+                                <TooltipTrigger asChild>
+                                    <Link className={`underline text-seven-hyperlink hover:text-seven-hyperlink-hover ${isJadwalHintOpen ? 'absolute z-10' : ''}`} href={getScheduleHref(subject)}>Link</Link>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <div className="sm:max-w-[500px]">
+                                        <p className="text-seven-font-size-filter">Pranala jadwal dan ruang mata kuliah</p>
+                                    </div>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
+                    </TableContent>
+                ) :
+                (
+                    <TableContent>
+                        <Link className={`underline text-seven-hyperlink hover:text-seven-hyperlink-hover`} href={getScheduleHref(subject)}>Link</Link>
+                    </TableContent>
+                )
+            }
         </tr>
     )
 }
 
-const SubjectsTable = ({subjects = []}) => {
+const SubjectsTable = ({subjects = [], isJadwalHintOpen, isSilabusHintOpen, handleSilabusHintChange, handleJadwalHintChange}) => {
     return (
         <div className="grid border border-seven-border-grey rounded-sm w-fit md:w-full">
             <table className="text-left text-seven-foreground-light w-[710px] md:w-full">
@@ -100,7 +147,7 @@ const SubjectsTable = ({subjects = []}) => {
                 </thead>
                 <tbody>
                     {subjects.map((elmt, idx) => (
-                        <SubjectRow key={idx} idx={idx} subject={elmt}/>
+                        <SubjectRow key={idx} idx={idx} subject={elmt} isJadwalHintOpen={isJadwalHintOpen} isSilabusHintOpen={isSilabusHintOpen} handleSilabusHintChange={handleSilabusHintChange} handleJadwalHintChange={handleJadwalHintChange}/>
                     ))}
                 </tbody>
             </table>
@@ -353,6 +400,55 @@ const DaftarMataKuliah = () => {
     const [studyCode, setStudyCode] = useState("");
     const [category, setCategory] = useState("");
 
+    const FILTER_HINT_KEY = 'filter-hint';
+    const SEARCH_HINT_KEY = 'search-hint';
+    const SILABUS_HINT_KEY = 'silabus-hint';
+    const JADWAL_HINT_KEY = 'jadwal-hint';
+
+    // hints
+    const [isFilterHintOpen, setFilterHintOpen] = useState(false);
+    const [isSearchHintOpen, setSearchHintOpen] = useState(false);
+    const [isSilabusHintOpen, setSilabusHintOpen] = useState(false);
+    const [isJadwalHintOpen, setJadwalHintOpen] = useState(false);
+
+    useEffect(() => {
+        setFilterHintOpen(!sessionStorage.getItem(FILTER_HINT_KEY));
+        setSearchHintOpen(sessionStorage.getItem(FILTER_HINT_KEY) && !sessionStorage.getItem(SEARCH_HINT_KEY));
+        setSilabusHintOpen(sessionStorage.getItem(SEARCH_HINT_KEY) && !sessionStorage.getItem(SILABUS_HINT_KEY))
+        setJadwalHintOpen(sessionStorage.getItem(SILABUS_HINT_KEY) && !sessionStorage.getItem(JADWAL_HINT_KEY))
+    }, [])
+
+    const handleFilterHintChange = (isOpen) => {
+        if (!isOpen) {
+            setFilterHintOpen(false)
+            setSearchHintOpen(true)
+            sessionStorage.setItem(FILTER_HINT_KEY, '1');
+        }
+    }
+
+    const handleSearchHintChange = (isOpen) => {
+        if (!isOpen) {
+            setSearchHintOpen(false)
+            setSilabusHintOpen(true)
+            sessionStorage.setItem(SEARCH_HINT_KEY, '1');
+        }
+    }
+
+    const handleSilabusHintChange = (isOpen) => {
+        if (!isOpen) {
+            setSilabusHintOpen(false)
+            setJadwalHintOpen(true)
+            sessionStorage.setItem(SILABUS_HINT_KEY, '1');
+        }
+    }
+
+    const handleJadwalHintChange = (isOpen) => {
+        if (!isOpen) {
+            setJadwalHintOpen(false)
+            sessionStorage.setItem(JADWAL_HINT_KEY, '1');
+        }
+    }
+
     const [totalPage, setTotalPage] = useState(Math.ceil(DEFAULT_SUBJECTS.length / PAGE_SIZE));
 
     const pageRef = useRef(1);
@@ -438,12 +534,23 @@ const DaftarMataKuliah = () => {
                         <div className="w-fit">
                             <SubjectPageSelect totalPage={totalPage} onChange={onSelectPage} defaultValue={pageRef.current}/>
                         </div>
-                        <div className="flex flex-row w-full sm:max-w-[500px]">
-                            <input onKeyDown={onEnterSearch} onChange={e => searchRef.current = e.target.value} placeholder="Cari kode atau nama mata kuliah" maxLength={255} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
-                            <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
-                                <FaSearch size={12}/>
-                            </Button>
-                        </div>
+                        <TooltipProvider>
+                            <Tooltip open={isSearchHintOpen} onOpenChange={handleSearchHintChange}>
+                                <TooltipTrigger asChild>
+                                    <div className={`flex flex-row w-full sm:max-w-[500px] ${isSearchHintOpen ? 'z-10' : ''}`}>
+                                        <input onKeyDown={onEnterSearch} onChange={e => searchRef.current = e.target.value} placeholder="Cari kode atau nama mata kuliah" maxLength={255} className="border border-seven-border-button-primary rounded-l-sm outline-none text-seven-filter text-seven-font-size-filter px-[12px] w-full"></input>
+                                        <Button onClick={onSearch} className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-l-0 border-seven-border-button-primary rounded-none rounded-r-sm hover:bg-seven-bg-button-primary-hover">
+                                            <FaSearch size={12}/>
+                                        </Button>
+                                    </div>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <div className="sm:max-w-[500px]">
+                                        <p className="text-seven-font-size-filter">Fitur pencarian mata kuliah berdasarkan kode dan nama mata kuliah</p>
+                                    </div>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     </div>
     
                     <div className="flex flex-row gap-5 items-center w-auto justify-end">
@@ -454,9 +561,21 @@ const DaftarMataKuliah = () => {
                                 <CategoryFilter value={category} onChange={onSelectCategory}/>
                             </div>
                         }
-                        <Button className="h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-seven-border-button-primary hover:bg-seven-bg-button-primary-hover" onClick={() => {setShowFilter(oldValue => !oldValue)}}>
-                            <FaFilter size={12}/>
-                        </Button>
+
+                        <TooltipProvider>
+                            <Tooltip open={isFilterHintOpen} onOpenChange={handleFilterHintChange}>
+                                <TooltipTrigger asChild>
+                                    <Button className={`h-fit px-[12px] py-[9px] bg-seven-bg-button-primary border border-seven-border-button-primary hover:bg-seven-bg-button-primary-hover ${isFilterHintOpen ? 'z-10' : ''}`} onClick={() => {setShowFilter(oldValue => !oldValue)}}>
+                                        <FaFilter size={12}/>
+                                    </Button>
+                                </TooltipTrigger>
+                                <TooltipContent>
+                                    <div className="max-w-[200px]">
+                                        <p className="text-seven-font-size-filter">Menu filter untuk menyaring daftar mata kuliah yang ingin ditampilkan</p>
+                                    </div>
+                                </TooltipContent>
+                            </Tooltip>
+                        </TooltipProvider>
                     </div>
                 </div>
                 {showFilter &&
@@ -468,8 +587,11 @@ const DaftarMataKuliah = () => {
                 }
             </div>
             <div className="w-full overflow-x-auto">
-                <SubjectsTable subjects={subjects}/>
+                <SubjectsTable subjects={subjects} isJadwalHintOpen={isJadwalHintOpen} isSilabusHintOpen={isSilabusHintOpen} handleSilabusHintChange={handleSilabusHintChange} handleJadwalHintChange={handleJadwalHintChange}/>
             </div>
+            {(isFilterHintOpen || isSearchHintOpen || isSilabusHintOpen || isJadwalHintOpen) &&
+                <div className="fixed bg-black opacity-[50%] !top-0 w-screen h-screen !left-0"></div>
+            }
         </PageTemplate>
     );
 }
