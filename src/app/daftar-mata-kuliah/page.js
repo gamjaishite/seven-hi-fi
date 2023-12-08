@@ -15,6 +15,7 @@ import { FaFilter, FaSearch } from "react-icons/fa";
 import {DEFAULT_SUBJECTS, PAGE_SIZE, FACULTIES, STUDIES} from '@/app/daftar-mata-kuliah/data';
 import { TooltipProvider } from "@radix-ui/react-tooltip";
 import { Tooltip, TooltipContent, TooltipTrigger } from "@/components/ui/tooltip";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const { default: PageTemplate } = require("@/components/PageTemplate")
 
@@ -396,6 +397,7 @@ const DaftarMataKuliah = () => {
     const [subjects, setSubjects] = useState(DEFAULT_SUBJECTS.slice(0, PAGE_SIZE));
     const [showFilter, setShowFilter] = useState(false);
 
+    const [page, setPage] = useState(1);
     const [faculty, setFaculty] = useState("");
     const [studyCode, setStudyCode] = useState("");
     const [category, setCategory] = useState("");
@@ -472,6 +474,11 @@ const DaftarMataKuliah = () => {
         setCategory(value);
     }
 
+    const setPageState = (value) => {
+        pageRef.current = value;
+        setPage(value);
+    }
+
     const getCurrentSubjects = () => {
         const result = getSubjects({
             page: pageRef.current, 
@@ -487,12 +494,12 @@ const DaftarMataKuliah = () => {
     }
 
     const onSelectPage = (value) => {
-        pageRef.current = value;
-        setSubjects(getCurrentSubjects())
+        setPageState(value);
+        setSubjects(getCurrentSubjects());
     }
 
     const onSelectFaculty = (value) => {
-        pageRef.current = 1;
+        setPageState(1);
 
         setStudyCodeState("");
 
@@ -501,21 +508,29 @@ const DaftarMataKuliah = () => {
     }
 
     const onSelectStudy = (value) => {
-        pageRef.current = 1;
+        setPageState(1);
 
         setStudyCodeState(value);
         setSubjects(getCurrentSubjects());
     }
 
+    const onNextPage = () => {
+        onSelectPage(pageRef.current + 1)
+    }
+
+    const onPrevPage = () => {
+        onSelectPage(pageRef.current - 1)
+    }
+
     const onSelectCategory = (value) => {
-        pageRef.current = 1;
+        setPageState(1);
 
         setCategoryState(value);
         setSubjects(getCurrentSubjects());
     }
 
     const onSearch = () => {
-        pageRef.current = 1;
+        setPageState(1);
         setSubjects(getCurrentSubjects());
     }
 
@@ -531,9 +546,6 @@ const DaftarMataKuliah = () => {
             <div className="flex flex-col gap-2">
                 <div className="flex gap-2 sm:gap-5 flex-row sm:justify-between">
                     <div className="flex flex-row gap-2 sm:gap-5 w-full">
-                        <div className="w-fit">
-                            <SubjectPageSelect totalPage={totalPage} onChange={onSelectPage} defaultValue={pageRef.current}/>
-                        </div>
                         <TooltipProvider>
                             <Tooltip open={isSearchHintOpen} onOpenChange={handleSearchHintChange}>
                                 <TooltipTrigger asChild>
@@ -588,6 +600,14 @@ const DaftarMataKuliah = () => {
             </div>
             <div className="w-full overflow-x-auto">
                 <SubjectsTable subjects={subjects} isJadwalHintOpen={isJadwalHintOpen} isSilabusHintOpen={isSilabusHintOpen} handleSilabusHintChange={handleSilabusHintChange} handleJadwalHintChange={handleJadwalHintChange}/>
+            </div>
+            <div className="w-full flex flex-row justify-between text-seven-font-size-table-content items-center">
+                <span>Page <span className="font-medium">{page}</span> of <span className="font-medium">{totalPage}</span></span>
+
+                <div className="flex gap-4">
+                    <button onClick={onPrevPage} className="text-seven-font-size-table-content text-seven-foreground-dark bg-seven-bg-button-primary hover:bg-seven-bg-button-primary-hover border-r px-[5px] py-[5px] pr-[10px] border border-seven-border-button-primary rounded-sm flex flex-row items-center"><ChevronLeft size={15}/><span>Prev</span></button>
+                    <button onClick={onNextPage} className="text-seven-font-size-table-content text-seven-foreground-dark bg-seven-bg-button-primary hover:bg-seven-bg-button-primary-hover border-r px-[5px] py-[5px] pl-[10px] border border-seven-border-button-primary rounded-sm flex flex-row items-center"><span>Next</span><ChevronRight size={15}/></button>
+                </div>
             </div>
             {(isFilterHintOpen || isSearchHintOpen || isSilabusHintOpen || isJadwalHintOpen) &&
                 <div className="fixed bg-black opacity-[50%] !top-0 w-screen h-screen !left-0"></div>
