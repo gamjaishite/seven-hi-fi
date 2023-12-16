@@ -47,10 +47,7 @@ export function WeeklyCalendarCard(props) {
   } text-[12px] font-bold h-[${60 + 70 * (item.duration - 1)}px]`;
 
   return (
-    <div
-      key={idx}
-      className={cardClassName}
-    >
+    <div key={idx} className={cardClassName}>
       <DialogPresensi
         cls={item}
         date={props.date}
@@ -63,24 +60,27 @@ export function WeeklyCalendarCard(props) {
               <p className={`w-full truncate ${statusConf[status].textColor}`}>
                 {item.start} - {item.end}
               </p>
-
-              {statusPresensi &&
-                props.presensiAttributes[statusPresensi] &&
-                props.presensiAttributes[statusPresensi].icon}
+              {statusPresensi && props.presensiAttributes[statusPresensi] && (
+                <span className="text-white">
+                  {props.presensiAttributes[statusPresensi].icon}
+                </span>
+              )}
             </div>
             <p className={`w-full truncate ${statusConf[status].textColor}`}>
               {item.matkulCode}{" "}
               <span className="font-normal">{item.matkulName}</span>
             </p>
-            <p className={`w-full truncate ${statusConf[status].textColor} font-normal`}>
+            <p
+              className={`w-full truncate ${statusConf[status].textColor} font-normal`}
+            >
               {item.location}{" "}
             </p>
           </>
         }
       />
-      <div className="h-[60px] w-0 absolute"></div>
-      <div className="h-[130px] w-0 absolute"></div>
-      <div className="h-[200px] w-0 absolute"></div>
+      <div className="absolute h-[60px] w-0"></div>
+      <div className="absolute h-[130px] w-0"></div>
+      <div className="absolute h-[200px] w-0"></div>
     </div>
   );
 }
