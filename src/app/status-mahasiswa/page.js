@@ -244,14 +244,14 @@ export default function StatusMahasiswa() {
                     </span>
                     {isIpIpk ? (
                       <FaEye
-                        className="my-auto mr-1 hover:cursor-pointer"
+                        className="my-auto mr-1 hover:cursor-pointer text-seven-bg-table-heading"
                         onClick={() => {
                           setIsIpIpk(false);
                         }}
                       ></FaEye>
                     ) : (
                       <FaEyeSlash
-                        className="my-auto mr-1 hover:cursor-pointer"
+                        className="my-auto mr-1 hover:cursor-pointer text-seven-bg-table-heading"
                         onClick={() => {
                           setIsIpIpk(true);
                         }}
@@ -281,14 +281,14 @@ export default function StatusMahasiswa() {
                     </span>
                     {isIpTPB ? (
                       <FaEye
-                        className="my-auto mr-1 hover:cursor-pointer"
+                        className="my-auto mr-1 hover:cursor-pointer text-seven-bg-table-heading"
                         onClick={() => {
                           setIsIpTPB(false);
                         }}
                       ></FaEye>
                     ) : (
                       <FaEyeSlash
-                        className="my-auto mr-1 hover:cursor-pointer"
+                        className="my-auto mr-1 hover:cursor-pointer text-seven-bg-table-heading"
                         onClick={() => {
                           setIsIpTPB(true);
                         }}
@@ -307,14 +307,14 @@ export default function StatusMahasiswa() {
                     </span>
                     {isNR ? (
                       <FaEye
-                        className="my-auto mr-1 hover:cursor-pointer"
+                        className="my-auto mr-1 hover:cursor-pointer text-seven-bg-table-heading"
                         onClick={() => {
                           setIsNR(false);
                         }}
                       ></FaEye>
                     ) : (
                       <FaEyeSlash
-                        className="my-auto mr-1 hover:cursor-pointer"
+                        className="my-auto mr-1 hover:cursor-pointer text-seven-bg-table-heading"
                         onClick={() => {
                           setIsNR(true);
                         }}
